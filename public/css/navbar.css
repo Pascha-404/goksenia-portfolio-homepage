@@ -46,6 +46,10 @@ font-weight: inherit;
 cursor: pointer;
 }
 
+.navbar ul li button:focus{
+    color: inherit;
+}
+
 
 @media screen and (max-width: 1000px){
     .navbar {
