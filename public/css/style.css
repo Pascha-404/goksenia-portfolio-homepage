@@ -27,6 +27,7 @@ body {
     padding: 1.5rem;
     line-height: 2.025rem;
     font-size: 1.125rem;
+    position: relative;
 }
 
 body, h1, h2, h3, p{
@@ -42,7 +43,6 @@ h1, h2{
 
 .highlight{
     display: inline-block;
-    height: 4.2rem;
     background: linear-gradient(180deg, transparent 58%,var(--color-highlight) 42%);
 }
 

@@ -1,0 +1,54 @@
+:root{
+    --color-highlight: #03FFC5;
+}
+
+.navbar {
+    font-size: 1.125rem;
+    display: flex;
+   justify-content: space-between;
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    width: 100%;
+    z-index: 1;
+padding: 3.11em 7.61em 0 10em;
+}
+
+.navbar p{
+    font-weight: 900;
+    font-size: 1.25rem;
+}
+
+.highlight--dot {
+    color: var(--color-highlight);
+}
+
+.navbar ul{
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+.navbar ul li{
+    margin: 0 2em;
+}
+
+.navbar ul li button{
+border: none;
+background: transparent;
+font-size: inherit;
+padding: 0;
+font-weight: inherit;
+cursor: pointer;
+}
+
+
+@media screen and (max-width: 1000px){
+    .navbar {
+        font-size: 0.8rem;
+    }
+}
