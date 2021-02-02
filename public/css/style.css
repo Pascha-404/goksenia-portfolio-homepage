@@ -201,7 +201,7 @@ section.about {
 }
 
 .about>div{
-    max-width: 31rem;
+
     margin-top: 2.8rem;
 }
 
@@ -250,5 +250,17 @@ footer > div h2 {
 
     .split > * {
         flex-basis: 100%;
+    }
+}
+
+@media screen and (max-width: 680px){
+    html {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    html {
+        font-size: 10px;
     }
 }
