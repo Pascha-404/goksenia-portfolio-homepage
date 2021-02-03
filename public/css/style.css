@@ -92,7 +92,7 @@ img {
 
 /*------------- Button styling -------------*/
 .btn-wrap {
-    width:13.063rem;
+    width: 13.063rem;
     height:  4.187rem ;
     color: var(--color-btn-txt);
     background-color: var(--color-btn-bg);
@@ -150,9 +150,11 @@ max-width: 31rem;
     font-size: 0.75em;
     font-weight: bold;
     transform: rotate(90deg);
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    position: fixed;
+    bottom: -0.7rem;
+    right: 8.5rem;
+    padding-bottom: 1.4375rem;
+    float: right;
 }
 
 /*------------- Portfolio styling -------------*/
@@ -174,6 +176,7 @@ max-width: 31rem;
     text-transform: uppercase;
     color: var(--color-txt-500);
     line-height: 0.95625rem;
+    margin-bottom: 0.5rem;
 }
 
 .tags {
@@ -253,14 +256,65 @@ footer > div h2 {
     }
 }
 
+@media screen and (max-width: 905px){
+    html {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 800px){
+    html {
+        font-size: 14px;
+    }
+}
+
 @media screen and (max-width: 680px){
     html {
-        font-size: 13px;
+        font-size: 12.5px;
+    }
+}
+
+@media screen and (max-width: 605px){
+    .content-wrap>section{
+        padding: 4rem;
+    }
+    .navbar{
+        padding-left: 4.6rem;
+    }
+}
+
+@media screen and (max-width: 560px){
+    .navbar{
+        padding-right: 3rem;
+    }
+}
+
+@media screen and (max-width: 510px){
+    h1, h2{
+        font-size: 2.8rem;
     }
 }
 
 @media screen and (max-width: 500px){
-    html {
-        font-size: 10px;
+    .navbar ul{
+        display: none;
+    }
+
+    .menuBtn{
+        display: inline-block;
     }
 }
+
+@media screen and (max-width: 430px){
+    h1, h2{
+        font-size: 2.3rem;
+        line-height: 3.3rem;
+    }
+}
+/* 
+@media screen and (max-width: 450px){
+    html {
+        font-size: 11px;
+    }
+} */
+
