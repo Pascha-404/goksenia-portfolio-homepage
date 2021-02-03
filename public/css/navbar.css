@@ -11,7 +11,7 @@
     transform: translateX(-50%);
     width: 100%;
     z-index: 1;
-    padding: 3.11em 7.61em 0 10em;
+    padding: 3.11rem 7.61rem 0 10rem;
 }
 
 .navbar p {
@@ -34,7 +34,7 @@
 }
 
 .navbar ul li {
-    margin: 0 2em;
+    margin: 0 2rem;
 }
 
 .navbar ul li button {
@@ -48,5 +48,14 @@
 
 .navbar ul li button:focus {
     color: inherit;
+}
+
+.menuBtn{
+    width: 3.5em;
+    height: 3.5rem;
+    border: none;
+    background-color: transparent;
+    display: none;
+
 }
 
