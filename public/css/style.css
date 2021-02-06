@@ -51,6 +51,11 @@ img {
     max-height: 50rem;
 }
 
+.overflow-hidden{
+    overflow-x: hidden;
+    position: relative;
+}
+
 .content-wrap>section{
     padding: 8.5em;
     width: 100%;
@@ -313,12 +318,17 @@ footer > div h2 {
     .content-wrap>section, .navbar{
         font-size: 9px;
     }
+    html {
+        font-size: 11.5px;
+    }
 }
 
 @media screen and (max-width: 560px){
     .content-wrap>section, .navbar{
         font-size: 8px;
-    }}
+    }
+}
+    
 
 @media screen and (max-width: 510px){
     h1, h2{
@@ -345,10 +355,17 @@ footer > div h2 {
         font-size: 2.3rem;
         line-height: 3.3rem;
     }
-}
-/* 
-@media screen and (max-width: 450px){
-    html {
-        font-size: 11px;
+    .content-wrap>section, .navbar{
+        font-size: 6px;
     }
-} */
+    .menuBtn{
+        margin-right: 0;
+    }
+}
+
+
+@media screen and (max-width: 350px){
+    .content-wrap>section, .navbar{
+        font-size: 5px;
+    }
+}
