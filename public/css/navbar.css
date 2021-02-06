@@ -3,7 +3,6 @@
 }
 
 .navbar {
-    font-size: 1.125rem;
     display: flex;
     justify-content: space-between;
     position: absolute;
@@ -11,7 +10,8 @@
     transform: translateX(-50%);
     width: 100%;
     z-index: 1;
-    padding: 3.11rem 7.61rem 0 10rem;
+    padding: 3.11rem 7.61em 0 8.5em;
+    margin-left: 1.5rem;
 }
 
 .navbar p {
@@ -56,6 +56,7 @@
     border: none;
     background-color: transparent;
     display: none;
+    margin-right: 2rem;
 
 }
 
