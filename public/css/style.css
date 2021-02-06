@@ -3,6 +3,7 @@
 :root {
     --font-big: 'Abril Fatface', cursive;
     --font-small: 'Mulish', sans-serif;
+    --font-size-18px: 1.125rem;
     --color-highlight: #03FFC5;
     --color-bg-accent: #E6E7EB;
     --color-btn-bg: #000000;
@@ -10,9 +11,10 @@
     --color-txt-900: #000000;
     --color-txt-900-half: rgba(0, 0, 0, 0.5);
     --color-txt-500: #B7B4B9;
+
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     display: none;
 }
 
@@ -31,15 +33,20 @@ body {
     overflow-x: hidden;
     padding: 1.5rem;
     line-height: 2.025rem;
-    font-size: 1.125rem;
+    font-size: var(--font-size-18px);
     position: relative;
 }
 
-body, h1, h2, h3, p{
+body,
+h1,
+h2,
+h3,
+p {
     margin: 0;
 }
 
-h1, h2{
+h1,
+h2 {
     font-family: var(--font-big);
     font-size: 3.5rem;
     font-weight: 400;
@@ -51,21 +58,22 @@ img {
     max-height: 50rem;
 }
 
-.overflow-hidden{
+.overflow-hidden {
     overflow-x: hidden;
     position: relative;
 }
 
-.content-wrap>section{
-    padding: 8.5em;
+.content-wrap>section {
+    padding: 5.5em 2em 2em 5.5em;
     width: 100%;
 }
 
+
 /*------------- Utility classes-------------*/
 
-.highlight{
+.highlight {
     display: inline-block;
-    background: linear-gradient(180deg, transparent 58%,var(--color-highlight) 42%);
+    background: linear-gradient(180deg, transparent 58%, var(--color-highlight) 42%);
 }
 
 .bg-accent {
@@ -87,7 +95,7 @@ img {
     flex-direction: column;
 }
 
-.small-grey{
+.small-grey {
     font-size: 0.875rem;
     color: var(--color-txt-900-half);
 }
@@ -96,10 +104,14 @@ img {
     float: right;
 }
 
+.display-none{
+    display: none;
+}
+
 /*------------- Button styling -------------*/
 .btn-wrap {
     width: 13.063rem;
-    height:  4.187rem ;
+    height: 4.187rem;
     color: var(--color-btn-txt);
     background-color: var(--color-btn-bg);
     cursor: pointer;
@@ -107,8 +119,8 @@ img {
     margin-top: 4rem;
 }
 
-.btn-wrap a{
-    font-size: 1.125rem;
+.btn-wrap a {
+    font-size: var(--font-size-18px);
     width: 100%;
     height: 100%;
     display: flex;
@@ -117,7 +129,7 @@ img {
     text-decoration: none;
 }
 
-.btn-wrap::after{
+.btn-wrap::after {
     content: '';
     width: 97%;
     height: 90%;
@@ -134,21 +146,22 @@ a:visited {
 /*------------- HeroSection styling -------------*/
 .hero {
     width: 96.5vw;
-    height: 94vh;
+    height: 95vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
+    margin-bottom: 7rem;
 }
 
-.container--narrow{
+.container--narrow {
     max-width: 48rem;
 }
 
-.hero p{
-margin-top: 1.5em;
-max-width: 31rem;
-font-size: 1.125rem;
+.hero p {
+    margin-top: 1.5em;
+    max-width: 31rem;
+    font-size: var(--font-size-18px);
 }
 
 .scroll {
@@ -166,13 +179,9 @@ font-size: 1.125rem;
 }
 
 /*------------- Portfolio styling -------------*/
-.portfolio {
-    padding-right: 10.0625rem;
-    padding-bottom: 0;
-}
 
 .portfolio article {
-    margin-bottom: 17.0625rem;
+    margin-bottom: 10.0625rem;
 }
 
 .portfolio article:last-of-type {
@@ -180,7 +189,7 @@ font-size: 1.125rem;
 }
 
 .portfolio h3 {
-    font-size:0.875rem;
+    font-size: 0.875rem;
     text-transform: uppercase;
     color: var(--color-txt-500);
     line-height: 0.95625rem;
@@ -191,7 +200,7 @@ font-size: 1.125rem;
     font-size: 0.8125rem;
     line-height: 1.02rem;
     margin-top: 1.25rem;
-    
+
 }
 
 .tags p {
@@ -199,7 +208,6 @@ font-size: 1.125rem;
     display: inline-block;
     padding: 0.375rem 0.625rem;
     margin-right: 1rem;
-    /* white-space: nowrap; */
     margin-bottom: 0.3rem;
 
 }
@@ -207,7 +215,17 @@ font-size: 1.125rem;
 .portfolio section>p {
     margin-top: 2rem;
     max-width: 27.8215rem;
-    font-size: 1.125rem;
+    font-size: var(--font-size-18px);
+}
+
+.portfolio figure {
+    margin-left: 0;
+}
+
+.figure-column {
+        max-width: 90%;
+        transform: translateX(-2.3em);
+        margin-top: 2rem;
 }
 
 /*------------- About styling -------------*/
@@ -215,7 +233,7 @@ section.about {
     padding-right: 8.5625rem;
 }
 
-.about>div{
+.about>div {
 
     margin-top: 2.8rem;
 }
@@ -232,15 +250,16 @@ section.about {
 
 .about p {
     max-width: 28rem;
+    font-size: var(--font-size-18px);
 }
 
 /*------------- Footer styling -------------*/
 footer {
-    padding: 4.0625rem 8.5rem 1.5rem 8.5rem;
+    padding: 4.0625rem 8.5rem 1.5rem 5.5rem;
     height: 23.125rem;
 }
 
-footer > div h2 {
+footer>div h2 {
     line-height: 3rem;
 }
 
@@ -249,7 +268,7 @@ footer > div h2 {
     width: 2.1875rem;
 }
 
-.icons a:nth-of-type(2){
+.icons a:nth-of-type(2) {
     margin: 0 0.9375rem;
 }
 
@@ -258,114 +277,161 @@ footer > div h2 {
 }
 
 /*------------- Media Query -------------*/
-@media (min-width: 40em){
+
+/*------------- puts content in rows -------------  */
+@media (min-width: 970px) {
     .split {
         flex-direction: row;
     }
 
-    .split > * {
+    .split>* {
         flex-basis: 100%;
     }
+    
 }
 
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1200px) {
     #portfolio {
         padding-right: 0;
     }
-    .content-wrap>section, .navbar{
-        font-size: 15px;
-    }
-}
 
-@media screen and (max-width: 1045px){
-    .container--narrow{
-        max-width: 43rem;
-    }
-    .content-wrap>section, .navbar{
+    .content-wrap>section,
+    .navbar {
         font-size: 14px;
     }
 }
 
-@media screen and (max-width: 905px){
-    html {
-        font-size: 15px;
+@media screen and (max-width: 1045px) {
+   html {
+       font-size: 15.5px;
+   }
+   
+    .container--narrow {
+        max-width: 43rem;
     }
 
-    .content-wrap>section, .navbar{
+    .content-wrap>section,
+    .navbar {
         font-size: 13px;
     }
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 970px){
+    .portfolio section>p{
+        max-width:90%;
+    }
+    
+}
+
+@media screen and (max-width: 905px) {
+    html {
+        font-size: 15px;
+    }
+
+    .content-wrap>section,
+    .navbar {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 800px) {
     html {
         font-size: 14px;
     }
-    .content-wrap>section, .navbar{
+
+    .content-wrap>section,
+    .navbar, .figure-column {
         font-size: 11px;
     }
 }
 
-@media screen and (max-width: 680px){
+@media screen and (max-width: 680px) {
     html {
         font-size: 12.5px;
     }
-    .content-wrap>section, .navbar{
+
+    .content-wrap>section,
+    .navbar, .figure-column {
         font-size: 10px;
     }
 }
 
-@media screen and (max-width: 605px){
-    .content-wrap>section, .navbar{
+@media screen and (max-width: 605px) {
+
+    .content-wrap>section,
+    .navbar, .figure-column {
         font-size: 9px;
     }
+
     html {
         font-size: 11.5px;
     }
 }
 
-@media screen and (max-width: 560px){
-    .content-wrap>section, .navbar{
+@media screen and (max-width: 560px) {
+
+    .content-wrap>section,
+    .navbar, .figure-column {
         font-size: 8px;
     }
 }
-    
 
-@media screen and (max-width: 510px){
-    h1, h2{
+
+@media screen and (max-width: 510px) {
+
+    h1,
+    h2 {
         font-size: 2.8rem;
     }
-    .content-wrap>section, .navbar{
-        font-size: 7px;
+
+    .content-wrap>section,
+    .navbar, .figure-column {
+        font-size: 6px;
     }
 }
 
-@media screen and (max-width: 500px){
-    .navbar ul{
+@media screen and (max-width: 500px) {
+    .navbar ul {
         display: none;
     }
 
 
-    .menuBtn{
+    .menuBtn {
         display: inline-block;
     }
 }
 
-@media screen and (max-width: 430px){
-    h1, h2{
+@media screen and (max-width: 430px) {
+
+    h1,
+    h2 {
         font-size: 2.3rem;
         line-height: 3.3rem;
     }
-    .content-wrap>section, .navbar{
-        font-size: 6px;
+
+    .content-wrap>section,
+    .navbar,.figure-column {
+        font-size: 3.5px;
     }
-    .menuBtn{
+
+    .menuBtn {
         margin-right: 0;
+    }
+
+    .portfolio section>p {
+        max-width: 26.2rem;
+    }
+
+    .scroll {
+        right: -2rem
     }
 }
 
 
-@media screen and (max-width: 350px){
-    .content-wrap>section, .navbar{
-        font-size: 5px;
+@media screen and (max-width: 350px) {
+
+    .content-wrap>section,
+    .navbar, .figure-column {
+        font-size: 2px;
     }
 }
