@@ -133,6 +133,8 @@ footer {
     align-items: center;
     justify-content: center;
     text-decoration: none;
+    z-index: 999999;
+
 }
 
 .btn-wrap::after {
@@ -143,6 +145,7 @@ footer {
     position: absolute;
     top: 11%;
     right: -4%;
+    z-index: -1;
 }
 
 a:visited {
@@ -158,6 +161,7 @@ a:visited {
     justify-content: center;
     position: relative;
     margin-bottom: 7rem;
+    z-index: 0;
 }
 
 .container--narrow {
@@ -183,8 +187,6 @@ a:visited {
     padding-bottom: 1.4375rem;
     z-index: 1;
 }
-
-.scroll.active {}
 
 /*------------- Portfolio styling -------------*/
 
@@ -245,7 +247,7 @@ section.about {
 
 .about>div {
 
-    /* margin-top: 2.8rem; */
+    margin-top: 1rem;
 }
 
 .about h2 {
