@@ -31,6 +31,6 @@ app.get('/project/:id', (req, res) => {
 
 })
 
-// app.get('*', (req, res) => {
-//     res.send('<h1>Page not found - 404</h1>')
-// })
+app.get('*', (req, res) => {
+    res.send('<h1>Page not found - 404</h1>')
+})
