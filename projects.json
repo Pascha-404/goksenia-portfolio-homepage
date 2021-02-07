@@ -3,28 +3,28 @@
         "title": "Chat App website",
         "description": "This is a homepage design and build for a concept project – a chat application. I have designed the page first then later built a responsive page in Webflow.",
         "liveLink": "",
-        "imgLink": "./img/chatApp.png"
+        "imgLink": "/img/chatApp.png"
     },
     {
         "id": "teamWeb",
         "title": "Team website",
         "description": "A full website design and build for a concept team collaboration platform. This website also includes a beautiful blog. I have built the website and the blog in Webflow which has one of the best CMS for blog hosting.",
         "liveLink": "",
-        "imgLink": "./img/team.png"
+        "imgLink": "/img/team.png"
     },
     {
         "id": "wineryWeb",
         "title": "Winery website",
         "description": "This is a homepage design and build for a concept project – Louis Eschenauer Winery. This is how a gastronomy brand homepage could look like.",
         "liveLink": "",
-        "imgLink": "./img/wholeWine.png"
+        "imgLink": "/img/wholeWine.png"
     },
     {
         "id": "moodBoosterApp",
         "title": "Mood Booster App",
         "description": "Mental health caring application which includes journaling, different kinds of mood boosters and the emergency help center. ",
         "liveLink": "",
-        "imgLink": "./img/moodThemes.png",
-        "imgLink2": "./img/moodOverview.png"
+        "imgLink": "/img/moodThemes.png",
+        "imgLink2": "/img/moodOverview.png"
     }
 ]
