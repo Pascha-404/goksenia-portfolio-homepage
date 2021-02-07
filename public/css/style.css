@@ -134,6 +134,7 @@ footer {
     justify-content: center;
     text-decoration: none;
     z-index: 999999;
+    color: #fff;
 
 }
 
@@ -149,6 +150,10 @@ footer {
 }
 
 a:visited {
+    color: inherit;
+}
+
+a:focus {
     color: inherit;
 }
 
