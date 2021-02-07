@@ -35,6 +35,10 @@
     margin: 0 2rem;
 }
 
+.navbar ul li a {
+    color: #000;
+}
+
 .navbar ul li button {
     border: none;
     background: transparent;
@@ -42,13 +46,14 @@
     padding: 0;
     font-weight: inherit;
     cursor: pointer;
+    color: inherit;
 }
 
 .navbar ul li button:focus {
     color: inherit;
 }
 
-.menuBtn{
+.menuBtn {
     width: 4.5rem;
     height: auto;
     border: none;
@@ -57,4 +62,3 @@
     margin-right: 2rem;
 
 }
-
