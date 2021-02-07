@@ -1,0 +1,25 @@
+<%- include('./partials/header.ejs') %>
+<link rel="stylesheet" href="/css/projects.css">
+
+<div class="bg-accent"></div>
+
+<main class="content-wrap">
+    <section class="project-wrap">
+
+        <h3>project showcase</h3>
+
+        <h1><%= project.title %></h1>
+
+        <p><%= project.description %> </p>
+
+        <a href="<%= project.liveLink %>">visit live site &#10141;</a>
+
+        <figure>
+            <img src="<%= project.imgLink %>" alt="project image">
+            <% if(project.imgLink2) { %> <img src="<%= project.imgLink2 %>" alt="project image"> <% } %>
+        </figure>
+
+    </section>
+</main>
+
+<%- include('./partials/footer.ejs') %>
