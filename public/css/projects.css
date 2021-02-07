@@ -1,0 +1,65 @@
+.content-wrap>section {
+    padding: 0;
+    margin: 0 auto;
+}
+
+div.bg-accent {
+    width: 96.5vw;
+    height: 95vh;
+    position: absolute;
+    z-index: -1;
+}
+
+section.project-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8.8125rem;
+}
+
+.project-wrap article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 3rem;
+}
+
+.project-wrap h3 {
+    margin-top: 7.348rem;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 35%)
+}
+
+.project-wrap h1 {
+    margin-top: 0.5rem;
+}
+
+.project-wrap p {
+    font-size: 1.125rem;
+    max-width: 46em;
+    text-align: center;
+    margin-top: 2.313rem;
+}
+
+.project-wrap a {
+    font-size: 1.125rem;
+    text-decoration: none;
+    line-height: 22.59px;
+    margin-top: 2.0625rem;
+}
+
+.project-wrap figure {
+    margin-top: 5.25rem;
+    width: 100%;
+    text-align: center;
+}
+
+.project-wrap figure img {
+    max-width: 90%;
+    max-height: 179rem;
+}
