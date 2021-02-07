@@ -90,10 +90,15 @@ footer {
     font-weight: bold;
 }
 
-.flex-between {
+.flex-between--column {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
 }
 
 .small-grey {
@@ -176,8 +181,10 @@ a:visited {
     bottom: -0.7rem;
     right: 2rem;
     padding-bottom: 1.4375rem;
-    float: right;
+    z-index: 1;
 }
+
+.scroll.active {}
 
 /*------------- Portfolio styling -------------*/
 
@@ -223,7 +230,8 @@ a:visited {
     margin-left: 0;
 }
 
-.figure-column {
+.figure-column,
+.aboutPic {
     max-width: 90%;
     transform: translateX(-2.3em);
     margin-top: 2rem;
@@ -231,12 +239,13 @@ a:visited {
 
 /*------------- About styling -------------*/
 section.about {
-    padding-right: 8.5625rem;
+    padding-right: 0;
+    margin-bottom: 3rem;
 }
 
 .about>div {
 
-    margin-top: 2.8rem;
+    /* margin-top: 2.8rem; */
 }
 
 .about h2 {
@@ -254,6 +263,9 @@ section.about {
     font-size: var(--font-size-18px);
 }
 
+.aboutPic {
+    margin: 0 0 0 2rem;
+}
 
 /*------------- Footer styling -------------*/
 footer {
@@ -299,6 +311,7 @@ footer p {
     }
 
 }
+
 /* querys based on width */
 @media screen and (max-width: 1200px) {
 
@@ -307,14 +320,14 @@ footer p {
         padding-right: 0;
     }
 
-    #contact {
-        padding-top: 2rem;
-    }
-
     .content-wrap>section,
     .navbar,
     footer {
         font-size: 14px;
+    }
+
+    .about h3 {
+        margin-top: 4rem;
     }
 }
 
@@ -332,9 +345,17 @@ footer p {
     footer {
         font-size: 13px;
     }
+
+    .about h3 {
+        margin-top: 3rem;
+    }
 }
 
 @media screen and (max-width: 970px) {
+
+    #contact {
+        padding-top: 2rem;
+    }
 
     .portfolio section>p,
     .about section>p {
@@ -462,6 +483,7 @@ footer p {
     .scroll {
         right: -2rem
     }
+
     footer p {
         font-size: 1rem;
     }
