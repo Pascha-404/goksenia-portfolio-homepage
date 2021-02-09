@@ -153,8 +153,9 @@ a:visited {
     color: inherit;
 }
 
-a:focus {
+a {
     color: inherit;
+    text-decoration: none;
 }
 
 /*------------- HeroSection styling -------------*/
@@ -276,7 +277,6 @@ section.about {
 
 /*------------- Footer styling -------------*/
 footer {
-    /* padding: 4.0625rem 8.5rem 1.5rem 5.5rem; */
     height: 23.125rem;
 }
 
@@ -303,6 +303,10 @@ footer p {
 
 .contact-column {
     margin: 3rem 0;
+}
+
+#contact a.highlight {
+    display: inline;
 }
 
 /*------------- Media Query -------------*/
