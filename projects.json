@@ -2,7 +2,7 @@
         "id": "chatApp",
         "title": "Chat App website",
         "description": "This is a homepage design and build for a concept project – a chat application. I have designed the page first then later built a responsive page in Webflow.",
-        "liveLink": "",
+        "liveLink": "https://chatapp-5671f6.webflow.io",
         "imgLink": "/img/chatApp.png"
     },
     {
@@ -23,7 +23,7 @@
         "id": "moodBoosterApp",
         "title": "Mood Booster App",
         "description": "Mental health caring application which includes journaling, different kinds of mood boosters and the emergency help center. ",
-        "liveLink": "",
+        "liveLink": "https://devpost.com/software/mood-booster-r0seax",
         "imgLink": "/img/moodThemes.png",
         "imgLink2": "/img/moodOverview.png"
     }
