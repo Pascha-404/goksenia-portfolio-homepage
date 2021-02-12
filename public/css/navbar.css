@@ -31,11 +31,11 @@
     line-height: 24px;
 }
 
-.navbar ul li {
+.navbar .menu-big li {
     margin: 0 2rem;
 }
 
-.navbar ul li a {
+.navbar .menu-big li a {
     color: #000;
 }
 
@@ -53,12 +53,40 @@
     color: inherit;
 }
 
-.menuBtn {
+.burger-menu {
+    position: relative;
+    display: none;
+}
+
+.menu-btn {
     width: 4.5rem;
     height: auto;
     border: none;
     background-color: transparent;
-    display: none;
     margin-right: 2rem;
 
+}
+
+.menu-small {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: -120%;
+    left: -45%;
+    width: 155px;
+    height: 60px;
+    /* text-align: center; */
+    background-color: #00000036;
+    color: #000000c7;
+    transform: translateX(400%);
+    transition: transform 400ms ease;
+}
+
+.menu-small li {
+    padding-left: 1rem;
+    padding-top: 0.3rem;
+}
+
+.menu-small.active {
+    transform: translateX(0);
 }
