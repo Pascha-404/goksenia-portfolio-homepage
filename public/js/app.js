@@ -1,5 +1,7 @@
-const contactColumn = document.querySelector('.contact-column')
-const contactRow = document.querySelector('.contact-row')
+const contactColumn = document.querySelector('.contact-column');
+const contactRow = document.querySelector('.contact-row');
+const menuBtn = document.querySelector('#menu-btn');
+const menuSmall = document.querySelector('#menu-small');
 
 
 
@@ -26,10 +28,6 @@ adjustViewFooter()
 
 window.addEventListener('resize', adjustViewFooter())
 
-// window.addEventListener('resize', () => {
-//     if (window.innerWidth < 970) {
-//         smallscreenView()
-//     } else if (window.innerWidth > 970) {
-//         bigscreenView()
-//     }
-// })
+menuBtn.addEventListener('click', () => {
+    menuSmall.classList.toggle('active')
+})
