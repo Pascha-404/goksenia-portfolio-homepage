@@ -64,29 +64,34 @@
     border: none;
     background-color: transparent;
     margin-right: 2rem;
-
+    transition: background-color 800ms ease;
+    border-radius: 3px;
 }
 
 .menu-small {
     display: flex;
     flex-direction: column;
     position: absolute;
-    bottom: -120%;
+    bottom: -190%;
     left: -45%;
     width: 155px;
-    height: 60px;
-    /* text-align: center; */
-    background-color: #00000036;
+    height: 80px;
+    background-color: #fff;
     color: #000000c7;
     transform: translateX(400%);
-    transition: transform 400ms ease;
+    transition: transform 300ms ease;
+    z-index: 99999;
 }
 
 .menu-small li {
     padding-left: 1rem;
-    padding-top: 0.3rem;
+    padding-top: 0.8rem;
 }
 
 .menu-small.active {
     transform: translateX(0);
+}
+
+.menu-btn.active {
+    background-color: var(--color-highlight);
 }
