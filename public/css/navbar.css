@@ -12,6 +12,10 @@
     padding: 3.11rem 7.61em 0 5.5em;
 }
 
+.navbar .logo {
+    cursor: pointer;
+}
+
 .navbar p {
     font-weight: 900;
     font-size: 1.25rem;
