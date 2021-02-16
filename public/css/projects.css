@@ -57,6 +57,12 @@ section.project-wrap {
     margin-top: 5.25rem;
     width: 100%;
     text-align: center;
+    transform: translateX(-400%);
+    transition: transform 800ms cubic-bezier(0.52, 0.61, 0.2, 1);
+}
+
+.project-wrap figure.active {
+    transform: translateX(0);
 }
 
 .project-wrap figure img {
