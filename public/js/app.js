@@ -2,9 +2,11 @@ const contactColumn = document.querySelector('.contact-column');
 const contactRow = document.querySelector('.contact-row');
 const menuBtn = document.querySelector('#menu-btn');
 const menuSmall = document.querySelector('#menu-small');
-const contactBtn = document.querySelectorAll('.contact-btn')
+const contactBtn = document.querySelectorAll('.contact-btn');
 
 
+
+const logo = document.querySelector('#logo')
 
 // activates the right classes for small and big screens
 function smallViewFooter() {
@@ -42,4 +44,10 @@ contactBtn.forEach(btn => {
     btn.addEventListener('click', () => {
         window.location.href = "#contact"
     })
+})
+
+// clickEvent for returning to home
+
+logo.addEventListener('click', () => {
+    location.href = "/";
 })
