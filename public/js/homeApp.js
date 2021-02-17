@@ -6,7 +6,7 @@ const scroll = document.querySelector('#scroll');
 const bodyHeight = document.body.offsetHeight;
 const windowHeight = window.innerHeight;
 
-// Toggles hiding for figures at small screens (<970px width)
+// Toggles hiding for figures at small screens (<970px width) //
 function smallViewHome() {
     figRow.forEach(figRow => {
         figRow.classList.add('display-none');
@@ -16,7 +16,7 @@ function smallViewHome() {
     })
 }
 
-// Sets everything back for big screen view (>970px width)
+// Sets everything back for big screen view (>970px width) //
 function bigViewHome() {
     figRow.forEach(figRow => {
         figRow.classList.remove('display-none')
@@ -39,7 +39,7 @@ adjustViewHome()
 window.addEventListener('resize', adjustViewHome)
 
 
-// hides the scroll-box at reaching bottom of page
+// hides the scroll-box at reaching bottom of page //
 function scrollHide() {
     let scrollpos = window.scrollY;
     if (bodyHeight <= (scrollpos + windowHeight)) {
@@ -52,51 +52,62 @@ window.addEventListener('wheel', (event) => {
 });
 
 
-// click on figure to project-page + removing active class
+// clickEvent on figure/button to project-page + removing active class //
 
-const figGroupChat = document.querySelectorAll('.fig-groupChat');
-const figTeamWeb = document.querySelectorAll('.fig-teamWeb');
-const figWineryWeb = document.querySelectorAll('.fig-wineryWeb');
-const figMoodBooster = document.querySelectorAll('.fig-moodBooster');
+const goToGroupChat = document.querySelectorAll('.goTo-groupChat');
+const goToTeamWeb = document.querySelectorAll('.goTo-teamWeb');
+const goToWineryWeb = document.querySelectorAll('.goTo-wineryWeb');
+const goToMoodBooster = document.querySelectorAll('.goTo-moodBooster');
 
+//delay till changing to page
 const delay = 200;
 
+//checks if button or not / removes active class for animation
+function removeActive(project, arrayElement) {
+    if (arrayElement.classList.contains('btn-wrap') === true) {
+        project[2].classList.remove('active')
+        project[0].classList.remove('active')
+    } else {
+        arrayElement.classList.remove('active');
+    }
+}
+
+//changes browser location
 function locationChange(link) {
     location.href = `${link}`
 }
 
-function goToProject(link) {
+//combines first and second function and adds delay for animation before change
+function goToProject(link, project, arrayElement) {
+    removeActive(project, arrayElement)
     setTimeout(() => {
         locationChange(link)
     }, delay)
 }
 
-figGroupChat.forEach(figure => {
-    figure.addEventListener('click', () => {
-        figure.classList.remove('active');
-        goToProject('/project/chatApp');
-    })
-})
-figTeamWeb.forEach(figure => {
-    figure.addEventListener('click', () => {
-        figure.classList.remove('active');
-        goToProject('/project/teamWeb');
-    })
-})
-figWineryWeb.forEach(figure => {
-    figure.addEventListener('click', () => {
-        figure.classList.remove('active');
-        goToProject('/project/wineryWeb');
-    })
-})
-figMoodBooster.forEach(figure => {
-    figure.addEventListener('click', () => {
-        figure.classList.remove('active');
-        goToProject('/project/moodBoosterApp');
+goToGroupChat.forEach(element => {
+    element.addEventListener('click', () => {
+        goToProject('/project/chatApp', goToGroupChat, element);
     })
 })
 
-// transforms figures in and out depending on location at page
+goToTeamWeb.forEach(element => {
+    element.addEventListener('click', () => {
+        goToProject('/project/teamWeb', goToTeamWeb, element);
+    })
+})
+goToWineryWeb.forEach(element => {
+    element.addEventListener('click', () => {
+        goToProject('/project/wineryWeb', goToWineryWeb, element);
+    })
+})
+goToMoodBooster.forEach(element => {
+    element.addEventListener('click', () => {
+        goToProject('/project/moodBoosterApp', goToMoodBooster, element);
+    })
+})
+
+// transforms figures in and out depending on location at page //
 
 const projectFigures = document.querySelectorAll('.fig-projects');
 
