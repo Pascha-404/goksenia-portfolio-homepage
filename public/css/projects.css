@@ -69,3 +69,15 @@ section.project-wrap {
     max-width: 90%;
     max-height: 179rem;
 }
+
+@media screen and (max-width: 415px) {
+    div.bg-accent {
+        height: 65vh;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    div.bg-accent {
+        height: 70vh;
+    }
+}
