@@ -53,6 +53,15 @@ section.project-wrap {
     margin-top: 2.0625rem;
 }
 
+.arrow {
+    display: inline-block;
+    transition: transform 300ms ease;
+}
+
+.project-wrap a:hover .arrow {
+    transform: translateX(35%);
+}
+
 .project-wrap figure {
     margin-top: 5.25rem;
     width: 100%;
