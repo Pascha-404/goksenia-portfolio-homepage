@@ -1,7 +1,4 @@
 const express = require('express');
-const {
-    request
-} = require('http');
 const app = express();
 const port = 8080;
 const path = require('path')
