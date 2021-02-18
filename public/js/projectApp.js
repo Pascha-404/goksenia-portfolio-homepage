@@ -1,9 +1,13 @@
 // moves in the figure-element
 
 const projectFig = document.querySelector('#project-figure');
+const timeDelay = 100;
 
 function moveInFig() {
-    projectFig.classList.add('active')
+    setTimeout(() => {
+        projectFig.classList.add('active')
+    }, timeDelay)
+
 }
 
 moveInFig()
