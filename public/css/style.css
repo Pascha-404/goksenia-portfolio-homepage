@@ -71,6 +71,21 @@ footer {
     width: 100%;
 }
 
+.shadow-bg-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 4;
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: translateY(400%);
+    transition: transform 400ms ease-in;
+}
+
+.shadow-bg-box.active {
+    transform: translateY(0);
+}
 
 /*------------- Utility classes-------------*/
 
@@ -114,6 +129,10 @@ footer {
 
 .display-none {
     display: none;
+}
+
+.underline {
+    text-decoration: underline;
 }
 
 /*------------- Button styling -------------*/
@@ -162,6 +181,14 @@ a:visited {
 a {
     color: inherit;
     text-decoration: none;
+}
+
+button:focus {
+    outline: var(--color-txt-500);
+}
+
+a:focus {
+    outline-color: var(--color-txt-500);
 }
 
 /*------------- HeroSection styling -------------*/
@@ -312,7 +339,12 @@ footer p {
     width: 2.1875rem;
 }
 
-.icons a:nth-of-type(2) {
+.icons-wrap {
+    margin: 0;
+    line-height: 1.25rem;
+}
+
+.icons-wrap a:nth-of-type(2) {
     margin: 0 0.9375rem;
 }
 
@@ -321,12 +353,77 @@ footer p {
 }
 
 .contact-column {
-    margin: 3rem 0;
+    margin: 2rem 0;
     padding-right: 0.5rem;
 }
 
 #contact a.highlight {
     display: inline;
+}
+
+.data-row {
+    font-size: 1.25rem;
+    position: absolute;
+    bottom: 2em;
+    right: 3.7em;
+}
+
+.data-infos a:nth-of-type(1) {
+    margin-right: 2rem;
+}
+
+.data-infos a {
+    font-size: 0.6em;
+    cursor: pointer;
+}
+
+.data-column {
+    font-size: 1.25rem;
+    text-align: left;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+/*------------- PrivatPolicy/AboutThisWebsite styling -------------*/
+
+section.privacy-policy-box,
+section.about-website {
+    position: fixed;
+    width: 70%;
+    height: 90%;
+    top: 50%;
+    left: 50%;
+    background-color: white;
+    overflow: scroll;
+    z-index: 999;
+    transform: translateX(-50%) translateY(400%);
+    border-radius: 3px;
+    padding: 3rem;
+    border: 1px solid black;
+    transition: transform 400ms ease-in, display 400ms ease;
+}
+
+section.privacy-policy-box h1,
+section.about-website h1,
+section.privacy-policy-box h2,
+section.about-website h2 {
+    margin-bottom: 2rem;
+}
+
+section.privacy-policy-box.active,
+section.about-website.active {
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.closeBox {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: transparent;
+    font-size: 2rem;
+    border: none;
+    cursor: pointer;
 }
 
 /*------------- Media Query -------------*/
@@ -541,6 +638,6 @@ footer p {
     }
 
     .contact-column {
-        margin: 2rem 0;
+        margin: 1.5rem 0;
     }
 }
