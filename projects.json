@@ -9,14 +9,12 @@
         "id": "teamWeb",
         "title": "Team website",
         "description": "A full website design and build for a concept team collaboration platform. This website also includes a beautiful blog. I have built the website and the blog in Webflow which has one of the best CMS for blog hosting.",
-        "liveLink": "",
         "imgLink": "/img/team.png"
     },
     {
         "id": "wineryWeb",
         "title": "Winery website",
         "description": "This is a homepage design and build for a concept project – Louis Eschenauer Winery. This is how a gastronomy brand homepage could look like.",
-        "liveLink": "",
         "imgLink": "/img/wholeWine.png"
     },
     {
