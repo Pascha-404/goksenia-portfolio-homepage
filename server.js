@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 8080;
+const port = 80;
 const path = require('path')
 const projectData = require('./projects.json')
 
@@ -10,7 +10,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(express.static('public'))
 
 app.listen(port, () => {
-    console.log(`Listening on http://localhost:${port}`)
+    console.log(`Listening on localhost:${port}`)
 })
 
 app.get('/', (req, res) => {
