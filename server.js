@@ -32,7 +32,7 @@ app.get('/project/:id', (req, res) => {
 });
 
 app.get('/projects/index', (req, res) => {
-    res.render('projectsShow');
+    res.render('projectsIndex');
 })
 
 app.get('*', (req, res) => {
