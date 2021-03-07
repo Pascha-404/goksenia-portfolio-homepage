@@ -3,8 +3,23 @@ const app = express();
 const port = 8080;
 const path = require('path')
 const projectData = require('./projects.json')
-const db = require('./database')
 
+const Project = require('./models/project')
+
+const mongoose = require('mongoose');
+
+
+// connects database with app //
+mongoose.connect('mongodb://localhost/gokseniaDB', {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    })
+    .then(() => {
+        console.log('!!!!!!!!!!!!!!!-> Database connected <-!!!!!!!!!!!!!!!')
+    })
+    .catch((e) => {
+        console.log(e)
+    });
 
 // express / routing setup //
 app.set('view engine', 'ejs');
@@ -31,8 +46,11 @@ app.get('/project/:id', (req, res) => {
 
 });
 
-app.get('/projects/index', (req, res) => {
-    res.render('projectsIndex');
+app.get('/projects/index', async (req, res) => {
+    const projects = await Project.find({});
+    res.render('projectsIndex', {
+        projects
+    });
 })
 
 app.get('*', (req, res) => {
