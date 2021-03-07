@@ -1,21 +1,26 @@
 <%- include ('./partials/header.ejs') %>
-<link rel="stylesheet" href="/css/projects.css">
+<%- include('./partials/navbar/cmsNavbar.ejs') %>
+<link rel="stylesheet" href="/css/cms.css">
 
 <div class="bg-accent"></div>
 
 <main class="content-wrap">
-    <section class="project-wrap">
-
-        <article>
-            <h3>Content Management</h3>
-            <h1>Mood Booster App</h1>
-            <div><button>Edit</button><button>Delete</button></div>
+    <section class="projects-wrap">
+        <h1>Content Management</h1>
+        <% for(project of projects) {%>
+        <article class="project">
+            <section>
+                <h2><%= project.title %> </h2>
+                <div class="btn-wrap--cms">
+                    <button><img src="/icons/edit.svg" alt="edit">
+                    </button><button><img src="/icons/rubbish-bin.svg" alt="bin"></button>
+                </div>
+            </section>
+            <figure>
+                <img src="<%= project.images.imgHome %> " alt="Example Picture">
+            </figure>
         </article>
-
-        <figure>
-            <img src="./img/moodShifted.png" alt="Example Picture">
-        </figure>
-
+        <% } %>
     </section>
 </main>
 
