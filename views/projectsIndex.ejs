@@ -2,18 +2,37 @@
 <%- include('./partials/navbar/cmsNavbar.ejs') %>
 <link rel="stylesheet" href="/css/cms.css">
 
-<div class="bg-accent"></div>
+<!-- <div class="bg-accent"></div> -->
+<div class="transition-box"></div>
 
 <main class="content-wrap">
+    <div class="bg-accent"></div>
+    <!-- <div class="transition-box"></div> -->
+
     <section class="projects-wrap">
         <h1>Content Management</h1>
+
+        <article class="new project">
+            <div class="blank-wrap">
+                <section>
+                    <h2>Add a new project</h2>
+                    <div class="btn-wrap--cms">
+                        <button id="addProject-btn" class="btn"><img src="/icons/add.svg" alt="add"></button>
+                    </div>
+                </section>
+                <figure>
+                    <img src="/img/blank.png" alt="Example Picture">
+                </figure>
+            </div>
+        </article>
+
         <% for(project of projects) {%>
-        <article class="project">
+        <article class="project existing-project">
             <section>
                 <h2><%= project.title %> </h2>
                 <div class="btn-wrap--cms">
-                    <button><img src="/icons/edit.svg" alt="edit">
-                    </button><button><img src="/icons/rubbish-bin.svg" alt="bin"></button>
+                    <button class="btn"><img src="/icons/edit.svg" alt="edit"></button>
+                    <button class="btn"><img src="/icons/rubbish-bin.svg" alt="bin"></button>
                 </div>
             </section>
             <figure>
@@ -24,4 +43,6 @@
     </section>
 </main>
 
+
+<script src="/js/cmsApp.js"></script>
 <%- include ('./partials/footer.ejs') %>
