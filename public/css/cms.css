@@ -1,0 +1,125 @@
+:root {
+    --color-highlight: #03FFC5;
+}
+
+footer#contact {
+    display: none;
+}
+
+.content-wrap,
+.navbar {
+    transition: transform 500ms ease-in;
+    transform: translateX(0);
+}
+
+.content-wrap.active,
+.navbar.active {
+    transform: translateX(400%);
+}
+
+div.bg-accent {
+    width: 96.5vw;
+    height: 95vh;
+    position: absolute;
+    z-index: -1;
+}
+
+div.transition-box {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-highlight);
+    z-index: 99;
+    transition: transform 300ms ease;
+    transform: translateX(-400%);
+}
+
+div.transition-box.active {
+    transform: translateX(0);
+}
+
+section.projects-wrap {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding-left: 0;
+}
+
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 3.5rem;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+article.project {
+    display: inline-block;
+    padding: 1rem;
+    margin: 2rem;
+    border-radius: 3px;
+    background: linear-gradient(315deg, #cacaca, #f0f0f0);
+    box-shadow: -20px -20px 60px #bebebe,
+        20px 20px 60px #ffffff;
+    transition: transform 600ms ease;
+    overflow: hidden;
+}
+
+article.project figure img {
+    max-height: 20rem;
+}
+
+.existing-project.hide {
+    transform: translateX(400%);
+}
+
+.new.project.create {
+    transform: scale(0.5);
+}
+
+/*------------- Button Styling -------------*/
+.btn-wrap--cms {
+    width: 60%;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 1rem auto 1rem auto;
+}
+
+.btn-wrap--cms button {
+    width: 4rem;
+    height: 4rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    border-radius: 100px;
+    border: 2px solid black;
+    transition: border-color 300ms ease;
+    cursor: pointer;
+}
+
+.btn-wrap--cms button img {
+    max-height: 3rem;
+    width: 100%;
+    transition: transform 300ms ease;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button.mouseIn img {
+    transform: translateY(-10%);
+}
+
+button.mouseIn {
+    border-color: var(--color-highlight);
+}
