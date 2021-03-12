@@ -24,6 +24,9 @@ mongoose.connect('mongodb://localhost/gokseniaDB', {
 // express / routing setup //
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+app.use(express.urlencoded({
+    extended: true
+}));
 
 app.use(express.static('public'));
 
@@ -51,6 +54,16 @@ app.get('/projects/index', async (req, res) => {
     res.render('projectsIndex', {
         projects
     });
+})
+
+app.get('/projects/add', (req, res) => {
+    res.render('projectsAdd');
+})
+
+app.post('/projects/add', (req, res) => {
+    const newProject = req.body;
+    console.log(newProject)
+    res.redirect('/projects/add')
 })
 
 app.get('*', (req, res) => {
