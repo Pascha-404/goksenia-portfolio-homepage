@@ -2,17 +2,15 @@
 <%- include('./partials/navbar/cmsNavbar.ejs') %>
 <link rel="stylesheet" href="/css/cms.css">
 
-<!-- <div class="bg-accent"></div> -->
 <div class="transition-box"></div>
 
 <main class="content-wrap">
     <div class="bg-accent"></div>
-    <!-- <div class="transition-box"></div> -->
 
     <section class="projects-wrap">
         <h1>Content Management</h1>
 
-        <article class="new project">
+        <section class="new project">
             <div class="blank-wrap">
                 <section>
                     <h2>Add a new project</h2>
@@ -24,10 +22,10 @@
                     <img src="/img/blank.png" alt="Example Picture">
                 </figure>
             </div>
-        </article>
+        </section>
 
         <% for(project of projects) {%>
-        <article class="project existing-project">
+        <section class="project existing-project">
             <section>
                 <h2><%= project.title %> </h2>
                 <div class="btn-wrap--cms">
@@ -38,7 +36,7 @@
             <figure>
                 <img src="<%= project.images.imgHome %> " alt="Example Picture">
             </figure>
-        </article>
+        </section>
         <% } %>
     </section>
 </main>
