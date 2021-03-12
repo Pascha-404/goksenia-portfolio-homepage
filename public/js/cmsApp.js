@@ -12,6 +12,9 @@ function pageTransition() {
     navbar.classList.toggle('active');
 }
 
+function goToAddPage() {
+    window.location.href = '/projects/add';
+}
 btns.forEach(btn => {
     btn.addEventListener('mouseenter', () => {
         btn.classList.add('mouseIn')
@@ -25,6 +28,7 @@ btns.forEach(btn => {
 })
 
 addProjectBtn.addEventListener('click', () => {
-    pageTransition()
+    pageTransition();
+    setTimeout(goToAddPage, 450);
 
 })
