@@ -2,9 +2,14 @@ const express = require('express');
 const app = express();
 const port = 8080;
 const path = require('path')
-const projectData = require('./projects.json')
+const methodOverride = require('method-override');
 
-const Project = require('./models/project')
+const projectData = require('./projects.json');
+
+const Project = require('./models/project');
+const {
+    tags
+} = require('./seeds/seedTags')
 
 const mongoose = require('mongoose');
 
@@ -27,6 +32,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({
     extended: true
 }));
+
+app.use(methodOverride('_method'));
 
 app.use(express.static('public'));
 
@@ -58,6 +65,23 @@ app.get('/projects/index', async (req, res) => {
 
 app.get('/projects/add', (req, res) => {
     res.render('projectsAdd');
+})
+
+app.get('/projects/:id/edit', async (req, res) => {
+    const {
+        id
+    } = req.params;
+    const project = await Project.findById(id);
+    console.log(project)
+    res.render('projectsEdit', {
+        project
+    })
+})
+
+app.put('/projects/:id', async (req, res) => {
+    const body = await req.body;
+    console.log(body)
+    res.send('Routing worked');
 })
 
 app.post('/projects/add', (req, res) => {
