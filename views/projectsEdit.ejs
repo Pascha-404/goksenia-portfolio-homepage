@@ -1,5 +1,166 @@
 <%- include ('./partials/header.ejs') %>
+<%- include('./partials/navbar/cmsNavbar.ejs') %>
+<link rel="stylesheet" href="/css/cms.css">
 
-<main class="content-wrap"></main>
+<div class="transition-box active"></div>
+
+<main class="content-wrap active">
+    <div class="bg-accent"></div>
+
+    <section class="projects-wrap new-form">
+
+        <section class="project-add flex-col flex-center">
+            <form action="/projects/<%= project._id %>?_method=PUT" method="POST">
+
+                <h1 id="new-project-title"><%= project.title %> </h1>
+
+                <div class="section-wrap">
+                    <h3 class="text-align-l"><span>1.</span>Naming</h3>
+                    <section class="title flex-between">
+                        <label for="title">Add a title*</label>
+                        <input type="text" id="title" name="title" class="input-txt" value="<%= project.title %> "
+                            required>
+                    </section>
+
+                    <section class="url-name">
+                        <div class="flex-between">
+                            <label for="urlName">Add a name for the URL*</label>
+                            <input type="text" id="urlName" name="urlName" class="input-txt"
+                                value="<%= project.urlName %> " required>
+                        </div>
+
+                        <p>Your URL will be shown like: <span id="urlPreview"
+                                class="highlight">goksenia.com/project/<%= project.urlName %> </span></p>
+                    </section>
+                </div>
+
+                <div class="section-wrap">
+
+                    <h3 class="text-align-l"><span>2.</span>Description</h3>
+
+                    <section class="description flex-col">
+                        <div class="flex-col flex-center">
+                            <label for="homeTxt">Add a text for the Homepage*</label>
+                            <textarea name="homeTxt" id="homeTxt" required><%= project.description.homeTxt %></textarea>
+                        </div>
+
+                        <div class="flex-col flex-center">
+                            <label for="projectTxt">Add a text for the Projectpage*</label>
+                            <textarea name="projectTxt" id="projectTxt"
+                                required> <%= project.description.projectTxt %> </textarea>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="section-wrap">
+                    <h3 class="text-align-l"><span>3.</span>Tags</h3>
+                    <section class="tags flex-col text-align-l">
+                        <div class="flex-col flex-center">
+                            <div class="pos-relative">
+                                <h4><span class="arrow-left">&#8675;</span> Is it your <span class="highlight">Latest
+                                        Work?</span></h4>
+                            </div>
+
+                            <div class="text-align-l tag-latest-work">
+                                <% if(project.tags.latestWork = true){ %>
+                                <input class="checkbox" type="checkbox" id="latestWorkTag" name="latestWork"
+                                    value="true" checked>
+                                <% } else { %> <input class="checkbox" type="checkbox" id="latestWorkTag"
+                                    name="latestWork" value="true">
+                                <% } %>
+                                <label for="latestWorkTag">Latest Work</label>
+                            </div>
+                        </div>
+                        <div class="flex-col flex-center">
+                            <div class="pos-relative">
+                                <h4>Lets specify your Project more <span class="arrow-right">&#8675;</span></h4>
+                            </div>
+
+                            <div class="text-align-r tags-specify">
+                                <div>
+                                    <label for="webDesignTag">Website Design</label>
+                                    <% if(project.tags.webDesign === true){ %>
+                                    <input class="checkbox" id="webDesignTag" type="checkbox" name="webDesign"
+                                        value="true" checked>
+                                    <% } else { %> <input class="checkbox" id="webDesignTag" type="checkbox"
+                                        name="webDesign" value="true"> <% } %>
+                                </div>
+                                <div>
+                                    <label for="webflowTag">Webflow Development</label>
+                                    <% if(project.tags.webflow === true){ %>
+                                    <input class="checkbox" id="webflowTag" type="checkbox" name="webflow" value="true"
+                                        checked>
+                                    <% } else { %> <input class="checkbox" id="webflowTag" type="checkbox"
+                                        name="webflow" value="true">
+                                    <% } %>
+                                </div>
+                                <div>
+                                    <label for="conceptTag">Concept</label>
+                                    <% if(project.tags.concept === true){ %>
+                                    <input class="checkbox" id="conceptTag" type="checkbox" name="concept" value="true"
+                                        checked>
+                                    <% } else { %> <input class="checkbox" id="conceptTag" type="checkbox"
+                                        name="concept" value="true">
+                                    <% } %>
+                                </div>
+                                <div>
+                                    <label for="appDesignTag">App Design</label>
+                                    <% if(project.tags.appDesign === true){ %>
+                                    <input class="checkbox" id="appDesignTag" type="checkbox" name="appDesign"
+                                        value="true" checked>
+                                    <% } else { %> <input class="checkbox" id="appDesignTag" type="checkbox"
+                                        name="appDesign" value="true"> <% } %>
+                                </div>
+                                <div>
+                                    <label for="hackathonTag">Hackathon</label>
+                                    <% if(project.tags.hackathon === true){ %>
+                                    <input class="checkbox" id="hackathonTag" type="checkbox" name="hackathon"
+                                        value="true" checked>
+                                    <% } else { %> <input class="checkbox" id="hackathonTag" type="checkbox"
+                                        name="hackathon" value="true"> <% } %>
+                                </div>
+                                <div>
+                                    <p class="small-grey">choose max. 3</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="section-wrap">
+                    <h3 class="text-align-l"><span>4.</span>Images</h3>
+                    <section class="file-upload flex-col">
+                        <div class="flex-col flex-center">
+                            <label for="imgHome">Add a image for the homepage*</label>
+                            <input type="file" name="" id="imgHome" accept="image/*">
+                        </div>
+                        <div class="flex-col flex-center">
+                            <label for="imgProject1">Add a image for the projectpage*</label>
+                            <input type="file" name="" id="imgProject1" accept="image/*">
+                        </div>
+                        <div class="flex-col flex-center">
+                            <label for="imgProject2">Add a second image for the projectpage(optional)</label>
+                            <input type="file" name="" id="imgProject2" accept="image/*">
+                        </div>
+                    </section>
+                </div>
+
+                <div class="section-wrap">
+                    <h3 class="text-align-l"><span>5.</span>Link to Preview</h3>
+                    <section class="previewLink flex-between">
+                        <label for="previewLink">Add a link to the preview</label>
+                        <input type="url" name="previewLink" id="previewLink" class="input-txt"
+                            value="<%= project.previewLink %> ">
+                    </section>
+                </div>
+
+                <button class="create-btn">Edit Project
+                </button>
+            </form>
+        </section>
+</main>
+
+<script src="/js/cmsApp.js"></script>
+<script src="/js/cmsAddApp.js"></script>
 
 <%- include ('./partials/footer.ejs') %>
