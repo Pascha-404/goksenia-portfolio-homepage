@@ -57,19 +57,30 @@
                     <section class="tags flex-col text-align-l">
                         <div class="flex-col flex-center">
                             <div class="pos-relative">
+                                <h4>Show Project at Top Position ? <span class="arrow-right">&#8675;</span>
+                                </h4>
+                            </div>
+
+                            <div class="text-align-r tags-specify">
+                                <div>
+                                    <label for="firstProjectTag">First Project</label>
+                                    <input class="checkbox" id="firstProject" type="checkbox" name="firstProject"
+                                        value="true" <% if(project.tags.firstProject === true) {%> checked <% } %>>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-col flex-center">
+                            <div class="pos-relative">
                                 <h4><span class="arrow-left">&#8675;</span> Is it your <span class="highlight">Latest
-                                        Work?</span></h4>
+                                        Work ?</span></h4>
                             </div>
 
                             <div class="text-align-l tag-latest-work">
-                                <% if(project.tags.latestWork = true){ %>
                                 <input class="checkbox" type="checkbox" id="latestWorkTag" name="latestWork"
-                                    value="true" checked>
-                                <% } else { %> <input class="checkbox" type="checkbox" id="latestWorkTag"
-                                    name="latestWork" value="true">
-                                <% } %>
+                                    value="true" <% if(project.tags.latestWork === true) {%> checked <% } %>>
                                 <label for="latestWorkTag">Latest Work</label>
                             </div>
+
                         </div>
                         <div class="flex-col flex-center">
                             <div class="pos-relative">
@@ -79,49 +90,50 @@
                             <div class="text-align-r tags-specify">
                                 <div>
                                     <label for="webDesignTag">Website Design</label>
-                                    <% if(project.tags.webDesign === true){ %>
                                     <input class="checkbox" id="webDesignTag" type="checkbox" name="webDesign"
-                                        value="true" checked>
-                                    <% } else { %> <input class="checkbox" id="webDesignTag" type="checkbox"
-                                        name="webDesign" value="true"> <% } %>
+                                        value="true" <% if(project.tags.webDesign === true) {%> checked <% } %>>
                                 </div>
+
                                 <div>
                                     <label for="webflowTag">Webflow Development</label>
-                                    <% if(project.tags.webflow === true){ %>
                                     <input class="checkbox" id="webflowTag" type="checkbox" name="webflow" value="true"
-                                        checked>
-                                    <% } else { %> <input class="checkbox" id="webflowTag" type="checkbox"
-                                        name="webflow" value="true">
-                                    <% } %>
+                                        <% if(project.tags.webflow === true) {%> checked <% } %>>
                                 </div>
+
                                 <div>
                                     <label for="conceptTag">Concept</label>
-                                    <% if(project.tags.concept === true){ %>
                                     <input class="checkbox" id="conceptTag" type="checkbox" name="concept" value="true"
-                                        checked>
-                                    <% } else { %> <input class="checkbox" id="conceptTag" type="checkbox"
-                                        name="concept" value="true">
-                                    <% } %>
+                                        <% if(project.tags.concept === true) {%> checked <% } %>>
                                 </div>
+
                                 <div>
                                     <label for="appDesignTag">App Design</label>
-                                    <% if(project.tags.appDesign === true){ %>
                                     <input class="checkbox" id="appDesignTag" type="checkbox" name="appDesign"
-                                        value="true" checked>
-                                    <% } else { %> <input class="checkbox" id="appDesignTag" type="checkbox"
-                                        name="appDesign" value="true"> <% } %>
+                                        value="true" <% if(project.tags.appDesign === true) {%> checked <% } %>>
                                 </div>
+
                                 <div>
                                     <label for="hackathonTag">Hackathon</label>
-                                    <% if(project.tags.hackathon === true){ %>
                                     <input class="checkbox" id="hackathonTag" type="checkbox" name="hackathon"
-                                        value="true" checked>
-                                    <% } else { %> <input class="checkbox" id="hackathonTag" type="checkbox"
-                                        name="hackathon" value="true"> <% } %>
+                                        value="true" <% if(project.tags.hackathon === true) {%> checked <% } %>>
                                 </div>
+
                                 <div>
                                     <p class="small-grey">choose max. 3</p>
                                 </div>
+                            </div>
+                            <div class="flex-col flex-center">
+                                <div class="pos-relative">
+                                    <h4><span class="arrow-left">&#8675;</span> Want to <span class="small-grey">hide
+                                            the project?</span></h4>
+                                </div>
+
+                                <div class="text-align-l tag-latest-work">
+                                    <input class="checkbox" type="checkbox" id="hideProject" name="hideProject"
+                                        value="true" <% if(project.tags.hideProject === true) {%> checked <% } %>>
+                                    <label for="hideProject">Hide Project</label>
+                                </div>
+
                             </div>
                         </div>
                     </section>
