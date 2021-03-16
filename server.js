@@ -9,22 +9,22 @@ const projectData = require('./projects.json');
 const Project = require('./models/project');
 const {
     tags
-} = require('./seeds/seedTags')
+} = require('./seeds/seedTags');
 
 const mongoose = require('mongoose');
 
 
 // connects database with app //
 mongoose.connect('mongodb://localhost/gokseniaDB', {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    })
-    .then(() => {
-        console.log('!!!!!!!!!!!!!!!-> Database connected <-!!!!!!!!!!!!!!!')
-    })
-    .catch((e) => {
-        console.log(e)
-    });
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+});
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'Connection Error:'));
+db.once('open', () => {
+    console.log('Database connected!');
+})
 
 // express / routing setup //
 app.set('view engine', 'ejs');
@@ -72,9 +72,10 @@ app.get('/projects/:id/edit', async (req, res) => {
         id
     } = req.params;
     const project = await Project.findById(id);
-    console.log(project)
+    console.log(tags)
     res.render('projectsEdit', {
-        project
+        project,
+        tags
     })
 })
 
@@ -82,6 +83,14 @@ app.put('/projects/:id', async (req, res) => {
     const body = await req.body;
     console.log(body)
     res.send('Routing worked');
+})
+
+app.delete('/projects/:id', async (req, res) => {
+    const {
+        id
+    } = req.params;
+    await Project.findByIdAndDelete(id);
+    res.redirect('/projects/index')
 })
 
 app.post('/projects/add', (req, res) => {
