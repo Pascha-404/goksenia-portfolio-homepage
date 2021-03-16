@@ -19,7 +19,7 @@ module.exports.tags = [{
 }, {
     dbName: 'hackathon',
     pageTxt: 'Hackathon'
-}. {
+}, {
     dbName: 'hideProject',
     pageTxt: 'Hide Project'
 }];
