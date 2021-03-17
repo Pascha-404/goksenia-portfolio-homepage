@@ -41,8 +41,45 @@ app.listen(port, () => {
     console.log(`Listening on localhost:${port}`)
 });
 
-app.get('/', (req, res) => {
-    res.render('index')
+app.get('/', async (req, res) => {
+    // searches for projects with firstProject tag = true
+    const firstProjects = await Project.find({
+        'tags.firstProject': true,
+        'tags.hideProject': {
+            $ne: true
+        }
+
+    });
+
+    // searches for projects with latestWork tag = true and not already in firstProjects
+    const latestProjects = await Project.find({
+        'tags.latestWork': true,
+        'tags.firstProject': {
+            $ne: true
+        },
+        'tags.hideProject': {
+            $ne: true
+        }
+    })
+
+    // searches all other projects
+    const projects = await Project.find({
+        'tags.firstProject': {
+            $ne: true
+        },
+        'tags.latestWork': {
+            $ne: true
+        },
+        'tags.hideProject': {
+            $ne: true
+        }
+    })
+
+    res.render('index', {
+        firstProjects,
+        latestProjects,
+        projects
+    })
 });
 
 app.get('/project/:id', (req, res) => {
