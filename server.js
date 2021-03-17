@@ -72,10 +72,8 @@ app.get('/projects/:id/edit', async (req, res) => {
         id
     } = req.params;
     const project = await Project.findById(id);
-    console.log(tags)
     res.render('projectsEdit', {
-        project,
-        tags
+        project
     })
 })
 
