@@ -25,24 +25,44 @@
 
     <!-- portfolio section -->
     <section id="portfolio" class="portfolio">
+
+        <% for(project of firstProjects) { %>
         <article class="split">
 
             <section>
+                <% if(project.tags.latestWork === true) { %>
                 <h3>latest work</h3>
+                <% } %>
 
-                <h2>Chat App website</h2>
+                <h2><%= project.title %> </h2>
 
                 <div class="tags">
+                    <% if(project.tags.webDesign === true) { %>
                     <p>Website Design</p>
+                    <% } %>
+
+                    <% if(project.tags.webflow === true) { %>
                     <p>Webflow Development</p>
+                    <% } %>
+
+                    <% if(project.tags.concept === true) { %>
                     <p>Concept</p>
+                    <% } %>
+
+                    <% if(project.tags.appDesign === true) { %>
+                    <p>App Design</p>
+                    <% } %>
+
+                    <% if(project.tags.hackathon === true) { %>
+                    <p>Hackathon</p>
+                    <% } %>
                 </div>
 
-                <p>This is a homepage design and build for a concept project – a chat application. I have designed the
-                    page first then later built a responsive page in Webflow.</p>
+                <p><%= project.description.homeTxt %></p>
 
                 <figure class="figure-column display-none goTo-groupChat fig-projects">
-                    <a href="/project/chatApp"><img src="./img/groupChat.png" alt="Example Picture"></a>
+                    <a href="/project/<%= project.urlName %>"><img src="<%= project.images.imgHome %>"
+                            alt="Example Picture"></a>
                     <img class="float-right" src="./icons/ic-arrow.svg" alt="arrow">
                 </figure>
 
@@ -53,107 +73,122 @@
             </section>
 
             <figure class="figure-row goTo-groupChat fig-projects">
-                <img src="./img/groupChat.png" alt="Example Picture">
+                <a href="/project/<%= project.urlName %>"><img src="<%= project.images.imgHome %>"
+                        alt="Example Picture"></a>
                 <img class="float-right" src="./icons/ic-arrow.svg" alt="arrow">
             </figure>
         </article>
+        <% } %>
 
+        <% for(project of latestProjects) { %>
         <article class="split">
 
             <section>
+                <% if(project.tags.latestWork === true) { %>
                 <h3>latest work</h3>
+                <% } %>
 
-                <h2>Team website</h2>
+                <h2><%= project.title %> </h2>
 
                 <div class="tags">
+                    <% if(project.tags.webDesign === true) { %>
                     <p>Website Design</p>
+                    <% } %>
+
+                    <% if(project.tags.webflow === true) { %>
                     <p>Webflow Development</p>
+                    <% } %>
+
+                    <% if(project.tags.concept === true) { %>
                     <p>Concept</p>
-                </div>
+                    <% } %>
 
-                <p>A full website design and build for a concept team collaboration platform. This website also includes
-                    a beautiful blog. I have built the website and the blog in Webflow which has one of the best CMS for
-                    blog hosting.</p>
-
-                <figure class="figure-column display-none goTo-teamWeb fig-projects">
-                    <img src="./img/groupTeam.png" alt="Example Picture">
-                    <img class="float-right" src="./icons/ic-arrow.svg" alt="arrow">
-                </figure>
-
-                <div class="btn-wrap goTo-teamWeb">
-                    <a>see this project</a>
-                    <div class="btn-frame"></div>
-                </div>
-            </section>
-
-            <figure class="figure-row goTo-teamWeb fig-projects">
-                <img src="./img/groupTeam.png" alt="Example Picture">
-                <img class="float-right" src="./icons/ic-arrow.svg" alt="arrow">
-            </figure>
-        </article>
-
-        <article class="split">
-            <section>
-                <h3>latest work</h3>
-
-                <h2>Winery website</h2>
-
-                <div class="tags">
-                    <p>Concept</p>
-                    <p>Website Design</p>
-                </div>
-
-                <p>Dark premium homepage design for a concept project – Louis Eschenauer Winery. This is how
-                    a gastronomy brand homepage could look like.</p>
-
-                <figure class="figure-column display-none goTo-wineryWeb fig-projects">
-                    <img src="./img/groupWine.png" alt="Example Picture">
-                    <img class="float-right" src="./icons/ic-arrow.svg" alt="arrow">
-                </figure>
-
-                <div class="btn-wrap goTo-wineryWeb">
-                    <a>see this project</a>
-                    <div class="btn-frame"></div>
-                </div>
-            </section>
-
-            <figure class="figure-row goTo-wineryWeb fig-projects">
-                <img src="./img/groupWine.png" alt="Example Picture">
-                <img class="float-right" src="./icons/ic-arrow.svg" alt="arrow">
-            </figure>
-        </article>
-
-        <article class="split">
-            <section>
-                <h3>latest work</h3>
-
-                <h2>Mood Boster App</h2>
-
-                <div class="tags">
+                    <% if(project.tags.appDesign === true) { %>
                     <p>App Design</p>
-                    <p>Hackathon Project</p>
-                    <p>Concept</p>
+                    <% } %>
+
+                    <% if(project.tags.hackathon === true) { %>
+                    <p>Hackathon</p>
+                    <% } %>
                 </div>
 
-                <p>Mental health caring application which includes journaling, different kinds of mood boosters and
-                    the emergency help center. </p>
+                <p><%= project.description.homeTxt %></p>
 
-                <figure class="figure-column display-none goTo-moodBooster fig-projects">
-                    <img src="./img/moodShifted.png" alt="Example Picture">
+                <figure class="figure-column display-none goTo-groupChat fig-projects">
+                    <a href="/project/<%= project.urlName %>"><img src="<%= project.images.imgHome %>"
+                            alt="Example Picture"></a>
                     <img class="float-right" src="./icons/ic-arrow.svg" alt="arrow">
                 </figure>
 
-                <div class="btn-wrap goTo-moodBooster">
+                <div class="btn-wrap goTo-groupChat">
                     <a>see this project</a>
                     <div class="btn-frame"></div>
                 </div>
             </section>
 
-            <figure class="figure-row goTo-moodBooster fig-projects">
-                <img src="./img/moodShifted.png" alt="Example Picture">
+            <figure class="figure-row goTo-groupChat fig-projects">
+                <a href="/project/<%= project.urlName %>"><img src="<%= project.images.imgHome %>"
+                        alt="Example Picture"></a>
                 <img class="float-right" src="./icons/ic-arrow.svg" alt="arrow">
             </figure>
         </article>
+        <% } %>
+
+        <% for(project of projects) { %>
+        <article class="split">
+
+            <section>
+                <% if(project.tags.latestWork === true) { %>
+                <h3>latest work</h3>
+                <% } %>
+
+                <h2><%= project.title %> </h2>
+
+                <div class="tags">
+                    <% if(project.tags.webDesign === true) { %>
+                    <p>Website Design</p>
+                    <% } %>
+
+                    <% if(project.tags.webflow === true) { %>
+                    <p>Webflow Development</p>
+                    <% } %>
+
+                    <% if(project.tags.concept === true) { %>
+                    <p>Concept</p>
+                    <% } %>
+
+                    <% if(project.tags.appDesign === true) { %>
+                    <p>App Design</p>
+                    <% } %>
+
+                    <% if(project.tags.hackathon === true) { %>
+                    <p>Hackathon</p>
+                    <% } %>
+                </div>
+
+                <p><%= project.description.homeTxt %></p>
+
+                <figure class="figure-column display-none goTo-groupChat fig-projects">
+                    <a href="/project/<%= project.urlName %>"><img src="<%= project.images.imgHome %>"
+                            alt="Example Picture"></a>
+                    <img class="float-right" src="./icons/ic-arrow.svg" alt="arrow">
+                </figure>
+
+                <div class="btn-wrap goTo-groupChat">
+                    <a>see this project</a>
+                    <div class="btn-frame"></div>
+                </div>
+            </section>
+
+            <figure class="figure-row goTo-groupChat fig-projects">
+                <a href="/project/<%= project.urlName %>"><img src="<%= project.images.imgHome %>"
+                        alt="Example Picture"></a>
+                <img class="float-right" src="./icons/ic-arrow.svg" alt="arrow">
+            </figure>
+        </article>
+        <% } %>
+
+
 
     </section>
 
