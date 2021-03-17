@@ -6,10 +6,6 @@ const contactBtn = document.querySelectorAll('.contact-btn');
 const dataColumn = document.querySelector('.data-column');
 const dataRow = document.querySelector('.data-row');
 
-
-
-const logo = document.querySelector('#logo')
-
 // activates the right classes for small and big screens
 function smallViewFooter() {
     contactColumn.classList.remove('display-none');
@@ -51,13 +47,6 @@ contactBtn.forEach(btn => {
         window.location.href = "#contact"
     })
 })
-
-// clickEvent for returning to home
-
-logo.addEventListener('click', () => {
-    location.href = "/";
-})
-
 
 const aboutWebBtn = document.querySelectorAll('.about-this-website');
 const privacyPolBtn = document.querySelectorAll('.privacy-policy');

@@ -1,6 +1,6 @@
 const transitionBox = document.querySelector('.transition-box');
-const contentWrap = document.querySelector('.content-wrap')
-const navbar = document.querySelector('.navbar')
+const contentWrap = document.querySelector('.content-wrap');
+const navbar = document.querySelector('.navbar');
 
 function pageTransition() {
     transitionBox.classList.toggle('active');
