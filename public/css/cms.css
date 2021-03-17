@@ -64,6 +64,34 @@ h2 {
     font-size: 2.5rem;
 }
 
+.existing-project .banner {
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+    position: absolute;
+    top: 4.8rem;
+    clip-path: polygon(0% 0%, 75% 0%, 54% 50%, 75% 100%, 0 100%);
+    width: 14.4rem;
+    padding-left: 1.7rem;
+    transform: rotate(90deg);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.existing-project .banner.first-project {
+    background-color: red;
+    left: -4rem;
+    color: #fff;
+}
+
+.existing-project .banner.latest-work {
+    right: -4rem;
+    left: auto;
+    background-color: var(--color-highlight);
+    color: rgb(70, 70, 70);
+}
+
 section.project {
     display: inline-block;
     padding: 1rem;
@@ -84,6 +112,21 @@ section.project figure img {
     transform: translateX(400%);
 }
 
+.existing-project.hidden-project {
+    opacity: 0.4;
+}
+
+.existing-project.hidden-project:before {
+    content: 'Hidden Project';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    font-size: 1.6rem;
+    opacity: 1;
+    z-index: 3;
+}
+
 .new.project.create {
     transform: scale(0.5);
 }
@@ -97,6 +140,7 @@ section.project figure img {
     justify-content: space-evenly;
     margin: 1rem auto 1rem auto;
 }
+
 
 .btn-wrap--cms button {
     width: 4rem;
@@ -130,18 +174,22 @@ button.mouseIn {
     border-color: var(--color-highlight);
 }
 
-/*------------- New Project/Add Project Styling -------------*/
-form {
+/*------------- Add/Edit Project Styling -------------*/
+.project-add {
     width: 70%;
     background: linear-gradient(315deg, #cacaca, #f0f0f0);
     box-shadow: -20px -20px 60px #bebebe,
         20px 20px 60px #ffffff;
-    margin-top: 3rem;
+    margin: 3rem auto 0 auto;
     padding: 1rem;
     font-size: 0.9rem;
 }
 
-form h1 {
+.project-add form {
+    width: 100%;
+}
+
+.project-add form h1 {
     margin-top: 2.5rem;
 }
 
@@ -211,6 +259,11 @@ form h1 {
 .description textarea {
     width: 95%;
     height: 10rem;
+    padding: 1.2rem;
+}
+
+.description textarea:focus {
+    outline: none;
 }
 
 .description div:nth-of-type(1) {
@@ -300,9 +353,20 @@ form h1 {
     margin-top: 2rem;
 }
 
-.project-add form button.create-btn {
+.project-add form button.create-btn,
+button.delete-btn {
     margin: 3rem auto 2rem auto;
     padding: 1rem 1.5rem;
-    font-size: 2rem;
+    font-size: 1.6rem;
     border-radius: 2px;
+    cursor: pointer;
+}
+
+button.delete-btn {
+    margin: 0 0 1rem 0;
+    transition: background-color 300ms ease;
+}
+
+button.delete-btn:hover {
+    background-color: red;
 }
