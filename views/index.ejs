@@ -26,7 +26,10 @@
     <!-- portfolio section -->
     <section id="portfolio" class="portfolio">
 
-        <% for(project of firstProjects) { %>
+        <% let i = 0 %>
+
+        <% for(project of firstProjects) { 
+            i++; %>
         <article class="split">
 
             <section>
@@ -60,19 +63,19 @@
 
                 <p><%= project.description.homeTxt %></p>
 
-                <figure class="figure-column display-none goTo-groupChat fig-projects">
+                <figure class="figure-column display-none fig-projects fig-pro<%= i %>">
                     <a href="/project/<%= project.urlName %>"><img src="<%= project.images.imgHome %>"
                             alt="Example Picture"></a>
                     <img class="float-right" src="./icons/ic-arrow.svg" alt="arrow">
                 </figure>
 
-                <div class="btn-wrap goTo-groupChat">
-                    <a>see this project</a>
+                <div class="btn-wrap goTo-Project">
+                    <a class="projectBtn" href="/project/<%= project.urlName %>">see this project</a>
                     <div class="btn-frame"></div>
                 </div>
             </section>
 
-            <figure class="figure-row goTo-groupChat fig-projects">
+            <figure class="figure-row fig-projects fig-pro<%= i %>">
                 <a href="/project/<%= project.urlName %>"><img src="<%= project.images.imgHome %>"
                         alt="Example Picture"></a>
                 <img class="float-right" src="./icons/ic-arrow.svg" alt="arrow">
@@ -80,7 +83,8 @@
         </article>
         <% } %>
 
-        <% for(project of latestProjects) { %>
+        <% for(project of latestProjects) { 
+            i++ %>
         <article class="split">
 
             <section>
@@ -114,19 +118,19 @@
 
                 <p><%= project.description.homeTxt %></p>
 
-                <figure class="figure-column display-none goTo-groupChat fig-projects">
+                <figure class="figure-column display-none  fig-projects fig-pro<%= i %>">
                     <a href="/project/<%= project.urlName %>"><img src="<%= project.images.imgHome %>"
                             alt="Example Picture"></a>
                     <img class="float-right" src="./icons/ic-arrow.svg" alt="arrow">
                 </figure>
 
-                <div class="btn-wrap goTo-groupChat">
-                    <a>see this project</a>
+                <div class="btn-wrap goTo-Project">
+                    <a class="projectBtn" href="/project/<%= project.urlName %>">see this project</a>
                     <div class="btn-frame"></div>
                 </div>
             </section>
 
-            <figure class="figure-row goTo-groupChat fig-projects">
+            <figure class="figure-row fig-projects fig-pro<%= i %>">
                 <a href="/project/<%= project.urlName %>"><img src="<%= project.images.imgHome %>"
                         alt="Example Picture"></a>
                 <img class="float-right" src="./icons/ic-arrow.svg" alt="arrow">
@@ -134,7 +138,8 @@
         </article>
         <% } %>
 
-        <% for(project of projects) { %>
+        <% for(project of projects) { 
+            i++ %>
         <article class="split">
 
             <section>
@@ -168,19 +173,19 @@
 
                 <p><%= project.description.homeTxt %></p>
 
-                <figure class="figure-column display-none goTo-groupChat fig-projects">
+                <figure class="figure-column display-none fig-projects fig-pro<%= i %>">
                     <a href="/project/<%= project.urlName %>"><img src="<%= project.images.imgHome %>"
                             alt="Example Picture"></a>
                     <img class="float-right" src="./icons/ic-arrow.svg" alt="arrow">
                 </figure>
 
-                <div class="btn-wrap goTo-groupChat">
-                    <a>see this project</a>
+                <div class="btn-wrap goTo-Project">
+                    <a class="projectBtn" href="/project/<%= project.urlName %>">see this project</a>
                     <div class="btn-frame"></div>
                 </div>
             </section>
 
-            <figure class="figure-row goTo-groupChat fig-projects">
+            <figure class="figure-row fig-projects fig-pro<%= i %>">
                 <a href="/project/<%= project.urlName %>"><img src="<%= project.images.imgHome %>"
                         alt="Example Picture"></a>
                 <img class="float-right" src="./icons/ic-arrow.svg" alt="arrow">
