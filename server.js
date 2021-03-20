@@ -4,8 +4,6 @@ const port = 8080;
 const path = require('path')
 const methodOverride = require('method-override');
 
-const projectData = require('./projects.json');
-
 const Project = require('./models/project');
 const {
     tags
@@ -82,14 +80,16 @@ app.get('/', async (req, res) => {
     })
 });
 
-app.get('/project/:id', (req, res) => {
+app.get('/project/:urlName', async (req, res) => {
     const {
-        id
+        urlName
     } = req.params;
-    const project = projectData.find(d => d.id === id);
+    const project = await Project.findOne({
+        urlName: urlName
+    });
     res.render('projects', {
         project
-    })
+    });
 
 });
 
@@ -115,9 +115,14 @@ app.get('/projects/:id/edit', async (req, res) => {
 })
 
 app.put('/projects/:id', async (req, res) => {
-    const body = await req.body;
-    console.log(body)
-    res.send('Routing worked');
+    const {
+        id
+    } = req.params;
+    const project = await Project.findByIdAndUpdate(id, {
+        ...req.body
+    });
+    console.log(project);
+    res.redirect('/projects/index');
 })
 
 app.delete('/projects/:id', async (req, res) => {
