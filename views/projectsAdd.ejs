@@ -10,7 +10,7 @@
     <section class="projects-wrap new-form">
 
         <section class="project-add flex-col flex-center">
-            <form action="/projects/add" method="post" enctype="multipart/form-data">
+            <form action="/projects/add" method="POST">
 
                 <h1 id="new-project-title">New Project</h1>
 
@@ -39,12 +39,12 @@
                     <section class="description flex-col">
                         <div class="flex-col flex-center">
                             <label for="homeTxt">Add a text for the Homepage*</label>
-                            <textarea name="homeTxt" id="homeTxt" required></textarea>
+                            <textarea name="description[homeTxt]" id="homeTxt" required></textarea>
                         </div>
 
                         <div class="flex-col flex-center">
                             <label for="projectTxt">Add a text for the Projectpage*</label>
-                            <textarea name="projectTxt" id="projectTxt" required></textarea>
+                            <textarea name="description[projectTxt]" id="projectTxt" required></textarea>
                         </div>
                     </section>
                 </div>
@@ -61,8 +61,10 @@
                             <div class="text-align-r tags-specify">
                                 <div>
                                     <label for="firstProjectTag">First Project</label>
-                                    <input class="checkbox" id="firstProject" type="checkbox" name="firstProject"
-                                        value="true">
+                                    <input id="firstProjectHidden" type="hidden" name="tags[firstProject]" value="false"
+                                        data-value-type="boolean">
+                                    <input class="checkbox" id="firstProject" type="checkbox" name="tags[firstProject]"
+                                        value="true" data-value-type="boolean">
                                 </div>
                             </div>
                         </div>
@@ -74,7 +76,10 @@
                             </div>
 
                             <div class="text-align-l tag-latest-work">
-                                <input type="checkbox" id="latestWorkTag" name="latestWork" value="true">
+                                <input id="latestWorkHidden" type="hidden" name="tags[latestWork]" value="false"
+                                    data-value-type="boolean">
+                                <input class="checkbox" type="checkbox" id="latestWork" name="tags[latestWork]"
+                                    value="true" data-value-type="boolean">
                                 <label for="latestWorkTag">Latest Work</label>
                             </div>
                         </div>
@@ -85,23 +90,38 @@
                             <div class="text-align-r tags-specify">
                                 <div>
                                     <label for="webDesignTag">Website Design</label>
-                                    <input id="webDesignTag" type="checkbox" name="webDesign" value="true">
+                                    <input id="webDesignHidden" type="hidden" name="tags[webDesign]" value="false"
+                                        data-value-type="boolean">
+                                    <input class="checkbox" id="webDesign" type="checkbox" name="tags[webDesign]"
+                                        value="true" data-value-type="boolean">
                                 </div>
                                 <div>
                                     <label for="webflowTag">Webflow Development</label>
-                                    <input id="webflowTag" type="checkbox" name="webflow" value="true">
+                                    <input id="webflowHidden" type="hidden" name="tags[webflow]" value="false"
+                                        data-value-type="boolean">
+                                    <input class="checkbox" id="webflow" type="checkbox" name="tags[webflow]"
+                                        value="true" data-value-type="boolean">
                                 </div>
                                 <div>
                                     <label for="conceptTag">Concept</label>
-                                    <input id="conceptTag" type="checkbox" name="concept" value="true">
+                                    <input id="conceptHidden" type="hidden" name="tags[concept]" value="false"
+                                        data-value-type="boolean">
+                                    <input class="checkbox" id="concept" type="checkbox" name="tags[concept]"
+                                        value="true" data-value-type="boolean">
                                 </div>
                                 <div>
                                     <label for="appDesignTag">App Design</label>
-                                    <input id="appDesignTag" type="checkbox" name="appDesign" value="true">
+                                    <input id="appDesignHidden" type="hidden" name="tags[appDesign]" value="false"
+                                        data-value-type="boolean">
+                                    <input class="checkbox" id="appDesign" type="checkbox" name="tags[appDesign]"
+                                        value="true" data-value-type="boolean">
                                 </div>
                                 <div>
                                     <label for="hackathonTag">Hackathon</label>
-                                    <input id="hackathonTag" type="checkbox" name="hackathon" value="true">
+                                    <input id="hackathonHidden" type="hidden" name="tags[hackathon]" value="false"
+                                        data-value-type="boolean">
+                                    <input class="checkbox" id="hackathon" type="checkbox" name="tags[hackathon]"
+                                        value="true" data-value-type="boolean">
                                 </div>
                                 <div>
                                     <p class="small-grey">choose max. 3</p>
@@ -114,8 +134,10 @@
                                 </div>
 
                                 <div class="text-align-l tag-latest-work">
-                                    <input class="checkbox" type="checkbox" id="hideProject" name="hideProject"
-                                        value="true">
+                                    <input id="hideProjectHidden" type="hidden" name="tags[hideProject]" value="false"
+                                        data-value-type="boolean">
+                                    <input class="checkbox" type="checkbox" id="hideProject" name="tags[hideProject]"
+                                        value="true" data-value-type="boolean">
                                     <label for="hideProject">Hide Project</label>
                                 </div>
 
@@ -129,11 +151,11 @@
                     <section class="file-upload flex-col">
                         <div class="flex-col flex-center">
                             <label for="imgHome">Add a image for the homepage*</label>
-                            <input type="file" name="" id="imgHome" accept="image/*" required>
+                            <input type="file" name="" id="imgHome" accept="image/*">
                         </div>
                         <div class="flex-col flex-center">
                             <label for="imgProject1">Add a image for the projectpage*</label>
-                            <input type="file" name="" id="imgProject1" accept="image/*" required>
+                            <input type="file" name="" id="imgProject1" accept="image/*">
                         </div>
                         <div class="flex-col flex-center">
                             <label for="imgProject2">Add a second image for the projectpage(optional)</label>
