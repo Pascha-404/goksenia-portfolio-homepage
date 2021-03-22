@@ -46,7 +46,11 @@
                 </div>
             </section>
             <figure>
+                <% if(project.images.imgHome) { %>
                 <img src="<%= project.images.imgHome %> " alt="Example Picture">
+                <% } else { %>
+                <img src="/img/blank.png" alt="Example Picture">
+                <% } %>
             </figure>
         </section>
         <% } %>

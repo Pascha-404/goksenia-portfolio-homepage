@@ -17,8 +17,14 @@
         </article>
 
         <figure id="project-figure">
-            <img src="<%= project.images.imgProject1 %>" alt="project image">
-            <% if(project.images.imgProject2) { %> <img src="<%= project.images.imgProject2 %>" alt="project image">
+            <% if(project.images.imgProject1) { %>
+            <img src="<%= project.images.imgProject1 %>" alt="Project Picture">
+            <% } else { %>
+            <img src="/img/blank.png" alt="Dummy Picture">
+            <% } %>
+
+            <% if(project.images.imgProject2) { %>
+            <img src="<%= project.images.imgProject2 %>" alt="project image">
             <% } %>
         </figure>
 
