@@ -4,13 +4,14 @@ const port = 8080;
 const path = require('path')
 const methodOverride = require('method-override');
 
+const catchAsync = require('./utilitys/catchAsync')
+
 const Project = require('./models/project');
 const {
     tags
 } = require('./seeds/seedTags');
 
 const mongoose = require('mongoose');
-
 
 // connects database with app //
 mongoose.connect('mongodb://localhost/gokseniaDB', {
@@ -35,10 +36,9 @@ app.use(methodOverride('_method'));
 
 app.use(express.static('public'));
 
-app.listen(port, () => {
-    console.log(`Listening on localhost:${port}`)
-});
 
+
+// route for mainpage
 app.get('/', async (req, res) => {
     // searches for projects with firstProject tag = true
     const firstProjects = await Project.find({
@@ -80,6 +80,7 @@ app.get('/', async (req, res) => {
     })
 });
 
+// route for single projectpage
 app.get('/project/:urlName', async (req, res) => {
     const {
         urlName
@@ -93,6 +94,7 @@ app.get('/project/:urlName', async (req, res) => {
 
 });
 
+// route for cms index/dashboard page
 app.get('/projects/index', async (req, res) => {
     const projects = await Project.find({});
     res.render('projectsIndex', {
@@ -100,10 +102,12 @@ app.get('/projects/index', async (req, res) => {
     });
 })
 
+// route for add-page of new projects
 app.get('/projects/add', (req, res) => {
     res.render('projectsAdd');
 })
 
+// route for editing existing projects
 app.get('/projects/:id/edit', async (req, res) => {
     const {
         id
@@ -114,17 +118,21 @@ app.get('/projects/:id/edit', async (req, res) => {
     })
 })
 
-app.put('/projects/:id', async (req, res) => {
+// update route for projects
+app.put('/projects/:id', catchAsync(async (req, res) => {
     const {
         id
     } = req.params;
     const project = await Project.findByIdAndUpdate(id, {
         ...req.body
+    }, {
+        new: true
     });
-    console.log(project);
+    console.log(req.body);
     res.redirect('/projects/index');
-})
+}))
 
+// delete route for projects
 app.delete('/projects/:id', async (req, res) => {
     const {
         id
@@ -133,12 +141,19 @@ app.delete('/projects/:id', async (req, res) => {
     res.redirect('/projects/index')
 })
 
-app.post('/projects/add', (req, res) => {
-    const newProject = req.body;
-    console.log(newProject)
-    res.redirect('/projects/add')
-})
+// route for posting new project
+app.post('/projects/add', catchAsync(async (req, res) => {
+    const project = new Project(req.body);
+    console.log(project);
+    await project.save();
+    res.redirect('/projects/index');
+}))
 
+// 404 route
 app.get('*', (req, res) => {
     res.send('<h1>Page not found - 404</h1>')
+});
+
+app.listen(port, () => {
+    console.log(`Listening on localhost:${port}`)
 });
