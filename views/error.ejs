@@ -1,0 +1,18 @@
+<%- include('./partials/header.ejs') %>
+<%- include('./partials/navbar/defaultNavbar.ejs') %>
+<link rel="stylesheet" href="/css/projects.css">
+<link rel="stylesheet" href="/css/error.css">
+
+<div class="bg-accent"></div>
+
+<main class="content-wrap">
+    <section class="error-wrap">
+
+        <h4><%= err.message %> - <%= err.statusCode %> </h4>
+
+        <p><%= err.stack %></p>
+
+    </section>
+</main>
+
+<%- include('./partials/footer.ejs') %>
