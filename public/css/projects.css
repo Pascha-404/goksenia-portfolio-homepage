@@ -37,6 +37,7 @@ section.project-wrap {
 
 .project-wrap h1 {
     margin-top: 0.5rem;
+    text-align: center;
 }
 
 .project-wrap p {

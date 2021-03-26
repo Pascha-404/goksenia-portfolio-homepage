@@ -480,6 +480,10 @@ section.about-website.active {
         flex-basis: 100%;
     }
 
+    .portfolio h2 {
+        max-width: 31rem;
+    }
+
 }
 
 /* querys based on width */
