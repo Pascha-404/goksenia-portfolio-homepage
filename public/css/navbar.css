@@ -16,7 +16,7 @@
     cursor: pointer;
 }
 
-.navbar p {
+.navbar a.logo {
     font-weight: 900;
     font-size: 1.25rem;
 }

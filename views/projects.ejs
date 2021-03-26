@@ -1,4 +1,5 @@
 <%- include('./partials/header.ejs') %>
+<%- include('./partials/navbar/defaultNavbar.ejs') %>
 <link rel="stylesheet" href="/css/projects.css">
 
 <div class="bg-accent"></div>
@@ -9,14 +10,22 @@
         <article>
             <h3>project showcase</h3>
             <h1><%= project.title %></h1>
-            <p><%= project.description %> </p>
-            <% if(project.liveLink) { %> <a class="highlight bold" href="<%= project.liveLink %>" target="_blank">visit
+            <p><%= project.description.projectTxt %></p>
+            <% if(project.previewLink) { %> <a class="highlight bold" href="<%= project.previewLink %>"
+                target="_blank">visit
                 live site <span class="arrow">&#10141;</span></a> <% } %>
         </article>
 
         <figure id="project-figure">
-            <img src="<%= project.imgLink %>" alt="project image">
-            <% if(project.imgLink2) { %> <img src="<%= project.imgLink2 %>" alt="project image"> <% } %>
+            <% if(project.images.imgProject1) { %>
+            <img src="<%= project.images.imgProject1 %>" alt="Project Picture">
+            <% } else { %>
+            <img src="/img/blank.png" alt="Dummy Picture">
+            <% } %>
+
+            <% if(project.images.imgProject2) { %>
+            <img src="<%= project.images.imgProject2 %>" alt="project image">
+            <% } %>
         </figure>
 
     </section>

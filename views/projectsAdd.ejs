@@ -1,0 +1,184 @@
+<%- include ('./partials/header.ejs') %>
+<%- include('./partials/navbar/cmsNavbar.ejs') %>
+<link rel="stylesheet" href="/css/cms.css">
+
+<div class="transition-box active"></div>
+
+<main class="content-wrap active">
+    <div class="bg-accent"></div>
+
+    <section class="projects-wrap new-form">
+
+        <section class="project-add flex-col flex-center">
+            <form action="/projects/add" method="POST">
+
+                <h1 id="new-project-title">New Project</h1>
+
+                <div class="section-wrap">
+                    <h3 class="text-align-l"><span>1.</span>Naming</h3>
+                    <section class="title flex-between">
+                        <label for="title">Add a title*</label>
+                        <input type="text" id="title" name="title" class="input-txt" required>
+                    </section>
+
+                    <section class="url-name">
+                        <div class="flex-between">
+                            <label for="urlName">Add a name for the URL*</label>
+                            <input type="text" id="urlName" name="urlName" class="input-txt" required>
+                        </div>
+
+                        <p>Your URL will be shown like: <span id="urlPreview"
+                                class="highlight">goksenia.com/project/yourProject</span></p>
+                    </section>
+                </div>
+
+                <div class="section-wrap">
+
+                    <h3 class="text-align-l"><span>2.</span>Description</h3>
+
+                    <section class="description flex-col">
+                        <div class="flex-col flex-center">
+                            <label for="homeTxt">Add a text for the Homepage*</label>
+                            <textarea name="description[homeTxt]" id="homeTxt" required></textarea>
+                        </div>
+
+                        <div class="flex-col flex-center">
+                            <label for="projectTxt">Add a text for the Projectpage*</label>
+                            <textarea name="description[projectTxt]" id="projectTxt" required></textarea>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="section-wrap">
+                    <h3 class="text-align-l"><span>3.</span>Tags</h3>
+                    <section class="tags flex-col text-align-l">
+                        <div class="flex-col flex-center">
+                            <div class="pos-relative">
+                                <h4>Show Project at Top Position ? <span class="arrow-right">&#8675;</span>
+                                </h4>
+                            </div>
+
+                            <div class="text-align-r tags-specify">
+                                <div>
+                                    <label for="firstProjectTag">First Project</label>
+                                    <input id="firstProjectHidden" type="hidden" name="tags[firstProject]" value="false"
+                                        data-value-type="boolean">
+                                    <input class="checkbox" id="firstProject" type="checkbox" name="tags[firstProject]"
+                                        value="true" data-value-type="boolean">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-col flex-center">
+                            <div class="pos-relative">
+                                <h4><span class="arrow-left">&#8675;</span> Is it your <span class="highlight">Latest
+                                        Work?</span></h4>
+                            </div>
+
+                            <div class="text-align-l tag-latest-work">
+                                <input id="latestWorkHidden" type="hidden" name="tags[latestWork]" value="false"
+                                    data-value-type="boolean">
+                                <input class="checkbox" type="checkbox" id="latestWork" name="tags[latestWork]"
+                                    value="true" data-value-type="boolean">
+                                <label for="latestWorkTag">Latest Work</label>
+                            </div>
+                        </div>
+                        <div class="flex-col flex-center">
+                            <div class="pos-relative">
+                                <h4>Lets specify your Project more <span class="arrow-right">&#8675;</span></h4>
+                            </div>
+                            <div class="text-align-r tags-specify">
+                                <div>
+                                    <label for="webDesignTag">Website Design</label>
+                                    <input id="webDesignHidden" type="hidden" name="tags[webDesign]" value="false"
+                                        data-value-type="boolean">
+                                    <input class="checkbox" id="webDesign" type="checkbox" name="tags[webDesign]"
+                                        value="true" data-value-type="boolean">
+                                </div>
+                                <div>
+                                    <label for="webflowTag">Webflow Development</label>
+                                    <input id="webflowHidden" type="hidden" name="tags[webflow]" value="false"
+                                        data-value-type="boolean">
+                                    <input class="checkbox" id="webflow" type="checkbox" name="tags[webflow]"
+                                        value="true" data-value-type="boolean">
+                                </div>
+                                <div>
+                                    <label for="conceptTag">Concept</label>
+                                    <input id="conceptHidden" type="hidden" name="tags[concept]" value="false"
+                                        data-value-type="boolean">
+                                    <input class="checkbox" id="concept" type="checkbox" name="tags[concept]"
+                                        value="true" data-value-type="boolean">
+                                </div>
+                                <div>
+                                    <label for="appDesignTag">App Design</label>
+                                    <input id="appDesignHidden" type="hidden" name="tags[appDesign]" value="false"
+                                        data-value-type="boolean">
+                                    <input class="checkbox" id="appDesign" type="checkbox" name="tags[appDesign]"
+                                        value="true" data-value-type="boolean">
+                                </div>
+                                <div>
+                                    <label for="hackathonTag">Hackathon</label>
+                                    <input id="hackathonHidden" type="hidden" name="tags[hackathon]" value="false"
+                                        data-value-type="boolean">
+                                    <input class="checkbox" id="hackathon" type="checkbox" name="tags[hackathon]"
+                                        value="true" data-value-type="boolean">
+                                </div>
+                                <div>
+                                    <p class="small-grey">choose max. 3</p>
+                                </div>
+                            </div>
+                            <div class="flex-col flex-center">
+                                <div class="pos-relative">
+                                    <h4><span class="arrow-left">&#8675;</span> Want to <span class="small-grey">hide
+                                            the project?</span></h4>
+                                </div>
+
+                                <div class="text-align-l tag-latest-work">
+                                    <input id="hideProjectHidden" type="hidden" name="tags[hideProject]" value="false"
+                                        data-value-type="boolean">
+                                    <input class="checkbox" type="checkbox" id="hideProject" name="tags[hideProject]"
+                                        value="true" data-value-type="boolean">
+                                    <label for="hideProject">Hide Project</label>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="section-wrap">
+                    <h3 class="text-align-l"><span>4.</span>Images</h3>
+                    <section class="file-upload flex-col">
+                        <div class="flex-col flex-center">
+                            <label for="imgHome">Add a image for the homepage*</label>
+                            <input type="file" name="" id="imgHome" accept="image/*">
+                        </div>
+                        <div class="flex-col flex-center">
+                            <label for="imgProject1">Add a image for the projectpage*</label>
+                            <input type="file" name="" id="imgProject1" accept="image/*">
+                        </div>
+                        <div class="flex-col flex-center">
+                            <label for="imgProject2">Add a second image for the projectpage(optional)</label>
+                            <input type="file" name="" id="imgProject2" accept="image/*">
+                        </div>
+                    </section>
+                </div>
+
+                <div class="section-wrap">
+                    <h3 class="text-align-l"><span>5.</span>Link to Preview</h3>
+                    <section class="previewLink flex-between">
+                        <label for="previewLink">Add a link to the preview</label>
+                        <input type="url" name="previewLink" id="previewLink" class="input-txt">
+                    </section>
+                </div>
+
+                <button class="create-btn">Submit Project
+                </button>
+            </form>
+        </section>
+</main>
+
+<script src="/js/cmsApp.js"></script>
+<script src="/js/cmsAddApp.js"></script>
+
+<%- include ('./partials/footer.ejs') %>

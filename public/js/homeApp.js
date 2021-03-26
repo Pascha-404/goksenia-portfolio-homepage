@@ -2,7 +2,6 @@ const heroBtn = document.querySelector('#heroBtn');
 const figRow = document.querySelectorAll('.figure-row');
 const figColumn = document.querySelectorAll('.figure-column');
 
-const scroll = document.querySelector('#scroll');
 const bodyHeight = document.body.offsetHeight;
 const windowHeight = window.innerHeight;
 
@@ -39,73 +38,33 @@ adjustViewHome()
 window.addEventListener('resize', adjustViewHome)
 
 
-// hides the scroll-box at reaching bottom of page //
+const scroll = document.querySelector('#scroll');
+const navbar = document.querySelector('.navbar');
+
+// hides the scroll-box if scrolled or heroBtn not in window//
 function scrollHide() {
     let scrollpos = window.scrollY;
-    if (bodyHeight <= (scrollpos + windowHeight)) {
+    let heroBtnTop = heroBtn.getBoundingClientRect().top;
+    if (scrollpos > 0 || heroBtnTop < 400) {
         scroll.classList.add('active');
+    } else {
+        scroll.classList.remove('active');
     }
 }
+
+// makes sure that scroll-div fades away when navbar-links for same page are clicked
+navbar.addEventListener('click', () => {
+    setTimeout(() => {
+        scrollHide()
+    }, 50)
+});
+
 
 window.addEventListener('wheel', (event) => {
     scrollHide()
 });
 
-
-// clickEvent on figure/button to project-page + removing active class //
-
-const goToGroupChat = document.querySelectorAll('.goTo-groupChat');
-const goToTeamWeb = document.querySelectorAll('.goTo-teamWeb');
-const goToWineryWeb = document.querySelectorAll('.goTo-wineryWeb');
-const goToMoodBooster = document.querySelectorAll('.goTo-moodBooster');
-
-//delay till changing to page
-const delay = 200;
-
-//checks if button or not / removes active class for animation
-function removeActive(project, arrayElement) {
-    if (arrayElement.classList.contains('btn-wrap') === true) {
-        project[2].classList.remove('active')
-        project[0].classList.remove('active')
-    } else {
-        arrayElement.classList.remove('active');
-    }
-}
-
-//changes browser location
-function locationChange(link) {
-    location.href = `${link}`
-}
-
-//combines first and second function and adds delay for animation before change
-function goToProject(link, project, arrayElement) {
-    removeActive(project, arrayElement)
-    setTimeout(() => {
-        locationChange(link)
-    }, delay)
-}
-
-goToGroupChat.forEach(element => {
-    element.addEventListener('click', () => {
-        goToProject('/project/chatApp', goToGroupChat, element);
-    })
-})
-
-goToTeamWeb.forEach(element => {
-    element.addEventListener('click', () => {
-        goToProject('/project/teamWeb', goToTeamWeb, element);
-    })
-})
-goToWineryWeb.forEach(element => {
-    element.addEventListener('click', () => {
-        goToProject('/project/wineryWeb', goToWineryWeb, element);
-    })
-})
-goToMoodBooster.forEach(element => {
-    element.addEventListener('click', () => {
-        goToProject('/project/moodBoosterApp', goToMoodBooster, element);
-    })
-})
+scrollHide()
 
 // transforms figures in and out depending on location at page //
 
@@ -130,3 +89,55 @@ window.addEventListener('scroll', () => {
 })
 
 checkFigures()
+
+const projectBtn = document.querySelectorAll('.projectBtn');
+const goToProjectDiv = document.querySelectorAll('.goTo-Project')
+
+//delay till changing to page
+const delay = 200;
+
+//prevents default behaviour for anchor links
+projectBtn.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault()
+    })
+})
+
+//loops through each figure and removes active-class(animation starts)
+function removeActive(elements) {
+    elements.forEach(element => {
+        element.classList.remove('active');
+    })
+}
+
+//changes browser location
+function locationChange(href) {
+    location.href = `${href}`
+}
+
+// combines upper functions and adds delay for page-change
+//adds clickEvent to element
+function clickEventAndGo(clickElement, href, figures) {
+
+    clickElement.addEventListener('click', () => {
+        removeActive(figures);
+        setTimeout(() => {
+            locationChange(href)
+        }, delay)
+    })
+}
+
+//adds clickEvent to the btnDiv off "see this project" for each project
+// connects the buttons to the right figures by i
+//takes href from anchor element to go to the right project
+function addClickEvent(btnArray) {
+    let i = 0;
+    for (btn of btnArray) {
+        i++;
+        const projFigure = document.querySelectorAll(`.fig-pro${i}`);
+        const href = btn.firstElementChild.href;
+        clickEventAndGo(btn, href, projFigure)
+    }
+}
+
+addClickEvent(goToProjectDiv);

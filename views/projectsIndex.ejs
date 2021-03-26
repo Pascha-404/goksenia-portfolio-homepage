@@ -1,0 +1,63 @@
+<%- include ('./partials/header.ejs') %>
+<%- include('./partials/navbar/cmsNavbar.ejs') %>
+<link rel="stylesheet" href="/css/cms.css">
+
+<div class="transition-box active"></div>
+
+<main class="content-wrap active">
+    <div class="bg-accent"></div>
+
+    <section class="projects-wrap">
+        <h1>Content Management</h1>
+
+        <section class="new project">
+            <div class="blank-wrap">
+                <section>
+                    <h2>Add a new project</h2>
+                    <div class="btn-wrap--cms">
+                        <button id="addProject-btn" class="btn"><img src="/icons/add.svg" alt="add"></button>
+                    </div>
+                </section>
+                <figure>
+                    <img src="/img/blank.png" alt="Example Picture">
+                </figure>
+            </div>
+        </section>
+
+        <% for(project of projects) {%>
+        <section
+            class="project existing-project pos-relative <% if(project.tags.hideProject === true) { %> hidden-project <% } %>">
+            <% if(project.tags.firstProject === true) { %>
+            <div class="banner first-project">
+                <p><small>First Project</small></p>
+            </div> <% } %>
+            <% if(project.tags.latestWork === true) { %>
+            <div class="banner latest-work">
+                <p><small>Latest Work</small></p>
+            </div> <% } %>
+            <section>
+                <h2><%= project.title %> </h2>
+                <div class="btn-wrap--cms">
+                    <button class="btn"><a href="/projects/<%= project._id %>/edit"><img src="/icons/edit.svg"
+                                alt="edit"></a></button>
+                    <form onsubmit="return confirm('Are you sure you want to delete this Project?')"
+                        action="/projects/<%= project._id %>?_method=DELETE" method="POST"><button class="btn"><img
+                                src="/icons/rubbish-bin.svg" alt="bin"></button></form>
+                </div>
+            </section>
+            <figure>
+                <% if(project.images.imgHome) { %>
+                <img src="<%= project.images.imgHome %> " alt="Example Picture">
+                <% } else { %>
+                <img src="/img/blank.png" alt="Example Picture">
+                <% } %>
+            </figure>
+        </section>
+        <% } %>
+    </section>
+</main>
+
+
+<script src="/js/cmsApp.js"></script>
+<script src="/js/cmsIndexApp.js"></script>
+<%- include ('./partials/footer.ejs') %>

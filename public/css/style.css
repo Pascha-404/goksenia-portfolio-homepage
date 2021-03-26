@@ -35,7 +35,7 @@ body {
     line-height: 2.025rem;
     font-size: var(--font-size-18px);
     position: relative;
-    min-height: 100%;
+    min-height: 100vh;
 }
 
 body,
@@ -118,6 +118,28 @@ footer {
     justify-content: space-between;
 }
 
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-center {
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-around {
+    justify-content: space-around;
+}
+
+.align-items-c {
+    align-items: center;
+}
+
 .small-grey {
     font-size: 0.875rem;
     color: var(--color-txt-900-half);
@@ -133,6 +155,26 @@ footer {
 
 .underline {
     text-decoration: underline;
+}
+
+.text-align-r {
+    text-align: right;
+}
+
+.text-align-l {
+    text-align: left;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.pos-absolute {
+    position: absolute;
+}
+
+.pos-relative {
+    position: relative;
 }
 
 /*------------- Button styling -------------*/
@@ -436,6 +478,10 @@ section.about-website.active {
 
     .split>* {
         flex-basis: 100%;
+    }
+
+    .portfolio h2 {
+        max-width: 31rem;
     }
 
 }
