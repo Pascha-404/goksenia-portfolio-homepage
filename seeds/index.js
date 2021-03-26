@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Project = require('../models/project');
 
 // connects database with app //
-mongoose.connect('mongodb://localhost/gokseniaDB', {
+mongoose.connect('mongodb://localhost/goksenia', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
@@ -25,7 +25,8 @@ const seedDB = async () => {
             projectTxt: "This is a homepage design and build for a concept project - a chat application. I have designed the page first then later built a responsive page in Webflow"
         },
         tags: {
-            firstProject: false,
+            firstProject: true,
+            secondProject: false,
             latestWork: true,
             webDesign: true,
             webflow: true,
@@ -35,8 +36,8 @@ const seedDB = async () => {
             hideProject: false
         },
         images: {
-            imgHome: "/img/groupChat.png",
-            imgProject1: "/img/chatApp.png"
+            imgHome: "/img/projectHome/groupChat.png",
+            imgProject1: "/img/projectPage/chatApp.png"
         },
         previewLink: "https://chatapp-5671f6.webflow.io/"
     });
@@ -51,6 +52,7 @@ const seedDB = async () => {
         },
         tags: {
             firstProject: false,
+            secondProject: false,
             latestWork: true,
             webDesign: true,
             webflow: true,
@@ -60,8 +62,8 @@ const seedDB = async () => {
             hideProject: false
         },
         images: {
-            imgHome: "/img/groupTeam.png",
-            imgProject1: "/img/team.png"
+            imgHome: "/img/projectHome/groupTeam.png",
+            imgProject1: "/img/projectPage/team.png"
         }
     });
     await teamWeb.save();
@@ -75,6 +77,7 @@ const seedDB = async () => {
         },
         tags: {
             firstProject: false,
+            secondProject: false,
             latestWork: true,
             webDesign: false,
             webflow: false,
@@ -85,8 +88,8 @@ const seedDB = async () => {
             hideProject: false
         },
         images: {
-            imgHome: "/img/groupWine.png",
-            imgProject1: "/img/wholeWine.png"
+            imgHome: "/img/projectHome/groupWine.png",
+            imgProject1: "/img/projectPage/wholeWine.png"
         }
     });
     await wineryWeb.save();
@@ -100,6 +103,7 @@ const seedDB = async () => {
         },
         tags: {
             firstProject: false,
+            secondProject: false,
             latestWork: false,
             webDesign: false,
             webflow: false,
@@ -109,13 +113,39 @@ const seedDB = async () => {
             hideProject: false
         },
         images: {
-            imgHome: "/img/moodShifted.png",
-            imgProject1: "/img/moodThemes.png",
-            imgProject2: "/img/moodOverview.png"
+            imgHome: "/img/projectHome/moodShifted.png",
+            imgProject1: "/img/projectPage/moodThemes.png",
+            imgProject2: "/img/projectPage/moodOverview.png"
         },
         previewLink: "https://devpost.com/software/mood-booster-r0seax"
     });
     await moodBooster.save();
+
+    const nikeWeb = new Project({
+        urlName: "nikeConcept",
+        title: "Sportswear online-shop",
+        description: {
+            homeTxt: "A concept project of redesigning a homepage of a fitness online-store based on high-quality photography.",
+            projectTxt: "The goal of the design was to make a concept of a vibrant modern and photography-based website to fit with an exciting, provocative, and free-spirited brand personality. The challenge and at the same time the main feature of this online store homepage is a combination of an unusual layout and an advantageous product demonstration."
+        },
+        tags: {
+            firstProject: false,
+            secondProject: true,
+            latestWork: true,
+            webDesign: true,
+            webflow: false,
+            concept: true,
+            appDesign: false,
+            hackathon: false,
+            hidenProject: false
+        },
+        images: {
+            imgHome: "/img/projectHome/groupNike.png",
+            imgProject1: "/img/projectPage/nike.jpg"
+        },
+        previewLink: ""
+    });
+    await nikeWeb.save();
 }
 
 seedDB().then(() => {

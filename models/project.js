@@ -27,6 +27,9 @@ const projectSchema = new mongoose.Schema({
         firstProject: {
             type: Boolean
         },
+        secondProject: {
+            type: Boolean
+        },
         latestWork: {
             type: Boolean
         },
@@ -52,11 +55,11 @@ const projectSchema = new mongoose.Schema({
     images: {
         imgHome: {
             type: String,
-            required: true
+            // required: true
         },
         imgProject1: {
             type: String,
-            required: true
+            // required: true
         },
         imgProject2: {
             type: String
