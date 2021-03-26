@@ -2,7 +2,6 @@ const heroBtn = document.querySelector('#heroBtn');
 const figRow = document.querySelectorAll('.figure-row');
 const figColumn = document.querySelectorAll('.figure-column');
 
-const scroll = document.querySelector('#scroll');
 const bodyHeight = document.body.offsetHeight;
 const windowHeight = window.innerHeight;
 
@@ -39,19 +38,33 @@ adjustViewHome()
 window.addEventListener('resize', adjustViewHome)
 
 
-// hides the scroll-box at reaching bottom of page //
+const scroll = document.querySelector('#scroll');
+const navbar = document.querySelector('.navbar');
+
+// hides the scroll-box if scrolled or heroBtn not in window//
 function scrollHide() {
     let scrollpos = window.scrollY;
-    if (scrollpos > 0) {
+    let heroBtnTop = heroBtn.getBoundingClientRect().top;
+    if (scrollpos > 0 || heroBtnTop < 400) {
         scroll.classList.add('active');
     } else {
         scroll.classList.remove('active');
     }
 }
 
+// makes sure that scroll-div fades away when navbar-links for same page are clicked
+navbar.addEventListener('click', () => {
+    setTimeout(() => {
+        scrollHide()
+    }, 50)
+});
+
+
 window.addEventListener('wheel', (event) => {
     scrollHide()
 });
+
+scrollHide()
 
 // transforms figures in and out depending on location at page //
 

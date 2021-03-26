@@ -17,7 +17,7 @@
             <div class="btn-frame"></div>
         </div>
 
-        <div id="scroll" class="scroll">
+        <div id="scroll" class="scroll active">
             <p id="scroll-txt" class="scroll-txt">scroll</p>
         </div>
 
@@ -29,6 +29,67 @@
         <% let i = 0 %>
 
         <% for(project of firstProjects) { 
+            i++; %>
+        <article class="split">
+
+            <section>
+                <% if(project.tags.latestWork === true) { %>
+                <h3>latest work</h3>
+                <% } %>
+
+                <h2><%= project.title %> </h2>
+
+                <div class="tags">
+                    <% if(project.tags.webDesign === true) { %>
+                    <p>Website Design</p>
+                    <% } %>
+
+                    <% if(project.tags.webflow === true) { %>
+                    <p>Webflow Development</p>
+                    <% } %>
+
+                    <% if(project.tags.concept === true) { %>
+                    <p>Concept</p>
+                    <% } %>
+
+                    <% if(project.tags.appDesign === true) { %>
+                    <p>App Design</p>
+                    <% } %>
+
+                    <% if(project.tags.hackathon === true) { %>
+                    <p>Hackathon</p>
+                    <% } %>
+                </div>
+
+                <p><%= project.description.homeTxt %></p>
+
+                <figure class="figure-column display-none fig-projects fig-pro<%= i %>">
+                    <a href="/project/<%= project.urlName %>"> <% if(project.images.imgHome) { %>
+                        <img src="<%= project.images.imgHome %> " alt="Example Picture">
+                        <% } else { %>
+                        <img src="/img/blank.png" alt="Example Picture">
+                        <% } %></a>
+                    <img class="float-right" src="./icons/ic-arrow.svg" alt="arrow">
+                </figure>
+
+                <div class="btn-wrap goTo-Project">
+                    <a class="projectBtn" href="/project/<%= project.urlName %>">see this project</a>
+                    <div class="btn-frame"></div>
+                </div>
+            </section>
+
+            <figure class="figure-row fig-projects fig-pro<%= i %>">
+                <a href="/project/<%= project.urlName %>"> <% if(project.images.imgHome) { %>
+                    <img src="<%= project.images.imgHome %> " alt="Example Picture">
+                    <% } else { %>
+                    <img src="/img/blank.png" alt="Example Picture">
+                    <% } %></a>
+                <img class="float-right" src="./icons/ic-arrow.svg" alt="arrow">
+            </figure>
+        </article>
+        <% } %>
+
+        <% for(project of secondProjects) { 
             i++; %>
         <article class="split">
 
