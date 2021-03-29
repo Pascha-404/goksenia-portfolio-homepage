@@ -9,7 +9,7 @@ module.exports.projectSchema = Joi.object({
     title: Joi.string().trim().min(5).required(),
 
     description: {
-        homeTxt: Joi.string().trim().max(10).required(),
+        homeTxt: Joi.string().trim().required(),
         projectTxt: Joi.string().trim().required()
     },
 
