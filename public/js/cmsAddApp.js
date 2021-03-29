@@ -28,37 +28,31 @@ const checkboxes = document.querySelectorAll('.checkbox');
 function checkAndDisable() {
     if (document.getElementById('firstProject').checked === true) {
         document.getElementById('firstProjectHidden').disabled = true;
-        console.log('Check 1')
+    }
+    if (document.getElementById('secondProject').checked === true) {
+        document.getElementById('secondProjectHidden').disabled = true;
     }
     if (document.getElementById('latestWork').checked === true) {
         document.getElementById('latestWorkHidden').disabled = true;
-        console.log('Check 2')
     }
     if (document.getElementById('webDesign').checked === true) {
         document.getElementById('webDesignHidden').disabled = true;
-        console.log('Check 3')
     }
     if (document.getElementById('webflow').checked === true) {
         document.getElementById('webflowHidden').disabled = true;
-        console.log('Check 4')
     }
     if (document.getElementById('concept').checked === true) {
         document.getElementById('conceptHidden').disabled = true;
-        console.log('Check 5')
     }
     if (document.getElementById('appDesign').checked === true) {
         document.getElementById('appDesignHidden').disabled = true;
-        console.log('Check 6')
     }
     if (document.getElementById('hackathon').checked === true) {
         document.getElementById('hackathonHidden').disabled = true;
-        console.log('Check 7')
     }
     if (document.getElementById('hideProject').checked === true) {
         document.getElementById('hideProjectHidden').disabled = true;
-        console.log('Check 8')
     };
-    console.log('End of func!')
 }
 
 
