@@ -14,14 +14,14 @@ module.exports.projectSchema = Joi.object({
     },
 
     tags: {
-        firstProject: Joi.boolean().truthy('true').falsy('false').sensitive(),
-        latestWork: Joi.boolean().truthy('true').falsy('false').sensitive(),
-        webDesign: Joi.boolean().truthy('true').falsy('false').sensitive(),
-        webflow: Joi.boolean().truthy('true').falsy('false').sensitive(),
-        concept: Joi.boolean().truthy('true').falsy('false').sensitive(),
-        appDesign: Joi.boolean().truthy('true').falsy('false').sensitive(),
-        hackathon: Joi.boolean().truthy('true').falsy('false').sensitive(),
-        hideProject: Joi.boolean().truthy('true').falsy('false').sensitive()
+        firstProject: Joi.number().min(0).max(1),
+        latestWork: Joi.number().min(0).max(1),
+        webDesign: Joi.number().min(0).max(1),
+        webflow: Joi.number().min(0).max(1),
+        concept: Joi.number().min(0).max(1),
+        appDesign: Joi.number().min(0).max(1),
+        hackathon: Joi.number().min(0).max(1),
+        hideProject: Joi.number().min(0).max(1)
     },
 
     // missing image option
