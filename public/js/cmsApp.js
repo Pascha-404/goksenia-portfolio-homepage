@@ -9,7 +9,7 @@ function pageTransition() {
 }
 
 function goToAddPage() {
-    window.location.href = '/projects/add';
+    window.location.href = '/cms/add';
 }
 
 function pageTransitionEnter() {

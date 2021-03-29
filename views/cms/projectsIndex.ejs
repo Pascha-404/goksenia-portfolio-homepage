@@ -38,10 +38,10 @@
             <section>
                 <h2><%= project.title %> </h2>
                 <div class="btn-wrap--cms">
-                    <button class="btn"><a href="/projects/<%= project._id %>/edit"><img src="/icons/edit.svg"
+                    <button class="btn"><a href="/cms/<%= project._id %>/edit"><img src="/icons/edit.svg"
                                 alt="edit"></a></button>
                     <form onsubmit="return confirm('Are you sure you want to delete this Project?')"
-                        action="/projects/<%= project._id %>?_method=DELETE" method="POST"><button class="btn"><img
+                        action="/cms/<%= project._id %>?_method=DELETE" method="POST"><button class="btn"><img
                                 src="/icons/rubbish-bin.svg" alt="bin"></button></form>
                 </div>
             </section>
