@@ -1,5 +1,5 @@
-<%- include ('./partials/header.ejs') %>
-<%- include('./partials/navbar/cmsNavbar.ejs') %>
+<%- include ('../partials/header.ejs') %>
+<%- include('../partials/navbar/cmsNavbar.ejs') %>
 <link rel="stylesheet" href="/css/cms.css">
 
 <div class="transition-box active"></div>
@@ -61,10 +61,9 @@
                             <div class="text-align-r tags-specify">
                                 <div>
                                     <label for="firstProjectTag">First Project</label>
-                                    <input id="firstProjectHidden" type="hidden" name="tags[firstProject]" value="false"
-                                        data-value-type="boolean">
+                                    <input id="firstProjectHidden" type="hidden" name="tags[firstProject]" value="0">
                                     <input class="checkbox" id="firstProject" type="checkbox" name="tags[firstProject]"
-                                        value="true" data-value-type="boolean">
+                                        value="1">
                                 </div>
                             </div>
                         </div>
@@ -76,10 +75,9 @@
                             </div>
 
                             <div class="text-align-l tag-latest-work">
-                                <input id="latestWorkHidden" type="hidden" name="tags[latestWork]" value="false"
-                                    data-value-type="boolean">
+                                <input id="latestWorkHidden" type="hidden" name="tags[latestWork]" value="0">
                                 <input class="checkbox" type="checkbox" id="latestWork" name="tags[latestWork]"
-                                    value="true" data-value-type="boolean">
+                                    value="1">
                                 <label for="latestWorkTag">Latest Work</label>
                             </div>
                         </div>
@@ -90,38 +88,31 @@
                             <div class="text-align-r tags-specify">
                                 <div>
                                     <label for="webDesignTag">Website Design</label>
-                                    <input id="webDesignHidden" type="hidden" name="tags[webDesign]" value="false"
-                                        data-value-type="boolean">
+                                    <input id="webDesignHidden" type="hidden" name="tags[webDesign]" value="0">
                                     <input class="checkbox" id="webDesign" type="checkbox" name="tags[webDesign]"
-                                        value="true" data-value-type="boolean">
+                                        value="1">
                                 </div>
                                 <div>
                                     <label for="webflowTag">Webflow Development</label>
-                                    <input id="webflowHidden" type="hidden" name="tags[webflow]" value="false"
-                                        data-value-type="boolean">
-                                    <input class="checkbox" id="webflow" type="checkbox" name="tags[webflow]"
-                                        value="true" data-value-type="boolean">
+                                    <input id="webflowHidden" type="hidden" name="tags[webflow]" value="0">
+                                    <input class="checkbox" id="webflow" type="checkbox" name="tags[webflow]" value="1">
                                 </div>
                                 <div>
                                     <label for="conceptTag">Concept</label>
-                                    <input id="conceptHidden" type="hidden" name="tags[concept]" value="false"
-                                        data-value-type="boolean">
-                                    <input class="checkbox" id="concept" type="checkbox" name="tags[concept]"
-                                        value="true" data-value-type="boolean">
+                                    <input id="conceptHidden" type="hidden" name="tags[concept]" value="0">
+                                    <input class="checkbox" id="concept" type="checkbox" name="tags[concept]" value="1">
                                 </div>
                                 <div>
                                     <label for="appDesignTag">App Design</label>
-                                    <input id="appDesignHidden" type="hidden" name="tags[appDesign]" value="false"
-                                        data-value-type="boolean">
+                                    <input id="appDesignHidden" type="hidden" name="tags[appDesign]" value="0">
                                     <input class="checkbox" id="appDesign" type="checkbox" name="tags[appDesign]"
-                                        value="true" data-value-type="boolean">
+                                        value="1">
                                 </div>
                                 <div>
                                     <label for="hackathonTag">Hackathon</label>
-                                    <input id="hackathonHidden" type="hidden" name="tags[hackathon]" value="false"
-                                        data-value-type="boolean">
+                                    <input id="hackathonHidden" type="hidden" name="tags[hackathon]" value="0">
                                     <input class="checkbox" id="hackathon" type="checkbox" name="tags[hackathon]"
-                                        value="true" data-value-type="boolean">
+                                        value="1">
                                 </div>
                                 <div>
                                     <p class="small-grey">choose max. 3</p>
@@ -134,10 +125,9 @@
                                 </div>
 
                                 <div class="text-align-l tag-latest-work">
-                                    <input id="hideProjectHidden" type="hidden" name="tags[hideProject]" value="false"
-                                        data-value-type="boolean">
+                                    <input id="hideProjectHidden" type="hidden" name="tags[hideProject]" value="0">
                                     <input class="checkbox" type="checkbox" id="hideProject" name="tags[hideProject]"
-                                        value="true" data-value-type="boolean">
+                                        value="1">
                                     <label for="hideProject">Hide Project</label>
                                 </div>
 
@@ -181,4 +171,4 @@
 <script src="/js/cmsApp.js"></script>
 <script src="/js/cmsAddApp.js"></script>
 
-<%- include ('./partials/footer.ejs') %>
+<%- include ('../partials/footer.ejs') %>

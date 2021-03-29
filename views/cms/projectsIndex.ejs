@@ -1,5 +1,5 @@
-<%- include ('./partials/header.ejs') %>
-<%- include('./partials/navbar/cmsNavbar.ejs') %>
+<%- include ('../partials/header.ejs') %>
+<%- include('../partials/navbar/cmsNavbar.ejs') %>
 <link rel="stylesheet" href="/css/cms.css">
 
 <div class="transition-box active"></div>
@@ -26,12 +26,12 @@
 
         <% for(project of projects) {%>
         <section
-            class="project existing-project pos-relative <% if(project.tags.hideProject === true) { %> hidden-project <% } %>">
-            <% if(project.tags.firstProject === true) { %>
+            class="project existing-project pos-relative <% if(project.tags.hideProject === 1) { %> hidden-project <% } %>">
+            <% if(project.tags.firstProject === 1) { %>
             <div class="banner first-project">
                 <p><small>First Project</small></p>
             </div> <% } %>
-            <% if(project.tags.latestWork === true) { %>
+            <% if(project.tags.latestWork === 1) { %>
             <div class="banner latest-work">
                 <p><small>Latest Work</small></p>
             </div> <% } %>
@@ -60,4 +60,4 @@
 
 <script src="/js/cmsApp.js"></script>
 <script src="/js/cmsIndexApp.js"></script>
-<%- include ('./partials/footer.ejs') %>
+<%- include ('../partials/footer.ejs') %>

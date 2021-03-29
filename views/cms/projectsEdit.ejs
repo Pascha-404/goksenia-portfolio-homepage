@@ -1,5 +1,5 @@
-<%- include ('./partials/header.ejs') %>
-<%- include('./partials/navbar/cmsNavbar.ejs') %>
+<%- include ('../partials/header.ejs') %>
+<%- include('../partials/navbar/cmsNavbar.ejs') %>
 <link rel="stylesheet" href="/css/cms.css">
 
 <div class="transition-box active"></div>
@@ -65,11 +65,9 @@
                             <div class="text-align-r tags-specify">
                                 <div>
                                     <label for="firstProject">First Project</label>
-                                    <input id="firstProjectHidden" type="hidden" name="tags[firstProject]" value="false"
-                                        data-value-type="boolean">
+                                    <input id="firstProjectHidden" type="hidden" name="tags[firstProject]" value="0">
                                     <input class="checkbox" id="firstProject" type="checkbox" name="tags[firstProject]"
-                                        value="true" <% if(project.tags.firstProject === true) {%> checked <% } %>
-                                        data-value-type="boolean">
+                                        value="1" <% if(project.tags.firstProject === 1) {%> checked <% } %>>
                                 </div>
                             </div>
                         </div>
@@ -80,11 +78,9 @@
                             </div>
 
                             <div class="text-align-l tag-latest-work">
-                                <input id="latestWorkHidden" type="hidden" name="tags[latestWork]" value="false"
-                                    data-value-type="boolean">
+                                <input id="latestWorkHidden" type="hidden" name="tags[latestWork]" value="0">
                                 <input class="checkbox" type="checkbox" id="latestWork" name="tags[latestWork]"
-                                    value="true" <% if(project.tags.latestWork === true) {%> checked <% } %>
-                                    data-value-type="boolean">
+                                    value="1" <% if(project.tags.latestWork === 1) {%> checked <% } %>>
                                 <label for="latestWork">Latest Work</label>
                             </div>
 
@@ -97,47 +93,37 @@
                             <div class="text-align-r tags-specify">
                                 <div>
                                     <label for="webDesign">Website Design</label>
-                                    <input id="webDesignHidden" type="hidden" name="tags[webDesign]" value="false"
-                                        data-value-type="boolean">
+                                    <input id="webDesignHidden" type="hidden" name="tags[webDesign]" value="0">
                                     <input class="checkbox" id="webDesign" type="checkbox" name="tags[webDesign]"
-                                        value="true" <% if(project.tags.webDesign === true) {%> checked <% } %>
-                                        data-value-type="boolean">
+                                        value="1" <% if(project.tags.webDesign === 1) {%> checked <% } %>>
                                 </div>
 
                                 <div>
                                     <label for="webflow">Webflow Development</label>
-                                    <input id="webflowHidden" type="hidden" name="tags[webflow]" value="false"
-                                        data-value-type="boolean">
-                                    <input class="checkbox" id="webflow" type="checkbox" name="tags[webflow]"
-                                        value="true" <% if(project.tags.webflow === true) {%> checked <% } %>
-                                        data-value-type="boolean">
+                                    <input id="webflowHidden" type="hidden" name="tags[webflow]" value="0">
+                                    <input class="checkbox" id="webflow" type="checkbox" name="tags[webflow]" value="1"
+                                        <% if(project.tags.webflow === 1) {%> checked <% } %>>
                                 </div>
 
                                 <div>
                                     <label for="concept">Concept</label>
-                                    <input id="conceptHidden" type="hidden" name="tags[concept]" value="false"
-                                        data-value-type="boolean">
-                                    <input class="checkbox" id="concept" type="checkbox" name="tags[concept]"
-                                        value="true" <% if(project.tags.concept === true) {%> checked <% } %>
-                                        data-value-type="boolean">
+                                    <input id="conceptHidden" type="hidden" name="tags[concept]" value="0">
+                                    <input class="checkbox" id="concept" type="checkbox" name="tags[concept]" value="1"
+                                        <% if(project.tags.concept === 1) {%> checked <% } %>>
                                 </div>
 
                                 <div>
                                     <label for="appDesign">App Design</label>
-                                    <input id="appDesignHidden" type="hidden" name="tags[appDesign]" value="false"
-                                        data-value-type="boolean">
+                                    <input id="appDesignHidden" type="hidden" name="tags[appDesign]" value="0">
                                     <input class="checkbox" id="appDesign" type="checkbox" name="tags[appDesign]"
-                                        value="true" <% if(project.tags.appDesign === true) {%> checked <% } %>
-                                        data-value-type="boolean">
+                                        value="1" <% if(project.tags.appDesign === 1) {%> checked <% } %>>
                                 </div>
 
                                 <div>
                                     <label for="hackathon">Hackathon</label>
-                                    <input id="hackathonHidden" type="hidden" name="tags[hackathon]" value="false"
-                                        data-value-type="boolean">
+                                    <input id="hackathonHidden" type="hidden" name="tags[hackathon]" value="0">
                                     <input class="checkbox" id="hackathon" type="checkbox" name="tags[hackathon]"
-                                        value="true" <% if(project.tags.hackathon === true) {%> checked <% } %>
-                                        data-value-type="boolean">
+                                        value="1" <% if(project.tags.hackathon === 1) {%> checked <% } %>>
                                 </div>
 
                                 <div>
@@ -151,11 +137,9 @@
                                 </div>
 
                                 <div class="text-align-l tag-latest-work">
-                                    <input id="hideProjectHidden" type="hidden" name="tags[hideProject]" value="false"
-                                        data-value-type="boolean">
+                                    <input id="hideProjectHidden" type="hidden" name="tags[hideProject]" value="0">
                                     <input class="checkbox" type="checkbox" id="hideProject" name="tags[hideProject]"
-                                        value="true" <% if(project.tags.hideProject === true) {%> checked <% } %>
-                                        data-value-type="boolean">
+                                        value="1" <% if(project.tags.hideProject === 1) {%> checked <% } %>>
                                     <label for="hideProject">Hide Project</label>
                                 </div>
 
@@ -203,4 +187,4 @@
 <script src="/js/cmsApp.js"></script>
 <script src="/js/cmsAddApp.js"></script>
 
-<%- include ('./partials/footer.ejs') %>
+<%- include ('../partials/footer.ejs') %>
