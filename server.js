@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
 const port = 8080;
+const path = require('path')
 const methodOverride = require('method-override');
+
 const ExpressError = require('./utilitys/expressError');
 const mongoose = require('mongoose');
 const cmsRoutes = require('./routes/cmsRoutes');
@@ -40,7 +42,6 @@ app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found', 404))
 });
 
-// error handler
 app.use((err, req, res, next) => {
     const {
         statusCode = 500
