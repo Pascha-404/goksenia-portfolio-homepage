@@ -1,5 +1,5 @@
-<%- include ('./partials/header.ejs') %>
-<%- include('./partials/navbar/cmsNavbar.ejs') %>
+<%- include ('../partials/header.ejs') %>
+<%- include('../partials/navbar/cmsNavbar.ejs') %>
 <link rel="stylesheet" href="/css/cms.css">
 
 <div class="transition-box active"></div>
@@ -10,27 +10,25 @@
     <section class="projects-wrap new-form">
 
         <section class="project-add flex-col flex-center">
-            <form action="/projects/<%= project._id %>?_method=PUT" method="POST">
+            <form action="/cms/add" method="POST">
 
-                <h1 id="new-project-title"><%= project.title %></h1>
+                <h1 id="new-project-title">New Project</h1>
 
                 <div class="section-wrap">
                     <h3 class="text-align-l"><span>1.</span>Naming</h3>
                     <section class="title flex-between">
                         <label for="title">Add a title*</label>
-                        <input type="text" id="title" name="title" class="input-txt" value="<%= project.title %>"
-                            required>
+                        <input type="text" id="title" name="title" class="input-txt" required>
                     </section>
 
                     <section class="url-name">
                         <div class="flex-between">
                             <label for="urlName">Add a name for the URL*</label>
-                            <input type="text" id="urlName" name="urlName" class="input-txt"
-                                value="<%= project.urlName %>" required>
+                            <input type="text" id="urlName" name="urlName" class="input-txt" required>
                         </div>
 
                         <p>Your URL will be shown like: <span id="urlPreview"
-                                class="highlight">goksenia.com/project/<%= project.urlName %></span></p>
+                                class="highlight">goksenia.com/project/yourProject</span></p>
                     </section>
                 </div>
 
@@ -41,14 +39,12 @@
                     <section class="description flex-col">
                         <div class="flex-col flex-center">
                             <label for="homeTxt">Add a text for the Homepage*</label>
-                            <textarea name="description[homeTxt]" id="homeTxt"
-                                required><%= project.description.homeTxt %></textarea>
+                            <textarea name="description[homeTxt]" id="homeTxt" required></textarea>
                         </div>
 
                         <div class="flex-col flex-center">
                             <label for="projectTxt">Add a text for the Projectpage*</label>
-                            <textarea name="description[projectTxt]" id="projectTxt"
-                                required> <%= project.description.projectTxt %> </textarea>
+                            <textarea name="description[projectTxt]" id="projectTxt" required></textarea>
                         </div>
                     </section>
                 </div>
@@ -64,82 +60,66 @@
 
                             <div class="text-align-r tags-specify">
                                 <div>
-                                    <label for="firstProject">First Project</label>
-                                    <input id="firstProjectHidden" type="hidden" name="tags[firstProject]" value="false"
-                                        data-value-type="boolean">
+                                    <label for="firstProjectTag">First Project</label>
+                                    <input id="firstProjectHidden" type="hidden" name="tags[firstProject]" value="0">
                                     <input class="checkbox" id="firstProject" type="checkbox" name="tags[firstProject]"
-                                        value="true" <% if(project.tags.firstProject === true) {%> checked <% } %>
-                                        data-value-type="boolean">
+                                        value="1">
+                                </div>
+                                <div>
+                                    <label for="secondProjectTag">Second Project</label>
+                                    <input id="secondProjectHidden" type="hidden" name="tags[secondProject]" value="0">
+                                    <input class="checkbox" id="secondProject" type="checkbox"
+                                        name="tags[secondProject]" value="1">
                                 </div>
                             </div>
                         </div>
+
                         <div class="flex-col flex-center">
                             <div class="pos-relative">
                                 <h4><span class="arrow-left">&#8675;</span> Is it your <span class="highlight">Latest
-                                        Work ?</span></h4>
+                                        Work?</span></h4>
                             </div>
 
                             <div class="text-align-l tag-latest-work">
-                                <input id="latestWorkHidden" type="hidden" name="tags[latestWork]" value="false"
-                                    data-value-type="boolean">
+                                <input id="latestWorkHidden" type="hidden" name="tags[latestWork]" value="0">
                                 <input class="checkbox" type="checkbox" id="latestWork" name="tags[latestWork]"
-                                    value="true" <% if(project.tags.latestWork === true) {%> checked <% } %>
-                                    data-value-type="boolean">
-                                <label for="latestWork">Latest Work</label>
+                                    value="1">
+                                <label for="latestWorkTag">Latest Work</label>
                             </div>
-
                         </div>
                         <div class="flex-col flex-center">
                             <div class="pos-relative">
                                 <h4>Lets specify your Project more <span class="arrow-right">&#8675;</span></h4>
                             </div>
-
                             <div class="text-align-r tags-specify">
                                 <div>
-                                    <label for="webDesign">Website Design</label>
-                                    <input id="webDesignHidden" type="hidden" name="tags[webDesign]" value="false"
-                                        data-value-type="boolean">
+                                    <label for="webDesignTag">Website Design</label>
+                                    <input id="webDesignHidden" type="hidden" name="tags[webDesign]" value="0">
                                     <input class="checkbox" id="webDesign" type="checkbox" name="tags[webDesign]"
-                                        value="true" <% if(project.tags.webDesign === true) {%> checked <% } %>
-                                        data-value-type="boolean">
+                                        value="1">
                                 </div>
-
                                 <div>
-                                    <label for="webflow">Webflow Development</label>
-                                    <input id="webflowHidden" type="hidden" name="tags[webflow]" value="false"
-                                        data-value-type="boolean">
-                                    <input class="checkbox" id="webflow" type="checkbox" name="tags[webflow]"
-                                        value="true" <% if(project.tags.webflow === true) {%> checked <% } %>
-                                        data-value-type="boolean">
+                                    <label for="webflowTag">Webflow Development</label>
+                                    <input id="webflowHidden" type="hidden" name="tags[webflow]" value="0">
+                                    <input class="checkbox" id="webflow" type="checkbox" name="tags[webflow]" value="1">
                                 </div>
-
                                 <div>
-                                    <label for="concept">Concept</label>
-                                    <input id="conceptHidden" type="hidden" name="tags[concept]" value="false"
-                                        data-value-type="boolean">
-                                    <input class="checkbox" id="concept" type="checkbox" name="tags[concept]"
-                                        value="true" <% if(project.tags.concept === true) {%> checked <% } %>
-                                        data-value-type="boolean">
+                                    <label for="conceptTag">Concept</label>
+                                    <input id="conceptHidden" type="hidden" name="tags[concept]" value="0">
+                                    <input class="checkbox" id="concept" type="checkbox" name="tags[concept]" value="1">
                                 </div>
-
                                 <div>
-                                    <label for="appDesign">App Design</label>
-                                    <input id="appDesignHidden" type="hidden" name="tags[appDesign]" value="false"
-                                        data-value-type="boolean">
+                                    <label for="appDesignTag">App Design</label>
+                                    <input id="appDesignHidden" type="hidden" name="tags[appDesign]" value="0">
                                     <input class="checkbox" id="appDesign" type="checkbox" name="tags[appDesign]"
-                                        value="true" <% if(project.tags.appDesign === true) {%> checked <% } %>
-                                        data-value-type="boolean">
+                                        value="1">
                                 </div>
-
                                 <div>
-                                    <label for="hackathon">Hackathon</label>
-                                    <input id="hackathonHidden" type="hidden" name="tags[hackathon]" value="false"
-                                        data-value-type="boolean">
+                                    <label for="hackathonTag">Hackathon</label>
+                                    <input id="hackathonHidden" type="hidden" name="tags[hackathon]" value="0">
                                     <input class="checkbox" id="hackathon" type="checkbox" name="tags[hackathon]"
-                                        value="true" <% if(project.tags.hackathon === true) {%> checked <% } %>
-                                        data-value-type="boolean">
+                                        value="1">
                                 </div>
-
                                 <div>
                                     <p class="small-grey">choose max. 3</p>
                                 </div>
@@ -151,11 +131,9 @@
                                 </div>
 
                                 <div class="text-align-l tag-latest-work">
-                                    <input id="hideProjectHidden" type="hidden" name="tags[hideProject]" value="false"
-                                        data-value-type="boolean">
+                                    <input id="hideProjectHidden" type="hidden" name="tags[hideProject]" value="0">
                                     <input class="checkbox" type="checkbox" id="hideProject" name="tags[hideProject]"
-                                        value="true" <% if(project.tags.hideProject === true) {%> checked <% } %>
-                                        data-value-type="boolean">
+                                        value="1">
                                     <label for="hideProject">Hide Project</label>
                                 </div>
 
@@ -186,21 +164,17 @@
                     <h3 class="text-align-l"><span>5.</span>Link to Preview</h3>
                     <section class="previewLink flex-between">
                         <label for="previewLink">Add a link to the preview</label>
-                        <input type="url" name="previewLink" id="previewLink" class="input-txt"
-                            value="<%= project.previewLink %> ">
+                        <input type="url" name="previewLink" id="previewLink" class="input-txt">
                     </section>
                 </div>
 
-                <button class="create-btn">Save</button>
+                <button class="create-btn">Submit Project
+                </button>
             </form>
-
-            <form onsubmit="return confirm('Are you sure you want to delete this Project?')" class="delete-form"
-                action="/projects/<%= project._id %>?_method=DELETE" method="POST"><button class="delete-btn">Delete
-                    Project</button></form>
         </section>
 </main>
 
 <script src="/js/cmsApp.js"></script>
 <script src="/js/cmsAddApp.js"></script>
 
-<%- include ('./partials/footer.ejs') %>
+<%- include ('../partials/footer.ejs') %>

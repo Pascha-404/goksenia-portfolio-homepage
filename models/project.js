@@ -25,31 +25,31 @@ const projectSchema = new mongoose.Schema({
     },
     tags: {
         firstProject: {
-            type: Boolean
+            type: Number
         },
         secondProject: {
-            type: Boolean
+            type: Number
         },
         latestWork: {
-            type: Boolean
+            type: Number
         },
         webDesign: {
-            type: Boolean
+            type: Number
         },
         webflow: {
-            type: Boolean
+            type: Number
         },
         concept: {
-            type: Boolean
+            type: Number
         },
         appDesign: {
-            type: Boolean
+            type: Number
         },
         hackathon: {
-            type: Boolean
+            type: Number
         },
         hideProject: {
-            type: Boolean
+            type: Number
         }
     },
     images: {
