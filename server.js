@@ -3,13 +3,13 @@ const app = express();
 const port = 8080;
 const path = require('path')
 const methodOverride = require('method-override');
-const {
-    projectSchema
-} = require('./schemas/projectSchema');
+
 const catchAsync = require('./utilitys/catchAsync');
 const ExpressError = require('./utilitys/expressError');
 const Project = require('./models/project');
 const mongoose = require('mongoose');
+const cmsRoutes = require('./routes/cmsRoutes');
+const validateProject = require('./utilitys/validateProject')
 
 // connects database with app //
 mongoose.connect('mongodb://localhost/goksenia', {
@@ -34,18 +34,7 @@ app.use(methodOverride('_method'));
 
 app.use(express.static('public'));
 
-const validateProject = (req, res, next) => {
-    const {
-        error
-    } = projectSchema.validate(req.body);
-    if (error) {
-        const msg = error.details.map(el => el.message).join(',')
-        throw new ExpressError(msg, 400)
-    } else {
-        next();
-    }
-}
-
+app.use('/projects', cmsRoutes)
 
 // route for mainpage
 app.get('/', catchAsync(async (req, res) => {
@@ -118,59 +107,7 @@ app.get('/project/:urlName', catchAsync(async (req, res) => {
 }));
 
 
-// // route for cms index/dashboard page
-// app.get('/projects/index', catchAsync(async (req, res) => {
-//     const projects = await Project.find({});
-//     res.render('projectsIndex', {
-//         projects
-//     });
-// }));
 
-// // route for add-page of new projects
-// app.get('/projects/add', (req, res) => {
-//     res.render('projectsAdd');
-// })
-
-// // route for editing existing projects
-// app.get('/projects/:id/edit', catchAsync(async (req, res) => {
-//     const {
-//         id
-//     } = req.params;
-//     const project = await Project.findById(id);
-//     res.render('projectsEdit', {
-//         project
-//     })
-// }));
-
-// // update route for projects
-// app.put('/projects/:id', validateProject, catchAsync(async (req, res) => {
-//     const {
-//         id
-//     } = req.params;
-//     const project = await Project.findByIdAndUpdate(id, {
-//         ...req.body
-//     }, {
-//         new: true
-//     });
-//     console.log(req.body);
-//     res.redirect('/projects/index');
-// }))
-
-// // delete route for projects
-// app.delete('/projects/:id', catchAsync(async (req, res) => {
-//     const {
-//         id
-//     } = req.params;
-//     await Project.findByIdAndDelete(id);
-//     res.redirect('/projects/index')
-// }));
-
-// // route for posting new project
-// app.post('/projects/add', validateProject, catchAsync(async (req, res) => {
-//     const project = new Project(req.body);
-//     await project.save();
-//     res.redirect('/projects/index');
-// }))
 
 
 // 404 route
