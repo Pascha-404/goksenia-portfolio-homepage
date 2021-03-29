@@ -85,6 +85,15 @@ h2 {
     color: #fff;
 }
 
+.existing-project .banner.second-project {
+    background-color: rgb(255, 153, 0);
+    left: -4rem;
+    color: #fff;
+    width: 17rem;
+    top: 6.2rem;
+
+}
+
 .existing-project .banner.latest-work {
     right: -4rem;
     left: auto;

@@ -69,6 +69,14 @@
                                     <input class="checkbox" id="firstProject" type="checkbox" name="tags[firstProject]"
                                         value="1" <% if(project.tags.firstProject === 1) {%> checked <% } %>>
                                 </div>
+
+                                <div>
+                                    <label for="secondProjectTag">Second Project</label>
+                                    <input id="secondProjectHidden" type="hidden" name="tags[secondProject]" value="0">
+                                    <input class="checkbox" id="secondProject" type="checkbox"
+                                        name="tags[secondProject]" value="1" <% if(project.tags.secondProject === 1) {%>
+                                        checked <% } %>>
+                                </div>
                             </div>
                         </div>
                         <div class="flex-col flex-center">

@@ -15,6 +15,7 @@ module.exports.projectSchema = Joi.object({
 
     tags: {
         firstProject: Joi.number().min(0).max(1),
+        secondProject: Joi.number().min(0).max(1),
         latestWork: Joi.number().min(0).max(1),
         webDesign: Joi.number().min(0).max(1),
         webflow: Joi.number().min(0).max(1),
