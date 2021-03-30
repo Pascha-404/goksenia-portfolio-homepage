@@ -3,11 +3,11 @@ const app = express();
 const port = 8080;
 const path = require('path')
 const methodOverride = require('method-override');
-
 const ExpressError = require('./utilitys/expressError');
 const mongoose = require('mongoose');
 const cmsRoutes = require('./routes/cmsRoutes');
 const publicRoutes = require('./routes/publicRoutes')
+const robots = require('express-robots-txt')
 
 // connects database with app //
 mongoose.connect('mongodb://localhost/goksenia', {
@@ -30,6 +30,12 @@ app.use(express.urlencoded({
 
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
+
+// routing for robots.txt
+app.use(robots({
+    UserAgent: '*',
+    Disallow: '/cms'
+}))
 
 // routing for cms
 app.use('/cms', cmsRoutes);
