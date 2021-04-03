@@ -27,18 +27,9 @@
         <% for(project of projects) {%>
         <section
             class="project existing-project pos-relative <% if(project.tags.hideProject === 1) { %> hidden-project <% } %>">
-            <% if(project.tags.firstProject === 1) { %>
-            <div class="banner first-project">
-                <p><small>First Project</small></p>
-            </div> <% } %>
-            <% if(project.tags.secondProject === 1) { %>
-            <div class="banner second-project">
-                <p><small>Second Project</small></p>
-            </div> <% } %>
-            <% if(project.tags.latestWork === 1) { %>
-            <div class="banner latest-work">
-                <p><small>Latest Work</small></p>
-            </div> <% } %>
+
+            <%- include ('../partials/banners.ejs') %>
+
             <section>
                 <h2><%= project.title %> </h2>
                 <div class="btn-wrap--cms">
