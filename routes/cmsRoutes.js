@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
+
 const catchAsync = require('../utilitys/catchAsync')
 const validateProject = require('../utilitys/validateProject')
+
 const Project = require('../models/project');
 
 
@@ -55,6 +57,7 @@ router.delete('/:id', catchAsync(async (req, res) => {
 router.post('/add', validateProject, catchAsync(async (req, res) => {
     const project = new Project(req.body);
     await project.save();
+    req.flash('success', `Succesfully created ${project.title}!`)
     res.redirect('/cms/index');
 }))
 
