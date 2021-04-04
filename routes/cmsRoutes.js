@@ -28,7 +28,7 @@ router.get('/:id/edit', catchAsync(async (req, res) => {
     const project = await Project.findById(id);
     res.render('./cms/projectsEdit', {
         project
-    })
+    });
 }));
 
 // update route for projects
@@ -41,6 +41,7 @@ router.put('/:id', validateProject, catchAsync(async (req, res) => {
     }, {
         new: true
     });
+    req.flash('success', `Succesfully edited "${project.title}"`)
     res.redirect('/cms/index');
 }))
 
@@ -49,7 +50,8 @@ router.delete('/:id', catchAsync(async (req, res) => {
     const {
         id
     } = req.params;
-    await Project.findByIdAndDelete(id);
+    const project = await Project.findByIdAndDelete(id);
+    req.flash('success', `Succesfully deleted "${project.title}"`)
     res.redirect('/cms/index')
 }));
 
@@ -57,7 +59,7 @@ router.delete('/:id', catchAsync(async (req, res) => {
 router.post('/add', validateProject, catchAsync(async (req, res) => {
     const project = new Project(req.body);
     await project.save();
-    req.flash('success', `Succesfully created ${project.title}!`)
+    req.flash('success', `Succesfully created "${project.title}"!`)
     res.redirect('/cms/index');
 }))
 
