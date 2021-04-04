@@ -2,6 +2,18 @@ const title = document.querySelector('#new-project-title');
 const titleInput = document.querySelector('#title');
 const urlInput = document.querySelector('#urlName');
 const urlPreview = document.querySelector('#urlPreview');
+const projectsForm = document.querySelector('.project-form')
+
+// moves content in page
+const timeDelay = 100;
+
+function moveInForm() {
+    setTimeout(() => {
+        projectsForm.classList.add('active')
+    }, timeDelay)
+}
+
+moveInForm()
 
 // changes the title to the new project title
 titleInput.addEventListener('input', () => {
