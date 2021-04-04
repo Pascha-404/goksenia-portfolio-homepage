@@ -57,3 +57,54 @@ function fadeProjectsIn() {
 }
 
 let interval = setInterval(fadeProjectsIn, fadeTime)
+
+
+// animation for project cards on click at editBtn//
+const editAnchor = document.querySelectorAll('.edit-anchor');
+const editBtn = document.querySelectorAll('.edit-btn')
+//delay till changing to page
+const delay = 200;
+
+//prevents default behaviour for anchor links
+editAnchor.forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+        e.preventDefault()
+    })
+})
+
+//adds active class to project(starts animation)
+function addActive(project) {
+    project.classList.add('active');
+}
+
+//changes browser location
+function locationChange(href) {
+    location.href = `${href}`
+}
+
+// combines upper functions and adds delay for page-change
+//adds clickEvent to element
+function clickEventAndGo(clickElement, href, project) {
+
+    clickElement.addEventListener('click', () => {
+        addActive(project);
+        setTimeout(() => {
+            locationChange(href)
+        }, delay)
+    })
+}
+
+//adds clickEvent to the editBtn for each project
+// connects the buttons to the right project by i
+//takes href from anchor element to go to the right project
+function addClickEvent(btnArray) {
+    let i = 0;
+    for (btn of btnArray) {
+        i++;
+        const project = document.querySelector(`.project-${i}`);
+        const href = document.querySelector(`.a-project-${i}`);
+        clickEventAndGo(btn, href, project)
+    }
+}
+
+addClickEvent(editBtn);
