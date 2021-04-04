@@ -24,17 +24,20 @@
             </div>
         </section>
 
-        <% for(project of projects) {%>
+        <% let i = 0 %>
+        <% for(project of projects) {
+            i += 1 %>
+
         <section
-            class="project existing-project pos-relative <% if(project.tags.hideProject === 1) { %> hidden-project <% } %>">
+            class="project existing-project project-<%= i %> pos-relative <% if(project.tags.hideProject === 1) { %> hidden-project <% } %>">
 
             <%- include ('../partials/banners.ejs') %>
 
             <section>
                 <h2><%= project.title %> </h2>
                 <div class="btn-wrap--cms">
-                    <a href="/cms/<%= project._id %>/edit"><button class="btn"><img src="/icons/edit.svg"
-                                alt="edit"></button></a>
+                    <a class="edit-anchor a-project-<%= i %>" href="/cms/<%= project._id %>/edit"><button
+                            class="btn edit-btn"><img src="/icons/edit.svg" alt="edit"></button></a>
                     <form onsubmit="return confirm('Are you sure you want to delete this Project?')"
                         action="/cms/<%= project._id %>?_method=DELETE" method="POST"><button class="btn"><img
                                 src="/icons/rubbish-bin.svg" alt="bin"></button></form>
