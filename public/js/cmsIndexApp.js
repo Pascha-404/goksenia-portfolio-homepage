@@ -43,7 +43,7 @@ const projects = document.querySelectorAll('.project')
 let fade = 0;
 
 // fadeTime in ms (interval each X ms)
-const fadeTime = 15;
+const fadeTime = 18;
 
 function fadeProjectsIn() {
     fade += 1;

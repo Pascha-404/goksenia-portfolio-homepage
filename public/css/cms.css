@@ -110,6 +110,7 @@ section.project {
         20px 20px 60px #ffffff;
     transition: transform 600ms ease;
     overflow: hidden;
+    opacity: 0;
 }
 
 section.project figure img {
