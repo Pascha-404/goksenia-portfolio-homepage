@@ -26,6 +26,10 @@ router.get('/:id/edit', catchAsync(async (req, res) => {
         id
     } = req.params;
     const project = await Project.findById(id);
+    if (!project) {
+        req.flash('error', 'Unable to find Project')
+        res.redirect('/cms/index')
+    }
     res.render('./cms/projectsEdit', {
         project
     });

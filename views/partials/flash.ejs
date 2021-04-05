@@ -5,3 +5,11 @@
     <button class="close-flash">&#10005;</button>
 </section>
 <% } %>
+
+<% if(error && error.length) {%>
+<section class="flash-message error">
+    <p><%= error %></p>
+
+    <button class="close-flash">&#10005;</button>
+</section>
+<% } %>

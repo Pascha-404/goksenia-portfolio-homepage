@@ -48,6 +48,10 @@ h2 {
     font-size: 1.25rem;
 }
 
+.flash-message.error {
+    background-color: rgba(255, 110, 110, 0.76);
+}
+
 .close-flash {
     position: absolute;
     right: 1rem;
