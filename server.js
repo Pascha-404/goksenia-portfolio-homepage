@@ -5,6 +5,9 @@ const path = require('path')
 const mongoose = require('mongoose');
 const session = require('express-session');
 const flash = require('connect-flash')
+const passport = require('passport');
+const LocalStategy = require('passport-local');
+const User = require('./models/user')
 
 const methodOverride = require('method-override');
 const ExpressError = require('./utilitys/expressError');
@@ -12,6 +15,7 @@ const robots = require('express-robots-txt');
 
 const cmsRoutes = require('./routes/cmsRoutes');
 const publicRoutes = require('./routes/publicRoutes')
+const authenticateRoutes = require('./routes/authenticateRoutes')
 
 
 // connects database with app //
@@ -50,6 +54,12 @@ const sessionConfig = {
 
 app.use(session(sessionConfig));
 
+// passport setup for login //
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStategy(User.authenticate()))
+
+// setup for flash messages //
 app.use(flash());
 
 app.use((req, res, next) => {
@@ -63,6 +73,9 @@ app.use(robots({
     UserAgent: '*',
     Disallow: '/cms'
 }))
+
+// routing for login
+app.use('/', authenticateRoutes)
 
 // routing for cms
 app.use('/cms', cmsRoutes);
