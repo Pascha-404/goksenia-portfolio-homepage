@@ -59,10 +59,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStategy(User.authenticate()))
 
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 // setup for flash messages //
 app.use(flash());
 
 app.use((req, res, next) => {
+    res.locals.currentUser = req.user;
+    res.locals.welcome = req.flash('welcome')
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error')
     next();
