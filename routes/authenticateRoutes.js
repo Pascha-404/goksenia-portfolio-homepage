@@ -17,6 +17,7 @@ router.post('/login', passport.authenticate('local', {
     const returnTo = req.session.returnTo || 'cms/index'
     req.flash('welcome', `Welcome`)
     res.redirect(returnTo)
+    delete req.session.returnTo
 });
 
 router.get('/register', (req, res) => {
