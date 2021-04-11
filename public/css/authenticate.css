@@ -22,7 +22,7 @@ h1 {
 }
 
 .authenticate {
-    width: 40%;
+    width: 30rem;
     background: linear-gradient(315deg, #cacaca, #f0f0f0);
     box-shadow: -20px -20px 60px #bebebe,
         20px 20px 60px #ffffff;
@@ -55,6 +55,10 @@ h1 {
 .email {
     max-width: 19rem;
     margin: 0.7rem auto;
+}
+
+.changePassword .password label {
+    width: 10rem;
 }
 
 .section-wrap {
