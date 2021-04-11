@@ -47,11 +47,38 @@
     color: #000;
 }
 
-#account-settings {
+#acc-settings-btn {
     width: 2rem;
     position: absolute;
     right: 2.5rem;
-    top: 1rem
+    top: 1rem;
+    border-radius: 50%;
+    transform: background-color 600ms ease;
+    background-color: transparent;
+}
+
+.acc-settings-menu {
+    background-color: #fff;
+    padding: 0.5rem 1rem;
+    position: absolute;
+    right: 1rem;
+    top: 7rem;
+    border-radius: 3px;
+    font-size: 1.125rem;
+    transform: translateX(400%);
+    transition: transform 300ms ease;
+}
+
+.acc-settings-menu a {
+    padding: 0.2rem 0.5rem;
+}
+
+.acc-settings-menu.active {
+    transform: translateX(0);
+}
+
+#acc-settings-btn.active {
+    background-color: var(--color-highlight);
 }
 
 .navbar ul li button {
