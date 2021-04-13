@@ -21,11 +21,24 @@ router.post('/login', passport.authenticate('local', {
     delete req.session.returnTo;
 });
 
-router.get('/register', (req, res) => {
+router.get('/register', catchAsync(async (req, res) => {
+    const user = await User.find({});
+    if (user && user.length) {
+        console.log(user)
+        req.flash('error', 'You can not register!')
+        return res.redirect('/login')
+    }
+    console.log(user)
     res.render('./cms/register')
-});
+}));
 
 router.post('/register', catchAsync(async (req, res) => {
+    const user = await User.find({});
+    if (user && user.length) {
+        console.log(user)
+        req.flash('error', 'You can not register!')
+        return res.redirect('/login')
+    }
     try {
         const {
             username,
@@ -43,7 +56,6 @@ router.post('/register', catchAsync(async (req, res) => {
             }
         })
         req.flash('success', 'Welcome to the CMS-Area');
-        console.log(registeredUser);
         res.redirect('/cms/index');
 
     } catch (e) {
@@ -77,7 +89,7 @@ router.put('/changePassword/:user', isLoggedIn, catchAsync(async (req, res) => {
         req.flash('error', '2. and 3. must be the same')
         return res.redirect('/changePassword')
     }
-    User.findById(userId)
+    await User.findById(userId)
         .then(user => {
             user.changePassword(oldPw, newPw)
                 .then(() => {
