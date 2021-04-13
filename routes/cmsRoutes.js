@@ -7,7 +7,6 @@ const isLoggedIn = require('../utilitys/isLoggedIn')
 
 const Project = require('../models/project');
 
-
 // route for cms index/dashboard page
 router.get('/index', isLoggedIn, catchAsync(async (req, res) => {
     const projects = await Project.find({});

@@ -72,13 +72,29 @@ router.put('/changePassword/:user', isLoggedIn, catchAsync(async (req, res) => {
         newPw,
         validatePw
     } = req.body;
+    const userId = req.user._id;
     if (newPw !== validatePw) {
         req.flash('error', '2. and 3. must be the same')
         return res.redirect('/changePassword')
     }
-    User.changePassword(oldPw, newPw)
-    req.flash('success', 'Changed Password');
-    res.redirect('/cms/index')
+    User.findById(userId)
+        .then(user => {
+            user.changePassword(oldPw, newPw)
+                .then(() => {
+                    req.flash('success', 'Changed Password!');
+                    res.redirect('/cms/index');
+                })
+                .catch((e) => {
+                    req.flash('error', e.message);
+                    console.log(e);
+                    res.redirect('/changePassword');
+                })
+        })
+        .catch((e) => {
+            req.flash('error', e.message);
+            console.log(e);
+            res.redirect('/changePassword');
+        })
 }))
 
 module.exports = router;
