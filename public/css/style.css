@@ -368,6 +368,7 @@ section.about {
 /*------------- Footer styling -------------*/
 footer {
     height: 23.125rem;
+    width: 100%;
 }
 
 footer>div h2 {

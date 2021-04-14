@@ -2,13 +2,6 @@ footer#contact {
     display: none;
 }
 
-div.bg-accent {
-    width: 96.5vw;
-    height: 95vh;
-    position: absolute;
-    z-index: -1;
-}
-
 section.projects-wrap {
     min-width: 100vw;
     min-height: 100vh;
@@ -18,7 +11,7 @@ section.projects-wrap {
 }
 
 div.bg-accent {
-    width: 96.5vw;
+    width: 96.11vw;
     height: 95vh;
     position: absolute;
     z-index: -1;

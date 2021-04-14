@@ -1,4 +1,6 @@
 section.authenticate-wrap {
+    width: 100vw;
+    min-height: 100vh;
     margin: 0 auto;
     text-align: center;
     padding-left: 0;
@@ -28,6 +30,10 @@ h1 {
     margin: 7rem auto 7rem auto;
     padding: 1rem;
     font-size: 0.9rem;
+}
+
+.changePassword-wrap {
+    margin-bottom: 0;
 }
 
 .authenticate form {
