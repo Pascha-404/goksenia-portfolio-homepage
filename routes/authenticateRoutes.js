@@ -3,7 +3,10 @@ const router = express.Router();
 const passport = require('passport')
 
 const catchAsync = require('../utilitys/catchAsync');
-const isLoggedIn = require('../utilitys/isLoggedIn')
+const {
+    isLoggedIn,
+    hasPermission
+} = require('../middleware')
 
 const User = require('../models/user');
 
@@ -23,19 +26,16 @@ router.post('/login', passport.authenticate('local', {
 
 router.get('/register', catchAsync(async (req, res) => {
     const user = await User.find({});
-    if (user && user.length) {
-        console.log(user)
+    if (user.length >= 2) {
         req.flash('error', 'You can not register!')
         return res.redirect('/login')
     }
-    console.log(user)
-    res.render('./cms/register')
+    res.render('./cms/register');
 }));
 
 router.post('/register', catchAsync(async (req, res) => {
     const user = await User.find({});
-    if (user && user.length) {
-        console.log(user)
+    if (user.length >= 2) {
         req.flash('error', 'You can not register!')
         return res.redirect('/login')
     }
@@ -74,11 +74,11 @@ router.get('/logout', (req, res) => {
     res.redirect('/')
 })
 
-router.get('/changePassword', isLoggedIn, (req, res) => {
+router.get('/changePassword', isLoggedIn, hasPermission, (req, res) => {
     res.render('./cms/changePassword')
 })
 
-router.put('/changePassword/:user', isLoggedIn, catchAsync(async (req, res) => {
+router.put('/changePassword/:user', isLoggedIn, hasPermission, catchAsync(async (req, res) => {
     const {
         oldPw,
         newPw,
