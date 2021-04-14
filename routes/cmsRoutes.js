@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 
 const catchAsync = require('../utilitys/catchAsync')
-const validateProject = require('../utilitys/validateProject')
 const {
     isLoggedIn,
-    hasPermission
+    hasPermission,
+    validateProject
 } = require('../middleware')
 
 const Project = require('../models/project');

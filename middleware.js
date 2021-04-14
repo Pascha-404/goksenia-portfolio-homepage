@@ -1,4 +1,8 @@
 const User = require('./models/user')
+const {
+    projectSchema
+} = require('./schemas/projectSchema');
+const ExpressError = require('./utilitys/expressError');
 
 module.exports.isLoggedIn = (req, res, next) => {
     if (!req.isAuthenticated()) {
@@ -19,3 +23,15 @@ module.exports.hasPermission = async (req, res, next) => {
         res.redirect('/cms/index')
     }
 };
+
+module.exports.validateProject = (req, res, next) => {
+    const {
+        error
+    } = projectSchema.validate(req.body);
+    if (error) {
+        const msg = error.details.map(el => el.message).join(',')
+        throw new ExpressError(msg, 400)
+    } else {
+        next();
+    }
+}
