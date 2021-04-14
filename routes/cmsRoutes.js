@@ -3,7 +3,10 @@ const router = express.Router();
 
 const catchAsync = require('../utilitys/catchAsync')
 const validateProject = require('../utilitys/validateProject')
-const isLoggedIn = require('../utilitys/isLoggedIn')
+const {
+    isLoggedIn,
+    hasPermission
+} = require('../middleware')
 
 const Project = require('../models/project');
 
@@ -36,7 +39,7 @@ router.get('/:id/edit', isLoggedIn, catchAsync(async (req, res) => {
 }));
 
 // update route for projects
-router.put('/:id', validateProject, isLoggedIn, catchAsync(async (req, res) => {
+router.put('/:id', validateProject, isLoggedIn, hasPermission, catchAsync(async (req, res) => {
     const {
         id
     } = req.params;
@@ -50,7 +53,7 @@ router.put('/:id', validateProject, isLoggedIn, catchAsync(async (req, res) => {
 }))
 
 // delete route for projects
-router.delete('/:id', isLoggedIn, catchAsync(async (req, res) => {
+router.delete('/:id', isLoggedIn, hasPermission, catchAsync(async (req, res) => {
     const {
         id
     } = req.params;
@@ -60,7 +63,7 @@ router.delete('/:id', isLoggedIn, catchAsync(async (req, res) => {
 }));
 
 // route for posting new project
-router.post('/add', validateProject, isLoggedIn, catchAsync(async (req, res) => {
+router.post('/add', validateProject, isLoggedIn, hasPermission, catchAsync(async (req, res) => {
     const project = new Project(req.body);
     await project.save();
     req.flash('success', `Succesfully created "${project.title}"!`)
