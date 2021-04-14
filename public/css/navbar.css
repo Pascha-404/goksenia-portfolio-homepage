@@ -114,8 +114,8 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    bottom: -190%;
-    left: -45%;
+    top: 6rem;
+    right: -6rem;
     width: 155px;
     height: 80px;
     background-color: #fff;
@@ -128,6 +128,11 @@
 .menu-small li {
     padding-left: 1rem;
     padding-top: 0.8rem;
+}
+
+.menu-small.cms-burger {
+    right: -3rem;
+    height: 140px;
 }
 
 .menu-small.active {

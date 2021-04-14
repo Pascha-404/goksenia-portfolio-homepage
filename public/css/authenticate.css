@@ -1,5 +1,4 @@
 section.authenticate-wrap {
-    min-width: 100vw;
     margin: 0 auto;
     text-align: center;
     padding-left: 0;
@@ -33,6 +32,7 @@ h1 {
 
 .authenticate form {
     width: 100%;
+    margin: 0 auto;
 }
 
 .authenticate form h1 {
@@ -74,4 +74,12 @@ h1 {
     margin: 2.5rem auto 1.5rem auto;
     padding: 0.8rem 2rem;
     font-size: 1.25rem;
+}
+
+@media screen and (max-width: 430px) {
+
+    .authenticate {
+        width: 92%;
+        margin: 13rem auto 15rem auto;
+    }
 }
