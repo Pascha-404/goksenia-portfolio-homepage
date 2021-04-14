@@ -95,3 +95,8 @@ if (document.querySelector('.flash-message')) {
         flashElement.remove()
     })
 };
+
+if (document.querySelector('.changePassword')) {
+    const footer = document.querySelector('.footer')
+    footer.style.display = "none";
+}
