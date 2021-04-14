@@ -85,3 +85,18 @@ closeBox.forEach(btn => {
         console.log('worked')
     })
 })
+
+// checks if flash-message and creates clickEvent for removing it
+if (document.querySelector('.flash-message')) {
+    const flashElement = document.querySelector('.flash-message');
+    const closeFlash = document.querySelector('.close-flash');
+
+    closeFlash.addEventListener('click', () => {
+        flashElement.remove()
+    })
+};
+
+if (document.querySelector('.changePassword')) {
+    const footer = document.querySelector('.footer')
+    footer.style.display = "none";
+}

@@ -60,7 +60,7 @@ navbar.addEventListener('click', () => {
 });
 
 
-window.addEventListener('wheel', (event) => {
+window.addEventListener('scroll', (event) => {
     scrollHide()
 });
 

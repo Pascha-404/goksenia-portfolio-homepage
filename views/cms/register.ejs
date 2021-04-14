@@ -1,0 +1,42 @@
+<%- include ('../partials/header.ejs') %>
+<%- include('../partials/navbar/defaultNavbar.ejs') %>
+<link rel="stylesheet" href="/css/authenticate.css">
+
+<main class="content-wrap">
+
+    <div class="bg-accent"></div>
+
+    <section class="authenticate-wrap project-form">
+
+        <section class="authenticate">
+            <form action="/register" method="POST">
+
+                <h1>Register for CMS</h1>
+
+                <%- include('../partials/flash.ejs') %>
+
+                <div class="section-wrap">
+                    <section class="username flex-between">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" class="input-txt" required>
+                    </section>
+
+                    <section class="email flex-between">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="input-txt" required>
+                    </section>
+
+                    <section class="password flex-between">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" class="input-txt" required>
+                    </section>
+                </div>
+
+                <button class="submit-btn">Submit</button>
+            </form>
+        </section>
+    </section>
+</main>
+
+
+<%- include ('../partials/footer.ejs') %>

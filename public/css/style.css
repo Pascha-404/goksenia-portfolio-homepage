@@ -128,11 +128,13 @@ footer {
 }
 
 .flex-center {
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .flex-around {
+    display: flex;
     justify-content: space-around;
 }
 
@@ -366,6 +368,7 @@ section.about {
 /*------------- Footer styling -------------*/
 footer {
     height: 23.125rem;
+    width: 100%;
 }
 
 footer>div h2 {
@@ -410,7 +413,8 @@ footer p {
     right: 3.7em;
 }
 
-.data-infos a:nth-of-type(1) {
+.data-infos a:nth-of-type(1),
+.data-infos a:nth-of-type(2) {
     margin-right: 2rem;
 }
 

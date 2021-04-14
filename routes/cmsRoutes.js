@@ -2,13 +2,16 @@ const express = require('express');
 const router = express.Router();
 
 const catchAsync = require('../utilitys/catchAsync')
-const validateProject = require('../utilitys/validateProject')
+const {
+    isLoggedIn,
+    hasPermission,
+    validateProject
+} = require('../middleware')
 
 const Project = require('../models/project');
 
-
 // route for cms index/dashboard page
-router.get('/index', catchAsync(async (req, res) => {
+router.get('/index', isLoggedIn, catchAsync(async (req, res) => {
     const projects = await Project.find({});
     res.render('./cms/projectsIndex', {
         projects
@@ -16,12 +19,12 @@ router.get('/index', catchAsync(async (req, res) => {
 }));
 
 // route for add-page of new projects
-router.get('/add', (req, res) => {
+router.get('/add', isLoggedIn, (req, res) => {
     res.render('./cms/projectsAdd');
 })
 
 // route for editing existing projects
-router.get('/:id/edit', catchAsync(async (req, res) => {
+router.get('/:id/edit', isLoggedIn, catchAsync(async (req, res) => {
     const {
         id
     } = req.params;
@@ -36,7 +39,7 @@ router.get('/:id/edit', catchAsync(async (req, res) => {
 }));
 
 // update route for projects
-router.put('/:id', validateProject, catchAsync(async (req, res) => {
+router.put('/:id', validateProject, isLoggedIn, hasPermission, catchAsync(async (req, res) => {
     const {
         id
     } = req.params;
@@ -50,7 +53,7 @@ router.put('/:id', validateProject, catchAsync(async (req, res) => {
 }))
 
 // delete route for projects
-router.delete('/:id', catchAsync(async (req, res) => {
+router.delete('/:id', isLoggedIn, hasPermission, catchAsync(async (req, res) => {
     const {
         id
     } = req.params;
@@ -60,7 +63,7 @@ router.delete('/:id', catchAsync(async (req, res) => {
 }));
 
 // route for posting new project
-router.post('/add', validateProject, catchAsync(async (req, res) => {
+router.post('/add', validateProject, isLoggedIn, hasPermission, catchAsync(async (req, res) => {
     const project = new Project(req.body);
     await project.save();
     req.flash('success', `Succesfully created "${project.title}"!`)

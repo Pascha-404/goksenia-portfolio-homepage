@@ -2,7 +2,7 @@
 <section class="flash-message">
     <p><%= success %></p>
 
-    <button class="close-flash">&#10005;</button>
+    <p class="close-flash">&#10005;</p>
 </section>
 <% } %>
 
@@ -10,6 +10,14 @@
 <section class="flash-message error">
     <p><%= error %></p>
 
-    <button class="close-flash">&#10005;</button>
+    <p class="close-flash">&#10005;</p>
+</section>
+<% } %>
+
+<% if(welcome && welcome.length) {%>
+<section class="flash-message welcome">
+    <p><%= welcome %> <%= currentUser.username %>!</p>
+
+    <p class="close-flash">&#10005;</p>
 </section>
 <% } %>

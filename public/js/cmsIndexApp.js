@@ -28,16 +28,6 @@ addProjectBtn.addEventListener('click', () => {
 
 });
 
-// checks if flash-message and creates clickEvent for removing it
-if (document.querySelector('.flash-message')) {
-    const flashElement = document.querySelector('.flash-message');
-    const closeFlash = document.querySelector('.close-flash');
-
-    closeFlash.addEventListener('click', () => {
-        flashElement.remove()
-    })
-};
-
 // fades in the projects //
 const projects = document.querySelectorAll('.project')
 let fade = 0;
