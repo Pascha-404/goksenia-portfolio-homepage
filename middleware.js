@@ -19,7 +19,7 @@ module.exports.hasPermission = async (req, res, next) => {
     if (user.isAdmin === 1) {
         next();
     } else {
-        req.flash('error', 'You have no permission to do that');
+        req.flash('error', 'You have no permission to do that!');
         res.redirect('/cms/index')
     }
 };

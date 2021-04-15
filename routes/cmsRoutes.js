@@ -8,66 +8,20 @@ const {
     validateProject
 } = require('../middleware')
 
-const Project = require('../models/project');
+const cms = require('../controllers/cms')
 
 // route for cms index/dashboard page
-router.get('/index', isLoggedIn, catchAsync(async (req, res) => {
-    const projects = await Project.find({});
-    res.render('./cms/projectsIndex', {
-        projects
-    });
-}));
+router.get('/index', isLoggedIn, catchAsync(cms.index));
 
-// route for add-page of new projects
-router.get('/add', isLoggedIn, (req, res) => {
-    res.render('./cms/projectsAdd');
-})
+router.route('/add')
+    .get(isLoggedIn, cms.showAddPage)
+    .post(validateProject, isLoggedIn, hasPermission, catchAsync(cms.addPage))
 
 // route for editing existing projects
-router.get('/:id/edit', isLoggedIn, catchAsync(async (req, res) => {
-    const {
-        id
-    } = req.params;
-    const project = await Project.findById(id);
-    if (!project) {
-        req.flash('error', 'Unable to find Project')
-        res.redirect('/cms/index')
-    }
-    res.render('./cms/projectsEdit', {
-        project
-    });
-}));
+router.get('/:id/edit', isLoggedIn, catchAsync(cms.showEditProject));
 
-// update route for projects
-router.put('/:id', validateProject, isLoggedIn, hasPermission, catchAsync(async (req, res) => {
-    const {
-        id
-    } = req.params;
-    const project = await Project.findByIdAndUpdate(id, {
-        ...req.body
-    }, {
-        new: true
-    });
-    req.flash('success', `Succesfully edited "${project.title}"`)
-    res.redirect('/cms/index');
-}))
-
-// delete route for projects
-router.delete('/:id', isLoggedIn, hasPermission, catchAsync(async (req, res) => {
-    const {
-        id
-    } = req.params;
-    const project = await Project.findByIdAndDelete(id);
-    req.flash('success', `Succesfully deleted "${project.title}"`)
-    res.redirect('/cms/index')
-}));
-
-// route for posting new project
-router.post('/add', validateProject, isLoggedIn, hasPermission, catchAsync(async (req, res) => {
-    const project = new Project(req.body);
-    await project.save();
-    req.flash('success', `Succesfully created "${project.title}"!`)
-    res.redirect('/cms/index');
-}))
+router.route('/:id')
+    .put(validateProject, isLoggedIn, hasPermission, catchAsync(cms.editProject))
+    .delete(isLoggedIn, hasPermission, catchAsync(cms.deleteProject));
 
 module.exports = router;
