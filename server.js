@@ -31,6 +31,7 @@ db.once('open', () => {
 })
 
 // express / routing setup //
+app.set('trust proxy', 1)
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
