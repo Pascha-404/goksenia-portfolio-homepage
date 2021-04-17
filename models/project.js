@@ -54,15 +54,16 @@ const projectSchema = new mongoose.Schema({
     },
     images: {
         imgHome: {
-            type: String,
-            // required: true
+            url: String,
+            filename: String
         },
         imgProject1: {
-            type: String,
-            // required: true
+            url: String,
+            filename: String
         },
         imgProject2: {
-            type: String
+            url: String,
+            filename: String
         }
     },
     previewLink: {
