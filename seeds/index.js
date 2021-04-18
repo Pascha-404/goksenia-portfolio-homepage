@@ -36,8 +36,14 @@ const seedDB = async () => {
             hideProject: 0
         },
         images: {
-            imgHome: "/img/projectHome/groupChat.png",
-            imgProject1: "/img/projectPage/chatApp.png"
+            imgHome: {
+                url: "https://res.cloudinary.com/drpmdiapv/image/upload/v1618691894/goksenia/bahcsylntbaz6xlvjirm.png",
+                filename: "goksenia/bahcsylntbaz6xlvjirm"
+            },
+            imgProject1: {
+                url: "https://res.cloudinary.com/drpmdiapv/image/upload/v1618767569/goksenia/i2vpzqhqz8e0tnhagv99.png",
+                filename: "goksenia/i2vpzqhqz8e0tnhagv99"
+            }
         },
         previewLink: "https://chatapp-5671f6.webflow.io/"
     });
@@ -62,8 +68,14 @@ const seedDB = async () => {
             hideProject: 0
         },
         images: {
-            imgHome: "/img/projectHome/groupTeam.png",
-            imgProject1: "/img/projectPage/team.png"
+            imgHome: {
+                url: "https://res.cloudinary.com/drpmdiapv/image/upload/v1618691410/goksenia/n8csajyf6iuxjysg20aw.png",
+                filename: "goksenia/n8csajyf6iuxjysg20aw"
+            },
+            imgProject1: {
+                url: "https://res.cloudinary.com/drpmdiapv/image/upload/v1618767569/goksenia/i2vpzqhqz8e0tnhagv99.png",
+                filename: "goksenia/i2vpzqhqz8e0tnhagv99"
+            }
         }
     });
     await teamWeb.save();
@@ -88,8 +100,14 @@ const seedDB = async () => {
             hideProject: 0
         },
         images: {
-            imgHome: "/img/projectHome/groupWine.png",
-            imgProject1: "/img/projectPage/wholeWine.png"
+            imgHome: {
+                url: "https://res.cloudinary.com/drpmdiapv/image/upload/v1618691410/goksenia/infha0eyouqgrqrjps0n.png",
+                filename: "goksenia/infha0eyouqgrqrjps0n"
+            },
+            imgProject1: {
+                url: "https://res.cloudinary.com/drpmdiapv/image/upload/v1618692232/goksenia/vtcixqphw7kptc0d94fa.png",
+                filename: "goksenia/vtcixqphw7kptc0d94fa"
+            }
         }
     });
     await wineryWeb.save();
@@ -113,9 +131,18 @@ const seedDB = async () => {
             hideProject: 0
         },
         images: {
-            imgHome: "/img/projectHome/moodShifted.png",
-            imgProject1: "/img/projectPage/moodThemes.png",
-            imgProject2: "/img/projectPage/moodOverview.png"
+            imgHome: {
+                url: "https://res.cloudinary.com/drpmdiapv/image/upload/v1618691410/goksenia/mna4dtfryyzhd74bt1kp.png",
+                filename: "goksenia/mna4dtfryyzhd74bt1kp"
+            },
+            imgProject1: {
+                url: "https://res.cloudinary.com/drpmdiapv/image/upload/v1618767569/goksenia/pmu4gslwjc7pdle9wiqf.png",
+                filename: "goksenia/pmu4gslwjc7pdle9wiqf"
+            },
+            imgProject2: {
+                url: "https://res.cloudinary.com/drpmdiapv/image/upload/v1618767569/goksenia/s8ifzuma8u5fdymnbjeh.png",
+                filename: "goksenia/s8ifzuma8u5fdymnbjeh"
+            }
         },
         previewLink: "https://devpost.com/software/mood-booster-r0seax"
     });
@@ -140,8 +167,14 @@ const seedDB = async () => {
             hidenProject: 0
         },
         images: {
-            imgHome: "/img/projectHome/groupNike.png",
-            imgProject1: "/img/projectPage/nike.jpg"
+            imgHome: {
+                url: "https://res.cloudinary.com/drpmdiapv/image/upload/v1618691894/goksenia/t5aayb5dqgdpea8m5lfr.png",
+                filename: "goksenia/t5aayb5dqgdpea8m5lfr"
+            },
+            imgProject1: {
+                url: "https://res.cloudinary.com/drpmdiapv/image/upload/v1618766436/goksenia/uyxh7c7swv7cwklinufo.jpg",
+                filename: "goksenia/uyxh7c7swv7cwklinufo"
+            }
         },
         previewLink: ""
     });
