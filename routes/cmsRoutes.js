@@ -31,28 +31,13 @@ router.get('/index', isLoggedIn, catchAsync(cms.index));
 
 router.route('/add')
     .get(isLoggedIn, cms.showAddPage)
-    // .post(validateProject, isLoggedIn, hasPermission, catchAsync(cms.addPage))
-    .post(uploadInput, (req, res) => {
-        if (req.files.imgHome) {
-            const filename1 = req.files.imgHome[0].originalname;
-            console.log(filename1)
-        }
-        if (req.files.imgProject1) {
-            const filename2 = req.files.imgProject1[0].originalname;
-            console.log(filename2)
-        }
-        if (req.files.imgProject2) {
-            const filename3 = req.files.imgProject2[0].originalname;
-            console.log(filename3)
-        }
-        res.send('Finished upload!')
-    })
+    .post(isLoggedIn, hasPermission, uploadInput, validateProject, catchAsync(cms.addPage))
 
 // route for editing existing projects
 router.get('/:id/edit', isLoggedIn, catchAsync(cms.showEditProject));
 
 router.route('/:id')
-    .put(validateProject, isLoggedIn, hasPermission, catchAsync(cms.editProject))
+    .put(isLoggedIn, hasPermission, uploadInput, validateProject, catchAsync(cms.editProject))
     .delete(isLoggedIn, hasPermission, catchAsync(cms.deleteProject));
 
 module.exports = router;
