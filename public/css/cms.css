@@ -169,7 +169,7 @@ button.mouseIn {
     background: linear-gradient(315deg, #cacaca, #f0f0f0);
     box-shadow: -20px -20px 60px #bebebe,
         20px 20px 60px #ffffff;
-    margin: 3rem auto 0 auto;
+    margin: 6rem auto 0 auto;
     padding: 1rem;
     font-size: 0.9rem;
 }
