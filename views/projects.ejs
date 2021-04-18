@@ -17,14 +17,14 @@
         </article>
 
         <figure id="project-figure">
-            <% if(project.images.imgProject1) { %>
-            <img src="<%= project.images.imgProject1 %>" alt="Project Picture">
+            <% if(project.images.imgProject1.url && project.images.imgProject1.url.length) { %>
+            <img src="<%= project.images.imgProject1.url %>" alt="Project Picture">
             <% } else { %>
             <img src="/img/blank.png" alt="Dummy Picture">
             <% } %>
 
-            <% if(project.images.imgProject2) { %>
-            <img src="<%= project.images.imgProject2 %>" alt="project image">
+            <% if(project.images.imgProject2.url && project.images.imgProject2.url.length) { %>
+            <img src="<%= project.images.imgProject2.url %>" alt="project image">
             <% } %>
         </figure>
 
