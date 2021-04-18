@@ -8,21 +8,21 @@
     <section class="projects-wrap project-form">
 
         <section class="project-add flex-col flex-center">
-            <form action="/cms/<%= project._id %>?_method=PUT" method="POST">
+            <form action="/cms/<%= project._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
 
                 <h1 id="new-project-title"><%= project.title %></h1>
 
                 <div class="section-wrap">
                     <h3 class="text-align-l"><span>1.</span>Naming</h3>
                     <section class="title flex-between">
-                        <label for="title">Add a title*</label>
+                        <label for="title">Title</label>
                         <input type="text" id="title" name="title" class="input-txt" value="<%= project.title %>"
                             required>
                     </section>
 
                     <section class="url-name">
                         <div class="flex-between">
-                            <label for="urlName">Add a name for the URL*</label>
+                            <label for="urlName">URL-Name</label>
                             <input type="text" id="urlName" name="urlName" class="input-txt"
                                 value="<%= project.urlName %>" required>
                         </div>
@@ -38,13 +38,13 @@
 
                     <section class="description flex-col">
                         <div class="flex-col flex-center">
-                            <label for="homeTxt">Add a text for the Homepage*</label>
+                            <label for="homeTxt">Text on the Homepage</label>
                             <textarea name="description[homeTxt]" id="homeTxt"
                                 required><%= project.description.homeTxt %></textarea>
                         </div>
 
                         <div class="flex-col flex-center">
-                            <label for="projectTxt">Add a text for the Projectpage*</label>
+                            <label for="projectTxt">Text on the Projectpage</label>
                             <textarea name="description[projectTxt]" id="projectTxt"
                                 required> <%= project.description.projectTxt %> </textarea>
                         </div>
@@ -158,24 +158,24 @@
                     <h3 class="text-align-l"><span>4.</span>Images</h3>
                     <section class="file-upload flex-col">
                         <div class="flex-col flex-center">
-                            <label for="imgHome">Add a image for the homepage*</label>
-                            <input type="file" name="" id="imgHome" accept="image/*">
+                            <label for="imgHome">Image on the homepage</label>
+                            <input type="file" name="imgHome" id="imgHome" accept="image/*">
                         </div>
                         <div class="flex-col flex-center">
-                            <label for="imgProject1">Add a image for the projectpage*</label>
-                            <input type="file" name="" id="imgProject1" accept="image/*">
+                            <label for="imgProject1">First image on the projectpage</label>
+                            <input type="file" name="imgProject1" id="imgProject1" accept="image/*">
                         </div>
                         <div class="flex-col flex-center">
-                            <label for="imgProject2">Add a second image for the projectpage(optional)</label>
-                            <input type="file" name="" id="imgProject2" accept="image/*">
+                            <label for="imgProject2">Second image on the projectpage(optional)</label>
+                            <input type="file" name="imgProject2" id="imgProject2" accept="image/*">
                         </div>
                     </section>
                 </div>
 
                 <div class="section-wrap">
-                    <h3 class="text-align-l"><span>5.</span>Link to Preview</h3>
+                    <h3 class="text-align-l"><span>5.</span>Preview</h3>
                     <section class="previewLink flex-between">
-                        <label for="previewLink">Add a link to the preview</label>
+                        <label for="previewLink">Link to the preview</label>
                         <input type="url" name="previewLink" id="previewLink" class="input-txt"
                             value="<%= project.previewLink %> ">
                     </section>

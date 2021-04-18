@@ -8,7 +8,7 @@
     <section class="projects-wrap project-form">
 
         <section class="project-add flex-col flex-center">
-            <form action="/cms/add" method="POST">
+            <form action="/cms/add" method="POST" enctype="multipart/form-data">
 
                 <h1 id="new-project-title">New Project</h1>
 
@@ -145,15 +145,15 @@
                     <section class="file-upload flex-col">
                         <div class="flex-col flex-center">
                             <label for="imgHome">Add a image for the homepage*</label>
-                            <input type="file" name="" id="imgHome" accept="image/*">
+                            <input type="file" name="imgHome" id="imgHome" accept="image/*">
                         </div>
                         <div class="flex-col flex-center">
                             <label for="imgProject1">Add a image for the projectpage*</label>
-                            <input type="file" name="" id="imgProject1" accept="image/*">
+                            <input type="file" name="imgProject1" id="imgProject1" accept="image/*">
                         </div>
                         <div class="flex-col flex-center">
                             <label for="imgProject2">Add a second image for the projectpage(optional)</label>
-                            <input type="file" name="" id="imgProject2" accept="image/*">
+                            <input type="file" name="imgProject2" id="imgProject2" accept="image/*">
                         </div>
                     </section>
                 </div>
