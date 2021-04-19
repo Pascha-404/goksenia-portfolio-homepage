@@ -73,8 +73,8 @@ const seedDB = async () => {
                 filename: "goksenia/n8csajyf6iuxjysg20aw"
             },
             imgProject1: {
-                url: "https://res.cloudinary.com/drpmdiapv/image/upload/v1618767569/goksenia/i2vpzqhqz8e0tnhagv99.png",
-                filename: "goksenia/i2vpzqhqz8e0tnhagv99"
+                url: "https://res.cloudinary.com/drpmdiapv/image/upload/v1618692837/goksenia/jcvw2bbes0rdtf4pmbg4.png",
+                filename: "goksenia/jcvw2bbes0rdtf4pmbg4"
             }
         }
     });
