@@ -25,7 +25,7 @@ module.exports.projectSchema = Joi.object({
         hideProject: Joi.number().min(0).max(1)
     },
 
-    deleteImages: Joi.string(),
+    deleteImg: Joi.string(),
 
     previewLink: Joi.string().allow('')
 })
