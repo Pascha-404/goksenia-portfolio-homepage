@@ -7,14 +7,17 @@ const ImageSchema = new Schema({
 })
 
 ImageSchema.virtual('projectImgSize').get(function () {
-    return this.url.replace('/upload', '/upload/w_1100')
+    return this.url.replace('/upload', '/upload/w_1100,f_auto,q_auto')
 });
 ImageSchema.virtual('homeImgSize').get(function () {
-    return this.url.replace('/upload', '/upload/w_610')
+    return this.url.replace('/upload', '/upload/w_610,f_auto,q_auto')
 });
 ImageSchema.virtual('cmsImgSize').get(function () {
-    return this.url.replace('/upload', '/upload/w_380')
+    return this.url.replace('/upload', '/upload/w_380,f_auto,q_auto')
 });
+ImageSchema.virtual('thumbnail').get(function () {
+    return this.url.replace('/upload', '/upload/w_250,h_210,f_auto,q_auto,c_fit')
+})
 
 // database schema and model
 const projectSchema = new Schema({
