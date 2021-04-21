@@ -37,8 +37,8 @@ const seedDB = async () => {
         },
         images: {
             imgHome: {
-                url: "https://res.cloudinary.com/drpmdiapv/image/upload/v1618691894/goksenia/bahcsylntbaz6xlvjirm.png",
-                filename: "goksenia/bahcsylntbaz6xlvjirm"
+                url: "https://res.cloudinary.com/drpmdiapv/image/upload/v1618691894/goksenia/cprz10jrzie0x9auq1cl.png",
+                filename: "goksenia/cprz10jrzie0x9auq1cl"
             },
             imgProject1: {
                 url: "https://res.cloudinary.com/drpmdiapv/image/upload/v1618767569/goksenia/i2vpzqhqz8e0tnhagv99.png",
