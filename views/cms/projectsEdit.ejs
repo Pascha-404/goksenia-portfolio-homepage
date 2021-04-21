@@ -161,13 +161,46 @@
                             <label for="imgHome">Image on the homepage</label>
                             <input type="file" name="imgHome" id="imgHome" accept="image/*">
                         </div>
-                        <div class="flex-col flex-center">
+
+                        <div class="flex-col flex-center imgProject1">
                             <label for="imgProject1">First image on the projectpage</label>
                             <input type="file" name="imgProject1" id="imgProject1" accept="image/*">
                         </div>
-                        <div class="flex-col flex-center">
+
+                        <div class="flex-col flex-center imgProject2">
                             <label for="imgProject2">Second image on the projectpage(optional)</label>
                             <input type="file" name="imgProject2" id="imgProject2" accept="image/*">
+                        </div>
+
+                        <div class="flex deleteImg-wrap flex-around">
+                            <div class="flex-col deleteImg-box">
+                                <div class="flex flex-center">
+                                    <label class="deleteLabel" for="imgHome">Delete?</label>
+                                    <input class="deleteInput" type="checkbox" name="deleteImg[]" id="imgHome"
+                                        value="<%=project.images.imgHome.filename%>">
+                                </div>
+                                <img src="<%=project.images.imgHome.thumbnail%>" alt="">
+                            </div>
+
+                            <div class="flex-col deleteImg-box">
+                                <div class="flex flex-center">
+                                    <label class="deleteLabel" for="imgProject1">Delete?</label>
+                                    <input class="deleteInput" type="checkbox" name="deleteImg[]" id="imgProject1"
+                                        value="<%=project.images.imgProject1.filename%>">
+                                </div>
+                                <img src="<%=project.images.imgProject1.thumbnail%>" alt="">
+                            </div>
+
+                            <% if(project.images.imgProject2 && project.images.imgProject2.url.length) { %>
+                            <div class="flex-col deleteImg-box">
+                                <div class="flex flex-center">
+                                    <label class="deleteLabel" for="imgProject2">Delete?</label>
+                                    <input class="deleteInput" type="checkbox" name="deleteImg[]" id="imgProject2"
+                                        value="<%=project.images.imgProject2.filename%>">
+                                </div>
+                                <img src="<%=project.images.imgProject2.thumbnail%>" alt="">
+                            </div>
+                            <% } %>
                         </div>
                     </section>
                 </div>
