@@ -37,7 +37,7 @@ router.route('/add')
 router.get('/:id/edit', isLoggedIn, catchAsync(cms.showEditProject));
 
 router.route('/:id')
-    .put(isLoggedIn, hasPermission, uploadInput, validateProject, catchAsync(cms.editProject))
+    .put(isLoggedIn, hasPermission, uploadInput, validateProject, catchAsync(cms.updateProject))
     .delete(isLoggedIn, hasPermission, catchAsync(cms.deleteProject));
 
 module.exports = router;
