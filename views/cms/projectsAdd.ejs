@@ -146,14 +146,20 @@
                         <div class="flex-col flex-center">
                             <label for="imgHome">Add a image for the homepage*</label>
                             <input type="file" name="imgHome" id="imgHome" accept="image/*">
+                            <input type="hidden" name="images[imgHome][url]">
+                            <input type="hidden" name="images[imgHome][filename]">
                         </div>
-                        <div class="flex-col flex-center">
+                        <div class="flex-col flex-center imgProject1">
                             <label for="imgProject1">Add a image for the projectpage*</label>
                             <input type="file" name="imgProject1" id="imgProject1" accept="image/*">
+                            <input type="hidden" name="images[imgProject1][url]">
+                            <input type="hidden" name="images[imgProject1][filename]">
                         </div>
-                        <div class="flex-col flex-center">
+                        <div class="flex-col flex-center imgProject2">
                             <label for="imgProject2">Add a second image for the projectpage(optional)</label>
                             <input type="file" name="imgProject2" id="imgProject2" accept="image/*">
+                            <input type="hidden" name="images[imgProject2][url]">
+                            <input type="hidden" name="images[imgProject2][filename]">
                         </div>
                     </section>
                 </div>
