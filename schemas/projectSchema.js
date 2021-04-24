@@ -27,16 +27,16 @@ module.exports.projectSchema = Joi.object({
 
     images: {
         imgHome: {
-            url: Joi.string(),
-            filename: Joi.string()
+            url: Joi.string().allow(''),
+            filename: Joi.string().allow('')
         },
         imgProject1: {
-            url: Joi.string(),
-            filename: Joi.string()
+            url: Joi.string().allow(''),
+            filename: Joi.string().allow('')
         },
         imgProject2: {
-            url: Joi.string(),
-            filename: Joi.string()
+            url: Joi.string().allow(''),
+            filename: Joi.string().allow('')
         }
     },
 
