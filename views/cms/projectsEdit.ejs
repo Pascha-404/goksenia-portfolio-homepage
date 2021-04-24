@@ -173,6 +173,7 @@
                         </div>
 
                         <div class="flex deleteImg-wrap flex-around">
+                            <% if(project.images.imgHome && project.images.imgHome.url.length) { %>
                             <div class="flex-col deleteImg-box">
                                 <div class="flex flex-center">
                                     <label class="deleteLabel" for="imgHome">Delete?</label>
@@ -181,7 +182,9 @@
                                 </div>
                                 <img src="<%=project.images.imgHome.thumbnail%>" alt="">
                             </div>
+                            <% } %>
 
+                            <% if(project.images.imgProject1 && project.images.imgProject1.url.length) { %>
                             <div class="flex-col deleteImg-box">
                                 <div class="flex flex-center">
                                     <label class="deleteLabel" for="imgProject1">Delete?</label>
@@ -190,6 +193,7 @@
                                 </div>
                                 <img src="<%=project.images.imgProject1.thumbnail%>" alt="">
                             </div>
+                            <% } %>
 
                             <% if(project.images.imgProject2 && project.images.imgProject2.url.length) { %>
                             <div class="flex-col deleteImg-box">
