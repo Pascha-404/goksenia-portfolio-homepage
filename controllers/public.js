@@ -1,4 +1,5 @@
 const Project = require('../models/project');
+const ExpressError = require('../utilitys/expressError');
 
 module.exports.showHomePage = async (req, res) => {
     // searches for projects with firstProject tag = true
