@@ -80,6 +80,7 @@ h1 {
     margin: 2.5rem auto 1.5rem auto;
     padding: 0.8rem 2rem;
     font-size: 1.25rem;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 430px) {

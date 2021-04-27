@@ -44,8 +44,8 @@
                 </div>
             </section>
             <figure>
-                <% if(project.images.imgHome) { %>
-                <img src="<%= project.images.imgHome %> " alt="Example Picture">
+                <% if(project.images.imgHome.url && project.images.imgHome.url.length) { %>
+                <img src="<%= project.images.imgHome.cmsImgSize %>" alt="Example Picture">
                 <% } else { %>
                 <img src="/img/blank.png" alt="Example Picture">
                 <% } %>

@@ -169,7 +169,7 @@ button.mouseIn {
     background: linear-gradient(315deg, #cacaca, #f0f0f0);
     box-shadow: -20px -20px 60px #bebebe,
         20px 20px 60px #ffffff;
-    margin: 3rem auto 0 auto;
+    margin: 6rem auto 0 auto;
     padding: 1rem;
     font-size: 0.9rem;
 }
@@ -274,7 +274,8 @@ button.mouseIn {
     font-size: 1rem;
 }
 
-.tags input {
+.tags input,
+.deleteInput {
     -webkit-appearance: none;
     position: relative;
     padding: 0.5rem;
@@ -287,15 +288,18 @@ button.mouseIn {
     transition: background-color 400ms ease;
 }
 
-.tags input:focus {
+.tags input:focus,
+.deleteInput:focus {
     outline: none;
 }
 
-.tags input:checked {
+.tags input:checked,
+.deleteInput:checked {
     background-color: var(--color-highlight);
 }
 
-.tags input:checked::after {
+.tags input:checked::after,
+.deleteInput:checked::after {
     content: '✓';
     position: absolute;
     left: 50%;
@@ -304,7 +308,8 @@ button.mouseIn {
     font-size: 1.5rem;
 }
 
-.tags label {
+.tags label,
+.deleteLabel {
     font-size: 0.9rem;
 }
 
@@ -337,9 +342,21 @@ button.mouseIn {
     margin-right: 4px;
 }
 
-.file-upload div:nth-of-type(2),
-.file-upload div:nth-of-type(3) {
+.file-upload .imgProject1,
+.file-upload .imgProject2 {
     margin-top: 2rem;
+}
+
+.deleteImg-wrap {
+    margin-top: 3rem;
+}
+
+.deleteImg-box {
+    padding: 0.3rem;
+}
+
+.deleteImg-box div:nth-of-type(1) {
+    margin-bottom: 0.3rem;
 }
 
 .project-add form button.create-btn,

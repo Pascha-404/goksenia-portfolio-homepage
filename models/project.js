@@ -1,8 +1,26 @@
 const mongoose = require('mongoose')
+const Schema = mongoose.Schema;
+
+const ImageSchema = new Schema({
+    url: String,
+    filename: String
+})
+
+ImageSchema.virtual('projectImgSize').get(function () {
+    return this.url.replace('/upload', '/upload/w_1100,f_auto,q_auto')
+});
+ImageSchema.virtual('homeImgSize').get(function () {
+    return this.url.replace('/upload', '/upload/w_610,f_auto,q_auto')
+});
+ImageSchema.virtual('cmsImgSize').get(function () {
+    return this.url.replace('/upload', '/upload/w_380,f_auto,q_auto')
+});
+ImageSchema.virtual('thumbnail').get(function () {
+    return this.url.replace('/upload', '/upload/w_250,h_210,f_auto,q_auto,c_fit')
+})
 
 // database schema and model
-
-const projectSchema = new mongoose.Schema({
+const projectSchema = new Schema({
     urlName: {
         type: String,
         required: true,
@@ -53,17 +71,9 @@ const projectSchema = new mongoose.Schema({
         }
     },
     images: {
-        imgHome: {
-            type: String,
-            // required: true
-        },
-        imgProject1: {
-            type: String,
-            // required: true
-        },
-        imgProject2: {
-            type: String
-        }
+        imgHome: ImageSchema,
+        imgProject1: ImageSchema,
+        imgProject2: ImageSchema
     },
     previewLink: {
         type: String

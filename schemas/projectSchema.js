@@ -25,7 +25,22 @@ module.exports.projectSchema = Joi.object({
         hideProject: Joi.number().min(0).max(1)
     },
 
-    // missing image option
+    images: {
+        imgHome: {
+            url: Joi.string().allow(''),
+            filename: Joi.string().allow('')
+        },
+        imgProject1: {
+            url: Joi.string().allow(''),
+            filename: Joi.string().allow('')
+        },
+        imgProject2: {
+            url: Joi.string().allow(''),
+            filename: Joi.string().allow('')
+        }
+    },
+
+    deleteImg: Joi.array(),
 
     previewLink: Joi.string().allow('')
 })
