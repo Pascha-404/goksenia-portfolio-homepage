@@ -16,6 +16,7 @@ const User = require('./models/user')
 const methodOverride = require('method-override');
 const ExpressError = require('./utilitys/expressError');
 const robots = require('express-robots-txt');
+const mongoSanitize = require('express-mongo-sanitize');
 
 const cmsRoutes = require('./routes/cmsRoutes');
 const publicRoutes = require('./routes/publicRoutes')
@@ -44,6 +45,8 @@ app.use(express.urlencoded({
 }));
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
+app.use(mongoSanitize());
+
 
 // session cookie config
 const sessionConfig = {
