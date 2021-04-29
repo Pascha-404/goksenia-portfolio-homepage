@@ -13,10 +13,13 @@ const passport = require('passport');
 const LocalStategy = require('passport-local');
 const User = require('./models/user')
 
+const MongoStore = require('connect-mongo');
+
 const methodOverride = require('method-override');
 const ExpressError = require('./utilitys/expressError');
 const robots = require('express-robots-txt');
 const mongoSanitize = require('express-mongo-sanitize');
+const helmet = require('helmet')
 
 const cmsRoutes = require('./routes/cmsRoutes');
 const publicRoutes = require('./routes/publicRoutes')
@@ -45,16 +48,70 @@ app.use(express.urlencoded({
 }));
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
+
+// security helpers
 app.use(mongoSanitize());
 
+app.use(helmet({
+    contentSecurityPolicy: false
+}));
+
+const connectSrcUrls = [
+    ""
+]
+const scriptSrcUrls = [
+    "https://cdn.jsdelivr.net/",
+]
+const styleSrcUrls = [
+    "https://cdn.jsdelivr.net/",
+    "https://fonts.googleapis.com/",
+]
+const fontSrcUrls = [
+    "https://fonts.gstatic.com/",
+]
+
+app.use(
+    helmet.contentSecurityPolicy({
+        directives: {
+            defaultSrc: [],
+            connectSrc: ["'self'", ...connectSrcUrls],
+            scriptSrc: ["'self'", "'unsafe-inline'", ...scriptSrcUrls],
+            styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+            workerSrc: ["'self'", "blob:"],
+            objectSrc: [],
+            imgSrc: [
+                "'self'",
+                "blob:",
+                "data:",
+                "https://res.cloudinary.com/drpmdiapv/",
+            ],
+            fontSrc: ["'self'", ...fontSrcUrls]
+        },
+    })
+);
 
 // session cookie config
+const store = MongoStore.create({
+    mongoUrl: "mongodb://localhost/goksenia",
+    crypto: {
+        secret: 'secretNeedsToBeReplaced'
+    },
+    touchAfter: 24 * 60 * 60
+});
+
+store.on('error', function (e) {
+    console.log('Session Store Error!', e)
+})
+
 const sessionConfig = {
+    store,
+    name: 'goksenia_session',
     secret: 'secretNeedsToBeReplaced',
     resave: false,
     saveUninitialized: true,
     cookie: {
         httpOnly: true,
+        // secure: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7
     }
