@@ -65,7 +65,8 @@
                 <p><%= project.description.homeTxt %></p>
 
                 <figure class="figure-column display-none fig-projects fig-pro<%= i %>">
-                    <a href="/project/<%= project.urlName %>"> <% if(project.images.imgHome) { %>
+                    <a href="/project/<%= project.urlName %>">
+                        <% if(project.images.imgHome && project.images.imgHome.url.length) { %>
                         <img src="<%= project.images.imgHome.homeImgSize %>" alt="Example Picture">
                         <% } else { %>
                         <img src="/img/blank.png" alt="Example Picture">
@@ -80,7 +81,8 @@
             </section>
 
             <figure class="figure-row fig-projects fig-pro<%= i %>">
-                <a href="/project/<%= project.urlName %>"> <% if(project.images.imgHome) { %>
+                <a href="/project/<%= project.urlName %>">
+                    <% if(project.images.imgHome && project.images.imgHome.url.length) { %>
                     <img src="<%= project.images.imgHome.homeImgSize %>" alt="Example Picture">
                     <% } else { %>
                     <img src="/img/blank.png" alt="Example Picture">
@@ -127,7 +129,8 @@
                 <p><%= project.description.homeTxt %></p>
 
                 <figure class="figure-column display-none fig-projects fig-pro<%= i %>">
-                    <a href="/project/<%= project.urlName %>"> <% if(project.images.imgHome) { %>
+                    <a href="/project/<%= project.urlName %>">
+                        <% if(project.images.imgHome && project.images.imgHome.url.length) { %>
                         <img src="<%= project.images.imgHome.homeImgSize %>" alt="Example Picture">
                         <% } else { %>
                         <img src="/img/blank.png" alt="Example Picture">
@@ -142,7 +145,8 @@
             </section>
 
             <figure class="figure-row fig-projects fig-pro<%= i %>">
-                <a href="/project/<%= project.urlName %>"> <% if(project.images.imgHome) { %>
+                <a href="/project/<%= project.urlName %>">
+                    <% if(project.images.imgHome && project.images.imgHome.url.length) { %>
                     <img src="<%= project.images.imgHome.homeImgSize %>" alt="Example Picture">
                     <% } else { %>
                     <img src="/img/blank.png" alt="Example Picture">
@@ -189,7 +193,8 @@
                 <p><%= project.description.homeTxt %></p>
 
                 <figure class="figure-column display-none  fig-projects fig-pro<%= i %>">
-                    <a href="/project/<%= project.urlName %>"> <% if(project.images.imgHome) { %>
+                    <a href="/project/<%= project.urlName %>">
+                        <% if(project.images.imgHome && project.images.imgHome.url.length) { %>
                         <img src="<%= project.images.imgHome.homeImgSize %>" alt="Example Picture">
                         <% } else { %>
                         <img src="/img/blank.png" alt="Example Picture">
@@ -204,7 +209,8 @@
             </section>
 
             <figure class="figure-row fig-projects fig-pro<%= i %>">
-                <a href="/project/<%= project.urlName %>"> <% if(project.images.imgHome) { %>
+                <a href="/project/<%= project.urlName %>">
+                    <% if(project.images.imgHome && project.images.imgHome.url.length) { %>
                     <img src="<%= project.images.imgHome.homeImgSize %>" alt="Example Picture">
                     <% } else { %>
                     <img src="/img/blank.png" alt="Example Picture">
@@ -251,7 +257,8 @@
                 <p><%= project.description.homeTxt %></p>
 
                 <figure class="figure-column display-none fig-projects fig-pro<%= i %>">
-                    <a href="/project/<%= project.urlName %>"> <% if(project.images.imgHome) { %>
+                    <a href="/project/<%= project.urlName %>">
+                        <% if(project.images.imgHome && project.images.imgHome.url.length) { %>
                         <img src="<%= project.images.imgHome.homeImgSize %>" alt="Example Picture">
                         <% } else { %>
                         <img src="/img/blank.png" alt="Example Picture">
@@ -266,7 +273,8 @@
             </section>
 
             <figure class="figure-row fig-projects fig-pro<%= i %>">
-                <a href="/project/<%= project.urlName %>"> <% if(project.images.imgHome) { %>
+                <a href="/project/<%= project.urlName %>">
+                    <% if(project.images.imgHome && project.images.imgHome.url.length) { %>
                     <img src="<%= project.images.imgHome.homeImgSize %>" alt="Example Picture">
                     <% } else { %>
                     <img src="/img/blank.png" alt="Example Picture">
@@ -276,7 +284,75 @@
         </article>
         <% }} %>
 
+        <% if(currentUser && hiddenProjects && hiddenProjects.length) {
+            for(project of hiddenProjects) { 
+            i++ %>
+        <article class="split opacity-low">
 
+            <section>
+                <% if(project.tags.latestWork === 1) { %>
+                <h3>latest work</h3>
+                <% } %>
+
+                <h2><%= project.title %> </h2>
+
+                <div class="tags">
+                    <% if(project.tags.webDesign === 1) { %>
+                    <p>Website Design</p>
+                    <% } %>
+
+                    <% if(project.tags.webflow === 1) { %>
+                    <p>Webflow Development</p>
+                    <% } %>
+
+                    <% if(project.tags.concept === 1) { %>
+                    <p>Concept</p>
+                    <% } %>
+
+                    <% if(project.tags.appDesign === 1) { %>
+                    <p>App Design</p>
+                    <% } %>
+
+                    <% if(project.tags.hackathon === 1) { %>
+                    <p>Hackathon</p>
+                    <% } %>
+
+                    <% if(project.tags.hide === 1) { %>
+                    <p>Hidden</p>
+                    <% } %>
+                </div>
+
+                <p><%= project.description.homeTxt %></p>
+
+                <figure class="figure-column display-none  fig-projects fig-pro<%= i %>">
+                    <a href="/project/<%= project.urlName %>">
+                        <% if(project.images.imgHome && project.images.imgHome.url.length) { %>
+                        <img src="<%= project.images.imgHome.homeImgSize %>" alt="Example Picture">
+                        <% } else { %>
+                        <img src="https://res.cloudinary.com/drpmdiapv/image/upload/v1619877421/goksenia/blank_yknaux.png"
+                            alt="Example Picture">
+                        <% } %></a>
+                    <img class="float-right" src="./icons/ic-arrow.svg" alt="arrow">
+                </figure>
+
+                <div class="btn-wrap goTo-Project">
+                    <a class="projectBtn" href="/project/<%= project.urlName %>">see this project</a>
+                    <div class="btn-frame"></div>
+                </div>
+            </section>
+
+            <figure class="figure-row fig-projects fig-pro<%= i %>">
+                <a href="/project/<%= project.urlName %>">
+                    <% if(project.images.imgHome && project.images.imgHome.url.length) { %>
+                    <img src="<%= project.images.imgHome.homeImgSize %>" alt="Example Picture">
+                    <% } else { %>
+                    <img src="https://res.cloudinary.com/drpmdiapv/image/upload/v1619877421/goksenia/blank_yknaux.png"
+                        alt="Example Picture">
+                    <% } %></a>
+                <img class="float-right" src="./icons/ic-arrow.svg" alt="arrow">
+            </figure>
+        </article>
+        <% }} %>
 
     </section>
 
