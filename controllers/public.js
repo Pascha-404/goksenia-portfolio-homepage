@@ -47,11 +47,19 @@ module.exports.showHomePage = async (req, res) => {
         }
     })
 
+    // searches for hidden projects
+    const hiddenProjects = await Project.find({
+        'tags.hideProject': {
+            $eq: true
+        }
+    })
+
     res.render('index', {
         firstProjects,
         secondProjects,
         latestProjects,
-        projects
+        projects,
+        hiddenProjects
     })
 };
 
