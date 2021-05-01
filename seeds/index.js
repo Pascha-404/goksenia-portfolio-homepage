@@ -164,7 +164,7 @@ const seedDB = async () => {
             concept: 1,
             appDesign: 0,
             hackathon: 0,
-            hidenProject: 0
+            hideProject: 0
         },
         images: {
             imgHome: {
