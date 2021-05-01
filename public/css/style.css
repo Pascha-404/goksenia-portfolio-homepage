@@ -179,6 +179,10 @@ footer {
     position: relative;
 }
 
+.opacity-low {
+    opacity: 0.4;
+}
+
 /*------------- Button styling -------------*/
 .btn-wrap {
     width: 13.063rem;
