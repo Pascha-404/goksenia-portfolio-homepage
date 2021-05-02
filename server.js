@@ -25,12 +25,20 @@ const cmsRoutes = require('./routes/cmsRoutes');
 const publicRoutes = require('./routes/publicRoutes')
 const authenticateRoutes = require('./routes/authenticateRoutes')
 
+const MONGO_USERNAME = process.env.DB_GOKSENIA_USER;
+const MONGO_PASSWORD = process.env.DB_GOKSENIA_PW;
+const MONGO_HOSTNAME = 'localhost';
+const MONGO_PORT = '27017';
+const MONGO_DB = 'goksenia';
+const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=goksenia` || 'mongodb://localhost/goksenia'
+const secret = process.env.SECRET;
 
 // connects database with app //
-mongoose.connect('mongodb://localhost/goksenia', {
+mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true
+    useCreateIndex: true,
+    useFindAndModify: false
 });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Connection Error:'));
@@ -92,9 +100,9 @@ app.use(
 
 // session cookie config
 const store = MongoStore.create({
-    mongoUrl: "mongodb://localhost/goksenia",
+    mongoUrl: url || "mongodb://localhost/goksenia",
     crypto: {
-        secret: 'secretNeedsToBeReplaced'
+        secret
     },
     touchAfter: 24 * 60 * 60
 });
@@ -106,12 +114,12 @@ store.on('error', function (e) {
 const sessionConfig = {
     store,
     name: 'goksenia_session',
-    secret: 'secretNeedsToBeReplaced',
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
         httpOnly: true,
-        // secure: true,
+        secure: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7
     }
