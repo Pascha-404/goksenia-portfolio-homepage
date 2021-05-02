@@ -54,12 +54,15 @@ module.exports.showHomePage = async (req, res) => {
         }
     })
 
+    const analyticsActive = true;
+
     res.render('index', {
         firstProjects,
         secondProjects,
         latestProjects,
         projects,
-        hiddenProjects
+        hiddenProjects,
+        analyticsActive
     })
 };
 
@@ -67,12 +70,17 @@ module.exports.showProjectPage = async (req, res) => {
     const {
         urlName
     } = req.params;
+
     const project = await Project.findOne({
         urlName: urlName
     });
+
+    const analyticsActive = true;
+
     if (!project) throw new ExpressError('Project Not Found', 404);
     res.render('projects', {
-        project
+        project,
+        analyticsActive
     });
 
 };
