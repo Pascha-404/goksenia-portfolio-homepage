@@ -57,7 +57,7 @@ app.use(express.urlencoded({
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
 
-// security helpers
+// security helpers //
 app.use(mongoSanitize());
 
 app.use(helmet({
@@ -65,10 +65,13 @@ app.use(helmet({
 }));
 
 const connectSrcUrls = [
-    ""
+    "https://www.google-analytics.com/",
 ]
 const scriptSrcUrls = [
     "https://cdn.jsdelivr.net/",
+    "https://www.googletagmanager.com/",
+    "http://www.googletagmanager.com/",
+    "https://www.google-analytics.com/analytics.js",
 ]
 const styleSrcUrls = [
     "https://cdn.jsdelivr.net/",
@@ -92,6 +95,7 @@ app.use(
                 "blob:",
                 "data:",
                 "https://res.cloudinary.com/drpmdiapv/",
+                "https://www.google-analytics.com/",
             ],
             fontSrc: ["'self'", ...fontSrcUrls]
         },
