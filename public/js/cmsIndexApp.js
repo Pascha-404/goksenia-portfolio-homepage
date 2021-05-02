@@ -41,7 +41,11 @@ function fadeProjectsIn() {
         clearInterval(interval)
     }
     projects.forEach(project => {
-        project.style.opacity = scale(fade, 0, 100, 0, 1);
+        if (project.classList.contains('hidden-project')) {
+            project.style.opacity = scale(fade, 0, 100, 0, 0.4);
+        } else {
+            project.style.opacity = scale(fade, 0, 100, 0, 1);
+        }
     })
 
 }

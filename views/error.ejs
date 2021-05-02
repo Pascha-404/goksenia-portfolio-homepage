@@ -10,8 +10,9 @@
 
         <h4><%= err.message %> - <%= err.statusCode %> </h4>
 
-        <!-- <p><%= err.stack %></p> -->
-
+        <% if (process.env.NODE_ENV !== "production") { %>
+        <p><%= err.stack %></p>
+        <% } %>
     </section>
 </main>
 

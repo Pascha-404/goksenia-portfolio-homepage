@@ -1,4 +1,5 @@
 const Project = require('../models/project');
+const ExpressError = require('../utilitys/expressError');
 
 module.exports.showHomePage = async (req, res) => {
     // searches for projects with firstProject tag = true
@@ -46,11 +47,22 @@ module.exports.showHomePage = async (req, res) => {
         }
     })
 
+    // searches for hidden projects
+    const hiddenProjects = await Project.find({
+        'tags.hideProject': {
+            $eq: true
+        }
+    })
+
+    const analyticsActive = true;
+
     res.render('index', {
         firstProjects,
         secondProjects,
         latestProjects,
-        projects
+        projects,
+        hiddenProjects,
+        analyticsActive
     })
 };
 
@@ -58,12 +70,17 @@ module.exports.showProjectPage = async (req, res) => {
     const {
         urlName
     } = req.params;
+
     const project = await Project.findOne({
         urlName: urlName
     });
+
+    const analyticsActive = true;
+
     if (!project) throw new ExpressError('Project Not Found', 404);
     res.render('projects', {
-        project
+        project,
+        analyticsActive
     });
 
 };

@@ -13,20 +13,32 @@ const passport = require('passport');
 const LocalStategy = require('passport-local');
 const User = require('./models/user')
 
+const MongoStore = require('connect-mongo');
+
 const methodOverride = require('method-override');
 const ExpressError = require('./utilitys/expressError');
 const robots = require('express-robots-txt');
+const mongoSanitize = require('express-mongo-sanitize');
+const helmet = require('helmet')
 
 const cmsRoutes = require('./routes/cmsRoutes');
 const publicRoutes = require('./routes/publicRoutes')
 const authenticateRoutes = require('./routes/authenticateRoutes')
 
+const MONGO_USERNAME = process.env.DB_GOKSENIA_USER;
+const MONGO_PASSWORD = process.env.DB_GOKSENIA_PW;
+const MONGO_HOSTNAME = 'localhost';
+const MONGO_PORT = '27017';
+const MONGO_DB = 'goksenia';
+const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=goksenia` || 'mongodb://localhost/goksenia'
+const secret = process.env.SECRET;
 
 // connects database with app //
-mongoose.connect('mongodb://localhost/goksenia', {
+mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true
+    useCreateIndex: true,
+    useFindAndModify: false
 });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Connection Error:'));
@@ -45,13 +57,73 @@ app.use(express.urlencoded({
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
 
+// security helpers //
+app.use(mongoSanitize());
+
+app.use(helmet({
+    contentSecurityPolicy: false
+}));
+
+const connectSrcUrls = [
+    "https://www.google-analytics.com/",
+]
+const scriptSrcUrls = [
+    "https://cdn.jsdelivr.net/",
+    "https://www.googletagmanager.com/",
+    "http://www.googletagmanager.com/",
+    "https://www.google-analytics.com/analytics.js",
+]
+const styleSrcUrls = [
+    "https://cdn.jsdelivr.net/",
+    "https://fonts.googleapis.com/",
+]
+const fontSrcUrls = [
+    "https://fonts.gstatic.com/",
+]
+
+app.use(
+    helmet.contentSecurityPolicy({
+        directives: {
+            defaultSrc: [],
+            connectSrc: ["'self'", ...connectSrcUrls],
+            scriptSrc: ["'self'", "'unsafe-inline'", ...scriptSrcUrls],
+            styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+            workerSrc: ["'self'", "blob:"],
+            objectSrc: [],
+            imgSrc: [
+                "'self'",
+                "blob:",
+                "data:",
+                "https://res.cloudinary.com/drpmdiapv/",
+                "https://www.google-analytics.com/",
+            ],
+            fontSrc: ["'self'", ...fontSrcUrls]
+        },
+    })
+);
+
 // session cookie config
+const store = MongoStore.create({
+    mongoUrl: url || "mongodb://localhost/goksenia",
+    crypto: {
+        secret
+    },
+    touchAfter: 24 * 60 * 60
+});
+
+store.on('error', function (e) {
+    console.log('Session Store Error!', e)
+})
+
 const sessionConfig = {
-    secret: 'secretNeedsToBeReplaced',
+    store,
+    name: 'goksenia_session',
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
         httpOnly: true,
+        secure: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7
     }
