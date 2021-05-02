@@ -47,7 +47,7 @@ db.once('open', () => {
 })
 
 // express / routing setup //
-app.set('trust proxy', 1)
+app.set('trust proxy', true)
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
@@ -119,10 +119,11 @@ const sessionConfig = {
     store,
     name: 'goksenia_session',
     secret,
+    proxy: true,
     resave: false,
     saveUninitialized: true,
     cookie: {
-        httpOnly: true,
+        httpOnly: false,
         secure: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7
