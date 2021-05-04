@@ -36,10 +36,12 @@ adjustViewFooter()
 window.addEventListener('resize', adjustViewFooter())
 
 // adds in smallMenu and animation
-menuBtn.addEventListener('click', () => {
-    menuSmall.classList.toggle('active');
-    menuBtn.classList.toggle('active');
-})
+if (document.querySelector('#menu-btn')) {
+    menuBtn.addEventListener('click', () => {
+        menuSmall.classList.toggle('active');
+        menuBtn.classList.toggle('active');
+    })
+}
 
 // ClickEvent for each contactBtn -> to footer
 contactBtn.forEach(btn => {
