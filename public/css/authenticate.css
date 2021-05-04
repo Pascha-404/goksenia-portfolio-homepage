@@ -1,5 +1,5 @@
 section.authenticate-wrap {
-    width: 100vw;
+    width: calc(100vw - 3rem);
     min-height: 100vh;
     margin: 0 auto;
     text-align: center;
@@ -7,7 +7,7 @@ section.authenticate-wrap {
 }
 
 div.bg-accent {
-    width: 96.5vw;
+    width: calc(100vw - 3rem);
     height: 95vh;
     position: absolute;
     z-index: -1;
@@ -81,6 +81,10 @@ h1 {
     padding: 0.8rem 2rem;
     font-size: 1.25rem;
     cursor: pointer;
+}
+
+footer#contact {
+    margin: 0 auto;
 }
 
 @media screen and (max-width: 430px) {
