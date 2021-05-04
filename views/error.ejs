@@ -1,17 +1,25 @@
 <%- include('./partials/header.ejs') %>
-<%- include('./partials/navbar/defaultNavbar.ejs') %>
 <link rel="stylesheet" href="/css/projects.css">
 <link rel="stylesheet" href="/css/error.css">
 
 <div class="bg-accent"></div>
 
 <main class="content-wrap">
-    <section class="error-wrap">
-
-        <h4><%= err.message %> - <%= err.statusCode %> </h4>
-
+    <section class="error-wrap flex-center flex-col">
         <% if (process.env.NODE_ENV !== "production") { %>
+        <h4><%= err.message %> - <%= err.statusCode %> </h4>
         <p><%= err.stack %></p>
+        <% } else { %>
+        <p class="error-p">hmmm...</p>
+        <div class="pos-relative h1-wrap flex-center">
+            <h1>404</h1>
+            <div class="bg-highlight"></div>
+        </div>
+        <p class="error-p">looks like nothing to see here</p>
+        <div class="btn-wrap">
+            <a class="projectBtn" href="/">wanna go home?</a>
+            <div class="btn-frame"></div>
+        </div>
         <% } %>
     </section>
 </main>
