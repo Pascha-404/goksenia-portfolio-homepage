@@ -77,7 +77,6 @@ section.project-wrap {
 
 .project-wrap figure img {
     max-width: 90%;
-    max-height: 179rem;
 }
 
 @media screen and (max-width: 415px) {
