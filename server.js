@@ -1,6 +1,6 @@
 if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
-}
+};
 
 const express = require('express');
 const app = express();
@@ -11,7 +11,7 @@ const session = require('express-session');
 const flash = require('connect-flash')
 const passport = require('passport');
 const LocalStategy = require('passport-local');
-const User = require('./models/user')
+const User = require('./models/user');
 
 const MongoStore = require('connect-mongo');
 
@@ -19,11 +19,10 @@ const methodOverride = require('method-override');
 const ExpressError = require('./utilitys/expressError');
 const robots = require('express-robots-txt');
 const mongoSanitize = require('express-mongo-sanitize');
-const helmet = require('helmet')
-
+const helmet = require('helmet');
 const cmsRoutes = require('./routes/cmsRoutes');
-const publicRoutes = require('./routes/publicRoutes')
-const authenticateRoutes = require('./routes/authenticateRoutes')
+const publicRoutes = require('./routes/publicRoutes');
+const authenticateRoutes = require('./routes/authenticateRoutes');
 
 const MONGO_USERNAME = process.env.DB_GOKSENIA_USER;
 const MONGO_PASSWORD = process.env.DB_GOKSENIA_PW;
