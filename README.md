@@ -1,13 +1,41 @@
-# goksenia-portfolio-homepage
+# Goksenia Portfolio
 
-// Creating here a website for webdesigner Kseniia Pavliuchik 
+Welcome to the GitHub repository for the Goksenia Portfolio, a personal portfolio website showcasing the UI/UX design skills of Kseniia Pavliuchik.
 
-// Website includes:
+## Project Role
 
-// - full working CMS-Area with all CRUD functions for Projects
+- **Role:** Full-Stack Developer
+- **Task:** Develop a portfolio website to showcase Kseniia Pavliuchik's UI/UX design projects in an engaging way.
 
-// - Login/Register function
+## Description
 
-// - sorting of Projects on the mainpage
+This digital portfolio highlights Kseniia Pavliuchik's expertise in UI/UX design. It features a main page with her professional profile and a section for detailed case studies.
 
-// - full responsive design
+## Technology Stack
+
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Node.js, Express.js, MongoDB
+- **Deployment:** DigitalOcean, Nginx
+
+## Installation and Setup
+
+To set up the project locally, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Pascha-404/goksenia-portfolio-homepage
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm start
+   ```
+
+Please note, running the project locally will only offer partial functionality. The showcases/projects are pulled from the local database, and the CMS also relies on this database to function properly.
+
+## Contact
+
+For inquiries, please reach out via [LinkedIn](https://www.linkedin.com/in/patrick-pavliuchik-b481b9200/).
