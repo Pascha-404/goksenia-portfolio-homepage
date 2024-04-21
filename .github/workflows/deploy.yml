@@ -1,0 +1,23 @@
+name: Deploy to Ubuntu Server
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up SSH key
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_UBUNTU_KEY }}
+
+      - name: Deploy to Ubuntu Server
+        run: |
+          rsync -avz --delete ./ patrick@64.225.107.166:/goksenia-portfolio-homepage
+          
