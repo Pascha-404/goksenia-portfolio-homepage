@@ -153,7 +153,7 @@ app.use((req, res, next) => {
 // routing for robots.txt
 app.use(robots({
     UserAgent: '*',
-    Disallow: '/cms'
+    Disallow: '/'
 }))
 
 // routing for login
