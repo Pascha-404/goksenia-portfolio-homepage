@@ -24,12 +24,7 @@ const cmsRoutes = require('./routes/cmsRoutes');
 const publicRoutes = require('./routes/publicRoutes');
 const authenticateRoutes = require('./routes/authenticateRoutes');
 
-const MONGO_USERNAME = process.env.DB_GOKSENIA_USER;
-const MONGO_PASSWORD = process.env.DB_GOKSENIA_PW;
-const MONGO_HOSTNAME = 'localhost';
-const MONGO_PORT = '27017';
-const MONGO_DB = 'goksenia';
-const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=goksenia` || 'mongodb://localhost/goksenia'
+const url = process.env.MONGO_URI || 'mongodb://localhost/goksenia'
 const secret = process.env.SECRET;
 
 // connects database with app //
